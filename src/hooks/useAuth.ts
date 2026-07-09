@@ -35,7 +35,7 @@ export function useAuth() {
       .select("role")
       .eq("user_id", user.id)
       .then(({ data }) => {
-        const roles = (data ?? []).map((r: { role: string }) => r.role);
+        const roles = (data ?? []).map((r) => r.role);
         setIsAdmin(roles.includes("admin"));
         setIsAgence(roles.includes("agence") || roles.includes("admin"));
       });

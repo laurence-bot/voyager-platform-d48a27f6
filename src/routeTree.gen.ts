@@ -9,38 +9,439 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SavoirDeLaurenceRouteImport } from './routes/savoir-de-laurence'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as ReserverRendezVousRouteImport } from './routes/reserver-rendez-vous'
+import { Route as PriseDeRendezVousRouteImport } from './routes/prise-de-rendez-vous'
+import { Route as PolitiquesDeConfidentialiteRouteImport } from './routes/politiques-de-confidentialite'
+import { Route as PaiementsRouteImport } from './routes/paiements'
+import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
+import { Route as EspaceRouteImport } from './routes/espace'
+import { Route as DemandeDeDevisRouteImport } from './routes/demande-de-devis'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AgenceCassisRouteImport } from './routes/agence-cassis'
+import { Route as AgenceRouteImport } from './routes/agence'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AProposDeNousRouteImport } from './routes/a-propos-de-nous'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as VoyageSurMesureIndexRouteImport } from './routes/voyage-sur-mesure.index'
+import { Route as ExperiencesIndexRouteImport } from './routes/experiences.index'
+import { Route as BlogAgenceVoyageIndexRouteImport } from './routes/blog-agence-voyage.index'
+import { Route as VoyageSurMesureContinentRouteImport } from './routes/voyage-sur-mesure.$continent'
+import { Route as ExperiencesExperienceRouteImport } from './routes/experiences.$experience'
+import { Route as BlogAgenceVoyageSlugRouteImport } from './routes/blog-agence-voyage.$slug'
+import { Route as VoyageSurMesureContinentIndexRouteImport } from './routes/voyage-sur-mesure.$continent.index'
+import { Route as VoyageSurMesureContinentPaysRouteImport } from './routes/voyage-sur-mesure.$continent.$pays'
+import { Route as VoyageSurMesureContinentPaysItineraireRouteImport } from './routes/voyage-sur-mesure.$continent.$pays.$itineraire'
 
+const SavoirDeLaurenceRoute = SavoirDeLaurenceRouteImport.update({
+  id: '/savoir-de-laurence',
+  path: '/savoir-de-laurence',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReserverRendezVousRoute = ReserverRendezVousRouteImport.update({
+  id: '/reserver-rendez-vous',
+  path: '/reserver-rendez-vous',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PriseDeRendezVousRoute = PriseDeRendezVousRouteImport.update({
+  id: '/prise-de-rendez-vous',
+  path: '/prise-de-rendez-vous',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PolitiquesDeConfidentialiteRoute =
+  PolitiquesDeConfidentialiteRouteImport.update({
+    id: '/politiques-de-confidentialite',
+    path: '/politiques-de-confidentialite',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PaiementsRoute = PaiementsRouteImport.update({
+  id: '/paiements',
+  path: '/paiements',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
+  id: '/mentions-legales',
+  path: '/mentions-legales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EspaceRoute = EspaceRouteImport.update({
+  id: '/espace',
+  path: '/espace',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DemandeDeDevisRoute = DemandeDeDevisRouteImport.update({
+  id: '/demande-de-devis',
+  path: '/demande-de-devis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgenceCassisRoute = AgenceCassisRouteImport.update({
+  id: '/agence-cassis',
+  path: '/agence-cassis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgenceRoute = AgenceRouteImport.update({
+  id: '/agence',
+  path: '/agence',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AProposDeNousRoute = AProposDeNousRouteImport.update({
+  id: '/a-propos-de-nous',
+  path: '/a-propos-de-nous',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VoyageSurMesureIndexRoute = VoyageSurMesureIndexRouteImport.update({
+  id: '/voyage-sur-mesure/',
+  path: '/voyage-sur-mesure/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExperiencesIndexRoute = ExperiencesIndexRouteImport.update({
+  id: '/experiences/',
+  path: '/experiences/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogAgenceVoyageIndexRoute = BlogAgenceVoyageIndexRouteImport.update({
+  id: '/blog-agence-voyage/',
+  path: '/blog-agence-voyage/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VoyageSurMesureContinentRoute =
+  VoyageSurMesureContinentRouteImport.update({
+    id: '/voyage-sur-mesure/$continent',
+    path: '/voyage-sur-mesure/$continent',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ExperiencesExperienceRoute = ExperiencesExperienceRouteImport.update({
+  id: '/experiences/$experience',
+  path: '/experiences/$experience',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogAgenceVoyageSlugRoute = BlogAgenceVoyageSlugRouteImport.update({
+  id: '/blog-agence-voyage/$slug',
+  path: '/blog-agence-voyage/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VoyageSurMesureContinentIndexRoute =
+  VoyageSurMesureContinentIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => VoyageSurMesureContinentRoute,
+  } as any)
+const VoyageSurMesureContinentPaysRoute =
+  VoyageSurMesureContinentPaysRouteImport.update({
+    id: '/$pays',
+    path: '/$pays',
+    getParentRoute: () => VoyageSurMesureContinentRoute,
+  } as any)
+const VoyageSurMesureContinentPaysItineraireRoute =
+  VoyageSurMesureContinentPaysItineraireRouteImport.update({
+    id: '/$itineraire',
+    path: '/$itineraire',
+    getParentRoute: () => VoyageSurMesureContinentPaysRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/a-propos-de-nous': typeof AProposDeNousRoute
+  '/admin': typeof AdminRoute
+  '/agence': typeof AgenceRoute
+  '/agence-cassis': typeof AgenceCassisRoute
+  '/contact': typeof ContactRoute
+  '/demande-de-devis': typeof DemandeDeDevisRoute
+  '/espace': typeof EspaceRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/paiements': typeof PaiementsRoute
+  '/politiques-de-confidentialite': typeof PolitiquesDeConfidentialiteRoute
+  '/prise-de-rendez-vous': typeof PriseDeRendezVousRoute
+  '/reserver-rendez-vous': typeof ReserverRendezVousRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/savoir-de-laurence': typeof SavoirDeLaurenceRoute
+  '/blog-agence-voyage/$slug': typeof BlogAgenceVoyageSlugRoute
+  '/experiences/$experience': typeof ExperiencesExperienceRoute
+  '/voyage-sur-mesure/$continent': typeof VoyageSurMesureContinentRouteWithChildren
+  '/blog-agence-voyage/': typeof BlogAgenceVoyageIndexRoute
+  '/experiences/': typeof ExperiencesIndexRoute
+  '/voyage-sur-mesure/': typeof VoyageSurMesureIndexRoute
+  '/voyage-sur-mesure/$continent/$pays': typeof VoyageSurMesureContinentPaysRouteWithChildren
+  '/voyage-sur-mesure/$continent/': typeof VoyageSurMesureContinentIndexRoute
+  '/voyage-sur-mesure/$continent/$pays/$itineraire': typeof VoyageSurMesureContinentPaysItineraireRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/a-propos-de-nous': typeof AProposDeNousRoute
+  '/admin': typeof AdminRoute
+  '/agence': typeof AgenceRoute
+  '/agence-cassis': typeof AgenceCassisRoute
+  '/contact': typeof ContactRoute
+  '/demande-de-devis': typeof DemandeDeDevisRoute
+  '/espace': typeof EspaceRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/paiements': typeof PaiementsRoute
+  '/politiques-de-confidentialite': typeof PolitiquesDeConfidentialiteRoute
+  '/prise-de-rendez-vous': typeof PriseDeRendezVousRoute
+  '/reserver-rendez-vous': typeof ReserverRendezVousRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/savoir-de-laurence': typeof SavoirDeLaurenceRoute
+  '/blog-agence-voyage/$slug': typeof BlogAgenceVoyageSlugRoute
+  '/experiences/$experience': typeof ExperiencesExperienceRoute
+  '/blog-agence-voyage': typeof BlogAgenceVoyageIndexRoute
+  '/experiences': typeof ExperiencesIndexRoute
+  '/voyage-sur-mesure': typeof VoyageSurMesureIndexRoute
+  '/voyage-sur-mesure/$continent/$pays': typeof VoyageSurMesureContinentPaysRouteWithChildren
+  '/voyage-sur-mesure/$continent': typeof VoyageSurMesureContinentIndexRoute
+  '/voyage-sur-mesure/$continent/$pays/$itineraire': typeof VoyageSurMesureContinentPaysItineraireRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/a-propos-de-nous': typeof AProposDeNousRoute
+  '/admin': typeof AdminRoute
+  '/agence': typeof AgenceRoute
+  '/agence-cassis': typeof AgenceCassisRoute
+  '/contact': typeof ContactRoute
+  '/demande-de-devis': typeof DemandeDeDevisRoute
+  '/espace': typeof EspaceRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/paiements': typeof PaiementsRoute
+  '/politiques-de-confidentialite': typeof PolitiquesDeConfidentialiteRoute
+  '/prise-de-rendez-vous': typeof PriseDeRendezVousRoute
+  '/reserver-rendez-vous': typeof ReserverRendezVousRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/savoir-de-laurence': typeof SavoirDeLaurenceRoute
+  '/blog-agence-voyage/$slug': typeof BlogAgenceVoyageSlugRoute
+  '/experiences/$experience': typeof ExperiencesExperienceRoute
+  '/voyage-sur-mesure/$continent': typeof VoyageSurMesureContinentRouteWithChildren
+  '/blog-agence-voyage/': typeof BlogAgenceVoyageIndexRoute
+  '/experiences/': typeof ExperiencesIndexRoute
+  '/voyage-sur-mesure/': typeof VoyageSurMesureIndexRoute
+  '/voyage-sur-mesure/$continent/$pays': typeof VoyageSurMesureContinentPaysRouteWithChildren
+  '/voyage-sur-mesure/$continent/': typeof VoyageSurMesureContinentIndexRoute
+  '/voyage-sur-mesure/$continent/$pays/$itineraire': typeof VoyageSurMesureContinentPaysItineraireRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/a-propos-de-nous'
+    | '/admin'
+    | '/agence'
+    | '/agence-cassis'
+    | '/contact'
+    | '/demande-de-devis'
+    | '/espace'
+    | '/mentions-legales'
+    | '/paiements'
+    | '/politiques-de-confidentialite'
+    | '/prise-de-rendez-vous'
+    | '/reserver-rendez-vous'
+    | '/reset-password'
+    | '/savoir-de-laurence'
+    | '/blog-agence-voyage/$slug'
+    | '/experiences/$experience'
+    | '/voyage-sur-mesure/$continent'
+    | '/blog-agence-voyage/'
+    | '/experiences/'
+    | '/voyage-sur-mesure/'
+    | '/voyage-sur-mesure/$continent/$pays'
+    | '/voyage-sur-mesure/$continent/'
+    | '/voyage-sur-mesure/$continent/$pays/$itineraire'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/a-propos-de-nous'
+    | '/admin'
+    | '/agence'
+    | '/agence-cassis'
+    | '/contact'
+    | '/demande-de-devis'
+    | '/espace'
+    | '/mentions-legales'
+    | '/paiements'
+    | '/politiques-de-confidentialite'
+    | '/prise-de-rendez-vous'
+    | '/reserver-rendez-vous'
+    | '/reset-password'
+    | '/savoir-de-laurence'
+    | '/blog-agence-voyage/$slug'
+    | '/experiences/$experience'
+    | '/blog-agence-voyage'
+    | '/experiences'
+    | '/voyage-sur-mesure'
+    | '/voyage-sur-mesure/$continent/$pays'
+    | '/voyage-sur-mesure/$continent'
+    | '/voyage-sur-mesure/$continent/$pays/$itineraire'
+  id:
+    | '__root__'
+    | '/'
+    | '/a-propos-de-nous'
+    | '/admin'
+    | '/agence'
+    | '/agence-cassis'
+    | '/contact'
+    | '/demande-de-devis'
+    | '/espace'
+    | '/mentions-legales'
+    | '/paiements'
+    | '/politiques-de-confidentialite'
+    | '/prise-de-rendez-vous'
+    | '/reserver-rendez-vous'
+    | '/reset-password'
+    | '/savoir-de-laurence'
+    | '/blog-agence-voyage/$slug'
+    | '/experiences/$experience'
+    | '/voyage-sur-mesure/$continent'
+    | '/blog-agence-voyage/'
+    | '/experiences/'
+    | '/voyage-sur-mesure/'
+    | '/voyage-sur-mesure/$continent/$pays'
+    | '/voyage-sur-mesure/$continent/'
+    | '/voyage-sur-mesure/$continent/$pays/$itineraire'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AProposDeNousRoute: typeof AProposDeNousRoute
+  AdminRoute: typeof AdminRoute
+  AgenceRoute: typeof AgenceRoute
+  AgenceCassisRoute: typeof AgenceCassisRoute
+  ContactRoute: typeof ContactRoute
+  DemandeDeDevisRoute: typeof DemandeDeDevisRoute
+  EspaceRoute: typeof EspaceRoute
+  MentionsLegalesRoute: typeof MentionsLegalesRoute
+  PaiementsRoute: typeof PaiementsRoute
+  PolitiquesDeConfidentialiteRoute: typeof PolitiquesDeConfidentialiteRoute
+  PriseDeRendezVousRoute: typeof PriseDeRendezVousRoute
+  ReserverRendezVousRoute: typeof ReserverRendezVousRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
+  SavoirDeLaurenceRoute: typeof SavoirDeLaurenceRoute
+  BlogAgenceVoyageSlugRoute: typeof BlogAgenceVoyageSlugRoute
+  ExperiencesExperienceRoute: typeof ExperiencesExperienceRoute
+  VoyageSurMesureContinentRoute: typeof VoyageSurMesureContinentRouteWithChildren
+  BlogAgenceVoyageIndexRoute: typeof BlogAgenceVoyageIndexRoute
+  ExperiencesIndexRoute: typeof ExperiencesIndexRoute
+  VoyageSurMesureIndexRoute: typeof VoyageSurMesureIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/savoir-de-laurence': {
+      id: '/savoir-de-laurence'
+      path: '/savoir-de-laurence'
+      fullPath: '/savoir-de-laurence'
+      preLoaderRoute: typeof SavoirDeLaurenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reserver-rendez-vous': {
+      id: '/reserver-rendez-vous'
+      path: '/reserver-rendez-vous'
+      fullPath: '/reserver-rendez-vous'
+      preLoaderRoute: typeof ReserverRendezVousRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prise-de-rendez-vous': {
+      id: '/prise-de-rendez-vous'
+      path: '/prise-de-rendez-vous'
+      fullPath: '/prise-de-rendez-vous'
+      preLoaderRoute: typeof PriseDeRendezVousRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politiques-de-confidentialite': {
+      id: '/politiques-de-confidentialite'
+      path: '/politiques-de-confidentialite'
+      fullPath: '/politiques-de-confidentialite'
+      preLoaderRoute: typeof PolitiquesDeConfidentialiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/paiements': {
+      id: '/paiements'
+      path: '/paiements'
+      fullPath: '/paiements'
+      preLoaderRoute: typeof PaiementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentions-legales': {
+      id: '/mentions-legales'
+      path: '/mentions-legales'
+      fullPath: '/mentions-legales'
+      preLoaderRoute: typeof MentionsLegalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/espace': {
+      id: '/espace'
+      path: '/espace'
+      fullPath: '/espace'
+      preLoaderRoute: typeof EspaceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demande-de-devis': {
+      id: '/demande-de-devis'
+      path: '/demande-de-devis'
+      fullPath: '/demande-de-devis'
+      preLoaderRoute: typeof DemandeDeDevisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agence-cassis': {
+      id: '/agence-cassis'
+      path: '/agence-cassis'
+      fullPath: '/agence-cassis'
+      preLoaderRoute: typeof AgenceCassisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agence': {
+      id: '/agence'
+      path: '/agence'
+      fullPath: '/agence'
+      preLoaderRoute: typeof AgenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/a-propos-de-nous': {
+      id: '/a-propos-de-nous'
+      path: '/a-propos-de-nous'
+      fullPath: '/a-propos-de-nous'
+      preLoaderRoute: typeof AProposDeNousRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +449,126 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/voyage-sur-mesure/': {
+      id: '/voyage-sur-mesure/'
+      path: '/voyage-sur-mesure'
+      fullPath: '/voyage-sur-mesure/'
+      preLoaderRoute: typeof VoyageSurMesureIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/experiences/': {
+      id: '/experiences/'
+      path: '/experiences'
+      fullPath: '/experiences/'
+      preLoaderRoute: typeof ExperiencesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog-agence-voyage/': {
+      id: '/blog-agence-voyage/'
+      path: '/blog-agence-voyage'
+      fullPath: '/blog-agence-voyage/'
+      preLoaderRoute: typeof BlogAgenceVoyageIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/voyage-sur-mesure/$continent': {
+      id: '/voyage-sur-mesure/$continent'
+      path: '/voyage-sur-mesure/$continent'
+      fullPath: '/voyage-sur-mesure/$continent'
+      preLoaderRoute: typeof VoyageSurMesureContinentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/experiences/$experience': {
+      id: '/experiences/$experience'
+      path: '/experiences/$experience'
+      fullPath: '/experiences/$experience'
+      preLoaderRoute: typeof ExperiencesExperienceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog-agence-voyage/$slug': {
+      id: '/blog-agence-voyage/$slug'
+      path: '/blog-agence-voyage/$slug'
+      fullPath: '/blog-agence-voyage/$slug'
+      preLoaderRoute: typeof BlogAgenceVoyageSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/voyage-sur-mesure/$continent/': {
+      id: '/voyage-sur-mesure/$continent/'
+      path: '/'
+      fullPath: '/voyage-sur-mesure/$continent/'
+      preLoaderRoute: typeof VoyageSurMesureContinentIndexRouteImport
+      parentRoute: typeof VoyageSurMesureContinentRoute
+    }
+    '/voyage-sur-mesure/$continent/$pays': {
+      id: '/voyage-sur-mesure/$continent/$pays'
+      path: '/$pays'
+      fullPath: '/voyage-sur-mesure/$continent/$pays'
+      preLoaderRoute: typeof VoyageSurMesureContinentPaysRouteImport
+      parentRoute: typeof VoyageSurMesureContinentRoute
+    }
+    '/voyage-sur-mesure/$continent/$pays/$itineraire': {
+      id: '/voyage-sur-mesure/$continent/$pays/$itineraire'
+      path: '/$itineraire'
+      fullPath: '/voyage-sur-mesure/$continent/$pays/$itineraire'
+      preLoaderRoute: typeof VoyageSurMesureContinentPaysItineraireRouteImport
+      parentRoute: typeof VoyageSurMesureContinentPaysRoute
+    }
   }
 }
 
+interface VoyageSurMesureContinentPaysRouteChildren {
+  VoyageSurMesureContinentPaysItineraireRoute: typeof VoyageSurMesureContinentPaysItineraireRoute
+}
+
+const VoyageSurMesureContinentPaysRouteChildren: VoyageSurMesureContinentPaysRouteChildren =
+  {
+    VoyageSurMesureContinentPaysItineraireRoute:
+      VoyageSurMesureContinentPaysItineraireRoute,
+  }
+
+const VoyageSurMesureContinentPaysRouteWithChildren =
+  VoyageSurMesureContinentPaysRoute._addFileChildren(
+    VoyageSurMesureContinentPaysRouteChildren,
+  )
+
+interface VoyageSurMesureContinentRouteChildren {
+  VoyageSurMesureContinentPaysRoute: typeof VoyageSurMesureContinentPaysRouteWithChildren
+  VoyageSurMesureContinentIndexRoute: typeof VoyageSurMesureContinentIndexRoute
+}
+
+const VoyageSurMesureContinentRouteChildren: VoyageSurMesureContinentRouteChildren =
+  {
+    VoyageSurMesureContinentPaysRoute:
+      VoyageSurMesureContinentPaysRouteWithChildren,
+    VoyageSurMesureContinentIndexRoute: VoyageSurMesureContinentIndexRoute,
+  }
+
+const VoyageSurMesureContinentRouteWithChildren =
+  VoyageSurMesureContinentRoute._addFileChildren(
+    VoyageSurMesureContinentRouteChildren,
+  )
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AProposDeNousRoute: AProposDeNousRoute,
+  AdminRoute: AdminRoute,
+  AgenceRoute: AgenceRoute,
+  AgenceCassisRoute: AgenceCassisRoute,
+  ContactRoute: ContactRoute,
+  DemandeDeDevisRoute: DemandeDeDevisRoute,
+  EspaceRoute: EspaceRoute,
+  MentionsLegalesRoute: MentionsLegalesRoute,
+  PaiementsRoute: PaiementsRoute,
+  PolitiquesDeConfidentialiteRoute: PolitiquesDeConfidentialiteRoute,
+  PriseDeRendezVousRoute: PriseDeRendezVousRoute,
+  ReserverRendezVousRoute: ReserverRendezVousRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
+  SavoirDeLaurenceRoute: SavoirDeLaurenceRoute,
+  BlogAgenceVoyageSlugRoute: BlogAgenceVoyageSlugRoute,
+  ExperiencesExperienceRoute: ExperiencesExperienceRoute,
+  VoyageSurMesureContinentRoute: VoyageSurMesureContinentRouteWithChildren,
+  BlogAgenceVoyageIndexRoute: BlogAgenceVoyageIndexRoute,
+  ExperiencesIndexRoute: ExperiencesIndexRoute,
+  VoyageSurMesureIndexRoute: VoyageSurMesureIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
