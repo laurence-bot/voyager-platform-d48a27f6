@@ -232,6 +232,10 @@ function Index() {
               <br />
               <em className="italic font-light text-ochre">où iriez-vous&nbsp;?</em>
             </h1>
+            <p className="font-hand text-2xl md:text-3xl text-cream/85 mt-4 md:mt-5">
+              Dites-nous simplement ce qui vous fait rêver… on s'occupe du reste.
+            </p>
+
             <div className="mt-6 md:mt-10 flex flex-col sm:flex-row sm:items-center gap-4 md:gap-10">
               <Link
                 to="/prise-de-rendez-vous"
