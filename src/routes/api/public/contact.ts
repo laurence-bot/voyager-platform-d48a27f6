@@ -63,6 +63,11 @@ export const Route = createFileRoute('/api/public/contact')({
               ? body.telephone.trim()
               : null
 
+          const supabaseAdmin = createClient(
+            SUPABASE_URL,
+            process.env['SUPABASE_SERVICE_ROLE_KEY']!
+          )
+
           const { data, error } = await supabaseAdmin
             .from('demandes')
             .insert({
