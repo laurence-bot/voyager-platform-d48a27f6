@@ -427,11 +427,11 @@ function Index() {
                   </div>
                 </div>
                 <p className="mt-4 text-[10px] uppercase tracking-[0.3em] text-ochre">{d.tagline}</p>
-                <div className="pt-2 flex items-baseline justify-between border-b border-cream/20 pb-3 gap-3">
-                  <h3 className="font-display text-2xl md:text-3xl group-hover:text-ochre transition">{d.name}</h3>
-                  <span className="text-[10px] uppercase tracking-[0.25em] opacity-60 text-right max-w-[55%]">{d.region}</span>
+                <div className="pt-1 border-b border-cream/15 pb-3">
+                  <h3 className="font-display text-2xl group-hover:text-ochre transition leading-tight">{d.name}</h3>
+                  <span className="mt-1 block text-[9px] uppercase tracking-[0.25em] opacity-55">{d.region}</span>
                 </div>
-                <p className="pt-3 text-sm opacity-70 max-w-md leading-relaxed">{d.note}</p>
+                <p className="pt-3 text-[13px] opacity-70 leading-relaxed">{d.note}</p>
                 <p className="pt-3 text-[10px] uppercase tracking-[0.3em] text-ochre opacity-90 group-hover:opacity-100">
                   Découvrir {d.name} <span className="ml-1 inline-block group-hover:translate-x-1 transition">→</span>
                 </p>
