@@ -720,7 +720,8 @@ function Index() {
       </section>
 
       {/* CTA FINAL */}
-      <section className="py-8 md:py-14 bg-cream">
+      <section className="py-12 md:py-20 paper relative">
+        <div className="boho-band absolute top-0 inset-x-0 opacity-70" aria-hidden />
         <div className="mx-auto max-w-[1400px] px-5 md:px-12 text-center">
           <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-6 md:mb-8">V — Écrire</p>
           <h2 className="font-display text-5xl sm:text-6xl md:text-9xl leading-[0.9] tracking-tight max-w-[14ch] mx-auto">
@@ -728,10 +729,14 @@ function Index() {
             <br />
             <em className="italic text-clay">commence ici.</em>
           </h2>
-          <p className="mt-6 md:mt-10 text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
+          <p className="font-hand text-2xl md:text-4xl text-ink/80 mt-6 md:mt-8">
+            Écrivez-nous comme à une amie qui connaît bien la route.
+          </p>
+          <p className="mt-5 md:mt-6 text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
             Adressez-nous quelques lignes : une saison, une humeur, un souvenir
             d'enfance. Nous vous répondrons sous trois jours, à la main.
           </p>
+
           <div className="mt-8 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/demande-de-devis"
