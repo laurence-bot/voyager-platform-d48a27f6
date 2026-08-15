@@ -36,7 +36,7 @@ function MentionsLegales() {
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
 
-      <section className="pt-40 pb-12 md:pt-48 bg-cream">
+      <section className="pt-40 pb-12 md:pt-48 paper">
         <div className="mx-auto max-w-[1200px] px-6 md:px-12">
           <p className="text-[11px] uppercase tracking-[0.3em] text-clay mb-6">
             ✦ Informations légales

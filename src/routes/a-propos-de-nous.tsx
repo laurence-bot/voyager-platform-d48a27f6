@@ -87,7 +87,7 @@ function APropos() {
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
 
-      <section className="pt-40 pb-16 md:pt-48 md:pb-24 bg-cream">
+      <section className="pt-40 pb-16 md:pt-48 md:pb-24 paper">
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <p className="text-[11px] uppercase tracking-[0.3em] text-clay mb-6">
             ✦ L'agence de voyage
@@ -119,7 +119,7 @@ function APropos() {
           <div className="grid md:grid-cols-2 gap-12 md:gap-16">
             {team.map((m) => (
               <article key={m.name} className="flex flex-col">
-                <div className="relative aspect-[4/5] overflow-hidden mb-6 bg-cream">
+                <div className="relative aspect-[4/5] overflow-hidden mb-6 paper">
                   <img
                     src={m.photo}
                     alt={`${m.name} — ${m.role} La Voyagerie`}

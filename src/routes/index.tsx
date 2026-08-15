@@ -289,7 +289,7 @@ function Index() {
 
 
       {/* MARQUEE */}
-      <div className="border-b border-border py-2 md:py-3 overflow-hidden bg-cream">
+      <div className="border-b border-border py-2 md:py-3 overflow-hidden paper">
         <div className="marquee flex gap-6 md:gap-10 whitespace-nowrap font-sans text-sm md:text-base text-ink/40 tracking-[0.15em] uppercase">
           {Array.from({ length: 2 }).map((_, i) => (
             <div key={i} className="flex gap-6 md:gap-10 shrink-0 items-center">
@@ -493,7 +493,7 @@ function Index() {
       </section>
 
       {/* VIDÉOS AUTHENTIQUES */}
-      <section className="py-10 md:py-16 bg-cream">
+      <section className="py-10 md:py-16 paper">
         <div className="mx-auto max-w-[1400px] px-5 md:px-12">
           <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">III — Vidéos authentiques</p>
           <h2 className="font-display text-3xl sm:text-4xl md:text-[2rem] lg:text-4xl leading-[0.95] mb-4 md:mb-6 max-w-3xl">
@@ -652,7 +652,7 @@ function Index() {
       </section>
 
       {/* ÉTAPES */}
-      <section className="py-8 md:py-14 bg-cream">
+      <section className="py-8 md:py-14 paper">
         <div className="mx-auto max-w-[1400px] px-5 md:px-12 grid md:grid-cols-12 gap-6 md:gap-10">
           <div className="md:col-span-4">
             <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">IV — Les étapes</p>

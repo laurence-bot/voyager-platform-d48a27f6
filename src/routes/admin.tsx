@@ -88,7 +88,7 @@ function AdminPage() {
 
 function Shell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen paper">
       <SiteHeader />
       <main className="pt-32 pb-24 px-6 md:px-12 max-w-[1500px] mx-auto">
         <div className="mb-10 flex items-end justify-between">

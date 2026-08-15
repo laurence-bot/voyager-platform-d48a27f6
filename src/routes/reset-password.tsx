@@ -50,7 +50,7 @@ function ResetPasswordPage() {
   };
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen paper">
       <SiteHeader />
       <main className="pt-32 pb-24 px-6 md:px-12 max-w-md mx-auto">
         <p className="text-[11px] uppercase tracking-[0.3em] text-clay text-center mb-4">Sécurité</p>

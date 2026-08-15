@@ -44,7 +44,7 @@ export const Route = createFileRoute("/voyage-sur-mesure/$continent/$pays/$itine
   },
   component: ItinerairePage,
   notFoundComponent: () => (
-    <div className="min-h-screen flex items-center justify-center bg-cream">
+    <div className="min-h-screen flex items-center justify-center paper">
       <Link to="/" className="font-display text-3xl">Retour à l'accueil</Link>
     </div>
   ),
@@ -603,7 +603,7 @@ function ItinerairePage() {
                     params={{ continent: continent.slug, pays: pays.slug, itineraire: it.slug }}
                     className="group block bg-background rounded-sm overflow-hidden shadow-[0_2px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_6px_30px_rgba(0,0,0,0.12)] transition-all"
                   >
-                    <div className="relative w-full aspect-[3/4] overflow-hidden bg-cream">
+                    <div className="relative w-full aspect-[3/4] overflow-hidden paper">
                       {it.coverImg ? (
                         <img
                           src={it.coverImg}

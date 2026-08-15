@@ -92,7 +92,7 @@ function RDV() {
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
 
-      <section className="pt-28 pb-8 md:pt-40 md:pb-12 bg-cream">
+      <section className="pt-28 pb-8 md:pt-40 md:pb-12 paper">
         <div className="mx-auto max-w-[1400px] px-5 md:px-12">
           <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4">
             ✦ Prise de rendez-vous
@@ -170,7 +170,7 @@ function RDV() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="border border-border rounded-2xl p-6 md:p-10 bg-cream">
+                <div className="border border-border rounded-2xl p-6 md:p-10 paper">
                   <h2 className="font-display text-3xl md:text-4xl mb-6">
                     Choisir une <em className="italic text-clay">date.</em>
                   </h2>
