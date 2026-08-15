@@ -255,11 +255,24 @@ function Index() {
         </div>
       </section>
 
+      {/* MOT D'ACCUEIL — manuscrit */}
+      <section className="paper border-b border-border">
+        <div className="boho-band w-full opacity-80" aria-hidden />
+        <div className="mx-auto max-w-[900px] px-5 md:px-12 py-10 md:py-16 text-center">
+          <p className="font-hand text-[1.6rem] sm:text-3xl md:text-4xl leading-[1.5] text-ink/85">
+            Ici, pas de catalogue ni de formulaire froid. Juste une petite équipe,
+            un carnet, un thé, et l'envie d'écouter votre histoire avant d'écrire la suite.
+          </p>
+          <p className="font-hand text-xl md:text-2xl text-clay mt-6">— Laurence &amp; l'équipe, Cassis</p>
+        </div>
+      </section>
+
       {/* PILIERS */}
-      <section className="py-8 md:py-14 bg-cream border-b border-border">
+      <section className="py-10 md:py-16 bg-cream border-b border-border">
         <div className="mx-auto max-w-[1400px] px-5 md:px-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           {piliers.map(([n, t, d]) => (
-            <div key={n}>
+            <div key={n} className="relative pl-5 border-l border-clay/25">
+              <span className="absolute -left-[4px] top-2 h-[7px] w-[7px] rotate-45 bg-clay/60" aria-hidden />
               <p className="font-display italic text-clay text-2xl mb-3">{n}</p>
               <h3 className="font-display text-lg md:text-xl uppercase tracking-wide leading-tight">{t}</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{d}</p>
@@ -267,6 +280,7 @@ function Index() {
           ))}
         </div>
       </section>
+
 
       {/* MARQUEE */}
       <div className="border-b border-border py-2 md:py-3 overflow-hidden bg-cream">
