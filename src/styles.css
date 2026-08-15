@@ -344,7 +344,7 @@
 @layer utilities {
   /* ——— Parti pris : angles droits, pas de pilules ——— */
   a[class*="rounded-full"],
-  button[class*="rounded-full"],
+  button[class*="rounded-full"]:not([role="switch"]):not([data-slot="switch"]),
   .arch,
   .arch-full {
     border-radius: 0 !important;
