@@ -75,7 +75,7 @@
 }
 
 :root {
-  --radius: 0.25rem;
+  --radius: 0rem;
   /* La Voyagerie — ivoire neutre très clair, noir profond, ocre, or discret */
   --cream: oklch(0.981 0.005 85);
   --ink: oklch(0.17 0.008 60);
@@ -338,5 +338,26 @@
     box-shadow:
       0 30px 80px -40px color-mix(in oklab, var(--color-clay) 45%, transparent),
       0 0 0 1px color-mix(in oklab, var(--color-gold) 40%, transparent);
+  }
+}
+
+@layer utilities {
+  /* ——— Parti pris : angles droits, pas de pilules ——— */
+  a[class*="rounded-full"],
+  button[class*="rounded-full"],
+  .arch,
+  .arch-full {
+    border-radius: 0 !important;
+  }
+
+  /* Signature bohème : les mots en italique passent à la main */
+  h1 em,
+  h2 em,
+  h3 em,
+  .font-display em {
+    font-family: var(--font-hand);
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0;
   }
 }
