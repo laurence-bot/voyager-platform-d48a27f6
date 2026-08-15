@@ -80,24 +80,24 @@ export function ContactForm() {
   const onSubmit = async (data: FormData) => {
     setServerError(null);
     try {
-      const { data: sess } = await supabase.auth.getSession();
-      const headers: Record<string, string> = { "Content-Type": "application/json" };
-      if (sess.session?.access_token) {
-        headers["Authorization"] = `Bearer ${sess.session.access_token}`;
-      }
       const res = await fetch("/api/public/contact", {
         method: "POST",
-        headers,
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: data.name,
+          nom: data.name,
           email: data.email,
-          phone: data.phone || "",
-          destination: data.destination,
-          travelers: data.travelers,
-          period: data.period,
-          budget: data.budget,
-          message: data.message,
-          company: "", // honeypot
+          telephone: data.phone || "",
+          message: [
+            data.destination && `Destination : ${data.destination}`,
+            data.travelers && `Voyageurs : ${data.travelers}`,
+            data.period && `Période : ${data.period}`,
+            data.budget && `Budget : ${data.budget}`,
+            "",
+            data.message,
+          ]
+            .filter(Boolean)
+            .join("\n"),
+          website: "", // honeypot
         }),
       });
       if (!res.ok) {
