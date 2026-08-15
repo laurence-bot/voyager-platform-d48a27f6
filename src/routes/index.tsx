@@ -326,17 +326,27 @@ function Index() {
         </div>
       </section>
 
-      {/* RENCONTREZ LAURENCE — avatar vidéo */}
-      <section className="relative py-12 md:py-20 bg-cream border-t border-border">
-        <div className="mx-auto max-w-[1400px] px-5 md:px-12 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-          <div className="relative order-1 md:order-1">
-            <div className="absolute -inset-4 rounded-[2rem] blur-2xl opacity-30 bg-clay/40" />
-            <div className="relative overflow-hidden rounded-[1.5rem] shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]">
-              <img
-                src={laurencePortrait}
-                alt="Portrait de Laurence"
-                className="w-full h-[420px] md:h-[560px] object-cover"
-              />
+      {/* RENCONTREZ LAURENCE */}
+      <section className="relative py-12 md:py-20 paper border-t border-border overflow-hidden">
+        <div className="mx-auto max-w-[1400px] px-5 md:px-12 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="relative order-1 md:order-1 max-w-[440px] mx-auto md:mx-0">
+            {/* halo terracotta + cadre arche */}
+            <div className="absolute -inset-6 arch blur-3xl opacity-25 bg-ochre/50" aria-hidden />
+            <div className="relative arch border border-clay/30 p-2 md:p-3">
+              <div className="relative overflow-hidden arch">
+                <img
+                  src={laurencePortrait}
+                  alt="Laurence Palandjian, fondatrice de La Voyagerie, dans son agence à Cassis"
+                  className="w-full h-[440px] md:h-[580px] object-cover"
+                />
+              </div>
+            </div>
+            {/* note manuscrite épinglée */}
+            <div className="tape relative mt-8 md:mt-0 md:absolute md:-bottom-8 md:-right-10 md:w-[260px] bg-cream border border-border shadow-[0_18px_50px_-25px_rgba(0,0,0,0.4)] px-6 py-6 md:rotate-[-2deg]">
+              <p className="font-hand text-xl md:text-2xl leading-snug text-ink/85">
+                « On se retrouve autour d'un café à Cassis&nbsp;? Apportez vos rêves,
+                j'apporte les cartes. »
+              </p>
             </div>
           </div>
 
@@ -344,10 +354,13 @@ function Index() {
             <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">
               Rencontrez Laurence
             </p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-[2.5rem] lg:text-5xl leading-[1.05] tracking-tight mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-[2.5rem] lg:text-5xl leading-[1.05] tracking-tight mb-5">
               Bonjour,<br />
               <em className="italic text-clay">je suis Laurence.</em>
             </h2>
+            <p className="font-hand text-2xl md:text-3xl text-clay mb-6">
+              Vingt ans de routes, de carnets et de rencontres.
+            </p>
             <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-[480px] mb-8">
               Depuis plus de 20 ans, je crée des voyages sur mesure. J'ai transmis
               ma méthode à une intelligence dédiée — <strong className="text-ink">Le Savoir de Laurence</strong> —
@@ -363,6 +376,7 @@ function Index() {
           </div>
         </div>
       </section>
+
 
       {/* DESTINATIONS PHARES */}
       <section id="destinations" className="bg-ink text-cream py-8 md:py-14">
