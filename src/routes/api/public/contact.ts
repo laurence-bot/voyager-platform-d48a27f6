@@ -64,7 +64,7 @@ export const Route = createFileRoute('/api/public/contact')({
               : null
 
           const supabaseAdmin = createClient(
-            process.env['VITE_SUPABASE_URL']!,
+            process.env['SB_URL']!,
             process.env['SERVICE_ROLE_KEY']!
           )
 
