@@ -335,10 +335,16 @@ function Index() {
             {/* halo terracotta + cadre arche */}
             <div className="absolute -inset-6 arch blur-3xl opacity-25 bg-gold/70" aria-hidden />
             <div className="relative arch border border-gold/50 p-2 md:p-3 glow-warm">
-              <div className="relative overflow-hidden arch">
-                <img
-                  src={laurencePortrait}
-                  alt="Laurence Palandjian, fondatrice de La Voyagerie, dans son agence à Cassis"
+              <div className="relative overflow-hidden arch bg-ink/5">
+                <video
+                  src={laurenceVideoAsset.url}
+                  poster={laurencePortrait}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  aria-label="Laurence Palandjian, fondatrice de La Voyagerie, vous accueille"
                   className="w-full h-[440px] md:h-[580px] object-cover"
                 />
               </div>
@@ -399,7 +405,7 @@ function Index() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-6 md:gap-x-8 gap-y-10 md:gap-y-14">
             {phares.map((d) => (
               <Link
                 key={d.n}
