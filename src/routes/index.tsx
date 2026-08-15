@@ -1,10 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import heroImg from "@/assets/hero-voyage.jpg";
+import heroImg from "@/assets/mood-train-jungle.jpg";
+import moodLodgeImg from "@/assets/mood-lodge-boho.jpg";
+import moodSafariImg from "@/assets/mood-safari-giraffe.jpg";
+import moodTrekImg from "@/assets/mood-trek-lac.jpg";
+import moodPortraitImg from "@/assets/mood-portrait-boho.jpg";
 import kyotoImg from "@/assets/dest-kyoto.jpg";
 import namibieImg from "@/assets/dest-namibie.jpg";
-import perouImg from "@/assets/dest-perou.jpg";
+
 import mongolieImg from "@/assets/dest-mongolie.jpg";
 import philippinesImg from "@/assets/dest-philippines.jpg";
 import ougandaImg from "@/assets/dest-ouganda.jpg";
@@ -190,7 +194,7 @@ const journal = [
     extrait: "Sossusvlei à l'aube, bivouac au Damaraland, rencontre avec les Himba — récit d'un repérage aux confins du désert.",
   },
   {
-    img: perouImg,
+    img: moodPortraitImg,
     cat: "Inspiration · Amériques",
     date: "Mars 2026",
     title: "Pérou : la vallée sacrée hors des sentiers",
@@ -505,9 +509,9 @@ function Index() {
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
             {[
-              { img: ougandaImg, label: "Bwindi · Ouganda", note: "Trek aux gorilles, mars dernier" },
-              { img: philippinesImg, label: "Palawan · Philippines", note: "El Nido, lever du jour" },
-              { img: kyotoImg, label: "Kyoto · Japon", note: "Temples avant l'aube" },
+              { img: moodSafariImg, label: "Laikipia · Kenya", note: "Petit-déjeuner avec les girafes" },
+              { img: moodLodgeImg, label: "Sumba · Indonésie", note: "Terrasse d'un lodge, fin de journée" },
+              { img: moodTrekImg, label: "Rocheuses · Canada", note: "Marche vers le lac turquoise" },
             ].map((v) => (
               <div key={v.label} className="group relative aspect-[4/5] overflow-hidden">
                 <img
