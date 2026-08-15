@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 
-export const Route = createFileRoute('/api/public/_cols')({
+export const Route = createFileRoute('/api/public/colsdebug')({
   server: {
     handlers: {
       GET: async () => {
