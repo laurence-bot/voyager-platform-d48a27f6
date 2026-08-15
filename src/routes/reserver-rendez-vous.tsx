@@ -98,7 +98,7 @@ function ReservationPage() {
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
 
-      <section className="pt-28 pb-8 md:pt-40 md:pb-12 bg-cream">
+      <section className="pt-28 pb-8 md:pt-40 md:pb-12 paper">
         <div className="mx-auto max-w-[1400px] px-5 md:px-12">
           <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4">
             ✦ Réservation d'un échange
@@ -139,7 +139,7 @@ function ReservationPage() {
           ) : (
             <form onSubmit={handleSubmit} className="grid lg:grid-cols-12 gap-8 md:gap-12">
               <div className="lg:col-span-5 space-y-8">
-                <div className="border border-border rounded-2xl p-6 md:p-8 bg-cream">
+                <div className="border border-border rounded-2xl p-6 md:p-8 paper">
                   <p className="text-[10px] uppercase tracking-[0.3em] text-clay mb-4 flex items-center gap-2">
                     <CalendarIcon className="h-3.5 w-3.5" /> Choisir une date
                   </p>

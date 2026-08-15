@@ -43,7 +43,7 @@ export const Route = createFileRoute("/blog-agence-voyage/$slug")({
   },
   component: ArticlePage,
   notFoundComponent: () => (
-    <div className="min-h-screen flex items-center justify-center bg-cream">
+    <div className="min-h-screen flex items-center justify-center paper">
       <Link to="/blog-agence-voyage" className="font-display text-3xl">Retour au journal</Link>
     </div>
   ),

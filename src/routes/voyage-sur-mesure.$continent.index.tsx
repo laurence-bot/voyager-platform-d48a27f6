@@ -29,7 +29,7 @@ export const Route = createFileRoute("/voyage-sur-mesure/$continent/")({
   },
   component: ContinentPage,
   notFoundComponent: () => (
-    <div className="min-h-screen flex items-center justify-center bg-cream">
+    <div className="min-h-screen flex items-center justify-center paper">
       <div className="text-center">
         <p className="text-[11px] uppercase tracking-[0.3em] text-clay mb-4">Destination introuvable</p>
         <Link to="/" className="font-display text-3xl">Retour à l'accueil</Link>

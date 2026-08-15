@@ -29,7 +29,7 @@ export const Route = createFileRoute("/experiences/$experience")({
   },
   component: ExperiencePage,
   notFoundComponent: () => (
-    <div className="min-h-screen flex items-center justify-center bg-cream">
+    <div className="min-h-screen flex items-center justify-center paper">
       <Link to="/" className="font-display text-3xl">Retour à l'accueil</Link>
     </div>
   ),
@@ -91,7 +91,7 @@ function ExperiencePage() {
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {e.exemples.map((ex: { titre: string; desc: string; duree: string }) => (
-              <article key={ex.titre} className="border border-border rounded-2xl p-8 hover:border-clay transition group bg-cream">
+              <article key={ex.titre} className="border border-border rounded-2xl p-8 hover:border-clay transition group paper">
                 <p className="text-[10px] uppercase tracking-[0.3em] text-clay mb-4">{ex.duree}</p>
                 <h3 className="font-display text-2xl mb-4 group-hover:text-clay transition">{ex.titre}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{ex.desc}</p>
@@ -101,7 +101,7 @@ function ExperiencePage() {
         </div>
       </section>
 
-      <section className="py-14 md:py-20 bg-cream">
+      <section className="py-14 md:py-20 paper">
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-clay mb-6">IV — Destinations</p>
           <h2 className="font-display text-3xl md:text-[2rem] lg:text-4xl mb-12 max-w-3xl">

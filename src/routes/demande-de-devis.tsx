@@ -26,7 +26,7 @@ function DemandeDevis() {
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
 
-      <section className="pt-40 pb-16 md:pt-48 md:pb-24 bg-cream">
+      <section className="pt-40 pb-16 md:pt-48 md:pb-24 paper">
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <p className="text-[11px] uppercase tracking-[0.3em] text-clay mb-8">
             ✦ Demande de devis

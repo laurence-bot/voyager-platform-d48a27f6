@@ -102,7 +102,7 @@ export const Route = createFileRoute("/voyage-sur-mesure/$continent/$pays")({
   },
   component: PaysPage,
   notFoundComponent: () => (
-    <div className="min-h-screen flex items-center justify-center bg-cream">
+    <div className="min-h-screen flex items-center justify-center paper">
       <Link to="/" className="font-display text-3xl">
         Retour à l'accueil
       </Link>
@@ -539,7 +539,7 @@ function PaysPage() {
                   className="group bg-cream/40 border border-border/60 rounded-sm overflow-hidden hover:shadow-[0_8px_28px_-14px_rgba(0,0,0,0.2)] hover:border-clay/40 transition-all duration-500 flex flex-col"
                 >
                   {lodge.img && (
-                    <div className="relative aspect-video overflow-hidden bg-cream">
+                    <div className="relative aspect-video overflow-hidden paper">
                       <img
                         src={lodge.img}
                         alt={`${lodge.name} — ${lodge.region}, ${pays.name}`}

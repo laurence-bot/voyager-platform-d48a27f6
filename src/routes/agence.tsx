@@ -18,7 +18,7 @@ export const Route = createFileRoute("/agence")({
 
 function AgencePage() {
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen paper">
       <SiteHeader />
       <main className="pt-32 pb-24 px-6 md:px-12 max-w-[1400px] mx-auto">
         <TravelFlowPanel />
