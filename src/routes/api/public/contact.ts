@@ -71,9 +71,9 @@ export const Route = createFileRoute('/api/public/contact')({
           const { data, error } = await supabaseAdmin
             .from('demandes')
             .insert({
-              client_nom: nom,
-              client_email: email,
-              client_telephone: telephone,
+              nom_client: nom,
+              email: email,
+              telephone: telephone,
               message_client: message || null,
               canal: 'site_web',
               agence_id: 'e1c8fd7a-c645-42de-9625-f6185dd22cd6',
