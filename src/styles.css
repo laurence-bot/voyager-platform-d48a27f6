@@ -182,7 +182,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.12;
+    opacity: 0.07;
     mix-blend-mode: multiply;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>");
   }
@@ -265,15 +265,15 @@
     height: 22px;
     background-repeat: repeat-x;
     background-size: 44px 22px;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='44' height='22' viewBox='0 0 44 22'><g fill='none' stroke='%23b06a44' stroke-width='1' opacity='0.55'><path d='M0 11 L11 1 L22 11 L33 1 L44 11'/><path d='M0 21 L11 11 L22 21 L33 11 L44 21'/></g><g fill='%23b06a44' opacity='0.35'><circle cx='11' cy='11' r='1.4'/><circle cx='33' cy='11' r='1.4'/></g></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='44' height='22' viewBox='0 0 44 22'><g fill='none' stroke='%23c98f4a' stroke-width='1' opacity='0.55'><path d='M0 11 L11 1 L22 11 L33 1 L44 11'/><path d='M0 21 L11 11 L22 21 L33 11 L44 21'/></g><g fill='%23c98f4a' opacity='0.35'><circle cx='11' cy='11' r='1.4'/><circle cx='33' cy='11' r='1.4'/></g></svg>");
   }
 
   /* Papier légèrement texturé, chaud */
   .paper {
     background-color: var(--color-cream);
     background-image:
-      radial-gradient(circle at 15% 20%, rgba(176, 106, 68, 0.07), transparent 45%),
-      radial-gradient(circle at 85% 75%, rgba(176, 106, 68, 0.05), transparent 40%);
+      radial-gradient(circle at 12% 12%, color-mix(in oklab, var(--color-gold) 32%, transparent), transparent 52%),
+      radial-gradient(circle at 88% 78%, color-mix(in oklab, var(--color-rose) 24%, transparent), transparent 48%);
   }
 
   /* Étiquette manuscrite type carnet */
@@ -293,10 +293,38 @@
   }
 
   .underline-hand {
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='10' viewBox='0 0 120 10'><path d='M2 7 C30 2, 70 9, 118 3' fill='none' stroke='%23b06a44' stroke-width='2' stroke-linecap='round' opacity='0.7'/></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='10' viewBox='0 0 120 10'><path d='M2 7 C30 2, 70 9, 118 3' fill='none' stroke='%23c98f4a' stroke-width='2' stroke-linecap='round' opacity='0.7'/></svg>");
     background-repeat: no-repeat;
     background-position: left bottom;
     background-size: 100% 8px;
     padding-bottom: 8px;
+  }
+}
+
+@layer utilities {
+  /* Filet doré, signature haut de gamme */
+  .gold-rule {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in oklab, var(--color-gold) 70%, transparent) 25%,
+      color-mix(in oklab, var(--color-clay) 60%, transparent) 50%,
+      color-mix(in oklab, var(--color-gold) 70%, transparent) 75%,
+      transparent
+    );
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(100deg, var(--color-ochre), var(--color-gold) 55%, var(--color-clay));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glow-warm {
+    box-shadow:
+      0 30px 80px -40px color-mix(in oklab, var(--color-clay) 45%, transparent),
+      0 0 0 1px color-mix(in oklab, var(--color-gold) 40%, transparent);
   }
 }
