@@ -194,7 +194,7 @@ const journal = [
     extrait: "Sossusvlei à l'aube, bivouac au Damaraland, rencontre avec les Himba — récit d'un repérage aux confins du désert.",
   },
   {
-    img: perouImg,
+    img: moodPortraitImg,
     cat: "Inspiration · Amériques",
     date: "Mars 2026",
     title: "Pérou : la vallée sacrée hors des sentiers",
@@ -509,9 +509,9 @@ function Index() {
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
             {[
-              { img: ougandaImg, label: "Bwindi · Ouganda", note: "Trek aux gorilles, mars dernier" },
-              { img: philippinesImg, label: "Palawan · Philippines", note: "El Nido, lever du jour" },
-              { img: kyotoImg, label: "Kyoto · Japon", note: "Temples avant l'aube" },
+              { img: moodSafariImg, label: "Laikipia · Kenya", note: "Petit-déjeuner avec les girafes" },
+              { img: moodLodgeImg, label: "Sumba · Indonésie", note: "Terrasse d'un lodge, fin de journée" },
+              { img: moodTrekImg, label: "Rocheuses · Canada", note: "Marche vers le lac turquoise" },
             ].map((v) => (
               <div key={v.label} className="group relative aspect-[4/5] overflow-hidden">
                 <img
