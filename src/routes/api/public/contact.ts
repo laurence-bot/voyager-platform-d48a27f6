@@ -3,11 +3,6 @@ import { createClient } from '@supabase/supabase-js'
 
 const SUPABASE_URL = 'https://kpvswztlcocvmxwuuuip.supabase.co'
 
-const supabaseAdmin = createClient(
-  SUPABASE_URL,
-  process.env['SUPABASE_SERVICE_ROLE_KEY']!
-)
-
 const rateLimitMap = new Map<string, number[]>()
 const RATE_LIMIT_MAX = 5
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000
