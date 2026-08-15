@@ -104,7 +104,6 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
           </div>
           <Link
             to="/espace"
-            search={{}}
             className={`hidden md:inline-flex items-center gap-1.5 text-[11px] uppercase tracking-[0.22em] transition ${
               dark ? "text-cream/80 hover:text-cream" : "text-clay hover:text-ink"
             }`}
@@ -237,7 +236,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
             <Link to="/a-propos-de-nous" onClick={() => setOpen(false)}>L'agence</Link>
             <Link to="/blog-agence-voyage" onClick={() => setOpen(false)}>Blog</Link>
             <Link to="/prise-de-rendez-vous" onClick={() => setOpen(false)}>Prendre rendez-vous</Link>
-            <Link to="/espace" search={{}} onClick={() => setOpen(false)}>Espace voyageur</Link>
+            <Link to="/espace" onClick={() => setOpen(false)}>Espace voyageur</Link>
             <Link to="/demande-de-devis" onClick={() => setOpen(false)} className="bg-ink text-cream rounded-full px-5 py-3 text-center mt-2">Demande de devis</Link>
           </nav>
         </div>

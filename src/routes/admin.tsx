@@ -41,7 +41,7 @@ function AdminPage() {
   }
 
   if (loading) return <Shell><p className="text-clay">Chargement…</p></Shell>;
-  if (!user) return <Shell><p className="text-clay font-sans">Connectez-vous d'abord depuis <Link to="/espace" search={{}} className="underline">votre espace</Link>.</p></Shell>;
+  if (!user) return <Shell><p className="text-clay font-sans">Connectez-vous d'abord depuis <Link to="/espace" className="underline">votre espace</Link>.</p></Shell>;
   if (!isAdmin) return <Shell><p className="text-clay font-sans">Accès réservé à l'équipe La Voyagerie.</p></Shell>;
 
   return (
@@ -96,7 +96,7 @@ function Shell({ children }: { children: React.ReactNode }) {
             <p className="text-[11px] uppercase tracking-[0.3em] text-clay mb-3">Administration</p>
             <h1 className="font-display text-4xl md:text-5xl text-ink">Voyageurs</h1>
           </div>
-          <Link to="/espace" search={{}} className="text-[10px] uppercase tracking-[0.3em] text-clay hover:text-ink">
+          <Link to="/espace" className="text-[10px] uppercase tracking-[0.3em] text-clay hover:text-ink">
             ← Mon espace
           </Link>
         </div>
