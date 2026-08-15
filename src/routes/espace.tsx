@@ -1,5 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect } from "react";
+import { z } from "zod";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { useAuth } from "@/hooks/useAuth";
@@ -14,9 +15,7 @@ export const Route = createFileRoute("/espace")({
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),
-  validateSearch: (s: Record<string, unknown>) => ({
-    next: typeof s.next === "string" ? s.next : undefined,
-  }),
+  validateSearch: z.object({ next: z.string().optional() }).default({}).parse,
   component: EspacePage,
 });
 

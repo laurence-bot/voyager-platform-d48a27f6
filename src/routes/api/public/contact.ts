@@ -1,8 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { createClient } from '@supabase/supabase-js'
 
-const SUPABASE_URL = 'https://kpvswztlcocvmxwuuuip.supabase.co'
-
 const rateLimitMap = new Map<string, number[]>()
 const RATE_LIMIT_MAX = 5
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000
@@ -37,7 +35,6 @@ export const Route = createFileRoute('/api/public/contact')({
 
           const body = await request.json()
 
-          // Honeypot anti-spam
           if (body.website) {
             return Response.json({ success: true }, { status: 200 })
           }
@@ -49,7 +46,10 @@ export const Route = createFileRoute('/api/public/contact')({
             typeof body.message === 'string' ? body.message.trim() : ''
 
           if (!nom || nom.length < 2) {
-            return Response.json({ error: 'Le nom est requis.' }, { status: 400 })
+            return Response.json(
+              { error: 'Le nom est requis.' },
+              { status: 400 }
+            )
           }
           if (!email || !EMAIL_REGEX.test(email)) {
             return Response.json(
@@ -64,8 +64,8 @@ export const Route = createFileRoute('/api/public/contact')({
               : null
 
           const supabaseAdmin = createClient(
-            SUPABASE_URL,
-            process.env['SUPABASE_SERVICE_ROLE_KEY']!
+            process.env['VITE_SUPABASE_URL']!,
+            process.env['SERVICE_ROLE_KEY']!
           )
 
           const { data, error } = await supabaseAdmin
@@ -92,7 +92,10 @@ export const Route = createFileRoute('/api/public/contact')({
           return Response.json({ success: true, id: data.id }, { status: 200 })
         } catch (err) {
           console.error('Contact route error:', err)
-          return Response.json({ error: 'Erreur serveur.' }, { status: 500 })
+          return Response.json(
+            { error: 'Erreur serveur.' },
+            { status: 500 }
+          )
         }
       },
     },
