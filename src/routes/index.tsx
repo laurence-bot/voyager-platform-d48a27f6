@@ -230,7 +230,7 @@ function Index() {
             <h1 className="font-display text-[15vw] sm:text-[10vw] md:text-[7.5vw] lg:text-[5.5vw] xl:text-[5vw] leading-[0.9] tracking-tight max-w-[20ch]">
               Et vous,
               <br />
-              <em className="italic font-light text-ochre">où iriez-vous&nbsp;?</em>
+              <em className="italic font-light text-gold-gradient">où iriez-vous&nbsp;?</em>
             </h1>
             <p className="font-hand text-2xl md:text-3xl text-cream/85 mt-4 md:mt-5">
               Dites-nous simplement ce qui vous fait rêver… on s'occupe du reste.
@@ -263,6 +263,7 @@ function Index() {
             Ici, pas de catalogue ni de formulaire froid. Juste une petite équipe,
             un carnet, un thé, et l'envie d'écouter votre histoire avant d'écrire la suite.
           </p>
+          <div className="gold-rule w-40 mx-auto mt-8" aria-hidden />
           <p className="font-hand text-xl md:text-2xl text-clay mt-6">— Laurence &amp; l'équipe, Cassis</p>
         </div>
       </section>
@@ -331,8 +332,8 @@ function Index() {
         <div className="mx-auto max-w-[1400px] px-5 md:px-12 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div className="relative order-1 md:order-1 max-w-[440px] mx-auto md:mx-0">
             {/* halo terracotta + cadre arche */}
-            <div className="absolute -inset-6 arch blur-3xl opacity-25 bg-ochre/50" aria-hidden />
-            <div className="relative arch border border-clay/30 p-2 md:p-3">
+            <div className="absolute -inset-6 arch blur-3xl opacity-25 bg-gold/70" aria-hidden />
+            <div className="relative arch border border-gold/50 p-2 md:p-3 glow-warm">
               <div className="relative overflow-hidden arch">
                 <img
                   src={laurencePortrait}
@@ -379,7 +380,8 @@ function Index() {
 
 
       {/* DESTINATIONS PHARES */}
-      <section id="destinations" className="bg-ink text-cream py-8 md:py-14">
+      <section id="destinations" className="relative bg-ink text-cream py-8 md:py-14">
+        <div className="gold-rule absolute top-0 inset-x-0" aria-hidden />
         <div className="mx-auto max-w-[1200px] lg:max-w-[1280px] xl:max-w-[1400px] 2xl:max-w-[1560px] px-5 md:px-12">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-10 mb-10 md:mb-16">
             <div>
@@ -727,7 +729,7 @@ function Index() {
           <h2 className="font-display text-5xl sm:text-6xl md:text-9xl leading-[0.9] tracking-tight max-w-[14ch] mx-auto">
             Le voyage
             <br />
-            <em className="italic text-clay">commence ici.</em>
+            <em className="italic text-gold-gradient">commence ici.</em>
           </h2>
           <p className="font-hand text-2xl md:text-4xl text-ink/80 mt-6 md:mt-8">
             Écrivez-nous comme à une amie qui connaît bien la route.
