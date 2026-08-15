@@ -669,13 +669,14 @@ function Index() {
       </section>
 
       {/* QUOTE */}
-      <section className="bg-clay text-cream py-8 md:py-14 relative overflow-hidden">
+      <section className="bg-clay text-cream py-12 md:py-16 relative overflow-hidden">
         <div className="grain absolute inset-0" />
+        <div className="boho-band absolute top-0 inset-x-0 opacity-40 invert" aria-hidden />
         <div className="relative mx-auto max-w-5xl px-5 md:px-12 text-center">
           <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] mb-6 md:mb-10 opacity-80">
             ↳ L'avis d'une voyageuse
           </p>
-          <blockquote className="font-display text-2xl sm:text-3xl md:text-[2rem] lg:text-4xl leading-[1.25] italic">
+          <blockquote className="font-hand text-3xl sm:text-4xl md:text-5xl leading-[1.35]">
             « Vous m'avez offert quatorze jours dont je me souviendrai
             quatorze ans. Le voyage que je n'aurais jamais su demander, et
             pourtant celui qu'il me fallait. »
@@ -685,6 +686,7 @@ function Index() {
           </p>
         </div>
       </section>
+
 
       {/* FAQ */}
       <section className="py-10 md:py-16 bg-cream border-t border-border">
