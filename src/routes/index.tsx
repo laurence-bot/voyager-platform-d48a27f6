@@ -1,7 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import heroImg from "@/assets/hero-voyage.jpg";
+import heroImg from "@/assets/mood-train-jungle.jpg";
+import moodLodgeImg from "@/assets/mood-lodge-boho.jpg";
+import moodSafariImg from "@/assets/mood-safari-giraffe.jpg";
+import moodTrekImg from "@/assets/mood-trek-lac.jpg";
+import moodPortraitImg from "@/assets/mood-portrait-boho.jpg";
 import kyotoImg from "@/assets/dest-kyoto.jpg";
 import namibieImg from "@/assets/dest-namibie.jpg";
 import perouImg from "@/assets/dest-perou.jpg";
