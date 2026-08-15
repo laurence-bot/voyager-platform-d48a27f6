@@ -8,7 +8,7 @@ import moodTrekImg from "@/assets/mood-trek-lac.jpg";
 import moodPortraitImg from "@/assets/mood-portrait-boho.jpg";
 import kyotoImg from "@/assets/dest-kyoto.jpg";
 import namibieImg from "@/assets/dest-namibie.jpg";
-import perouImg from "@/assets/dest-perou.jpg";
+
 import mongolieImg from "@/assets/dest-mongolie.jpg";
 import philippinesImg from "@/assets/dest-philippines.jpg";
 import ougandaImg from "@/assets/dest-ouganda.jpg";
