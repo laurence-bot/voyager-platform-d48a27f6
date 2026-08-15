@@ -232,6 +232,10 @@ function Index() {
               <br />
               <em className="italic font-light text-ochre">où iriez-vous&nbsp;?</em>
             </h1>
+            <p className="font-hand text-2xl md:text-3xl text-cream/85 mt-4 md:mt-5">
+              Dites-nous simplement ce qui vous fait rêver… on s'occupe du reste.
+            </p>
+
             <div className="mt-6 md:mt-10 flex flex-col sm:flex-row sm:items-center gap-4 md:gap-10">
               <Link
                 to="/prise-de-rendez-vous"
@@ -251,11 +255,24 @@ function Index() {
         </div>
       </section>
 
+      {/* MOT D'ACCUEIL — manuscrit */}
+      <section className="paper border-b border-border">
+        <div className="boho-band w-full opacity-80" aria-hidden />
+        <div className="mx-auto max-w-[900px] px-5 md:px-12 py-10 md:py-16 text-center">
+          <p className="font-hand text-[1.6rem] sm:text-3xl md:text-4xl leading-[1.5] text-ink/85">
+            Ici, pas de catalogue ni de formulaire froid. Juste une petite équipe,
+            un carnet, un thé, et l'envie d'écouter votre histoire avant d'écrire la suite.
+          </p>
+          <p className="font-hand text-xl md:text-2xl text-clay mt-6">— Laurence &amp; l'équipe, Cassis</p>
+        </div>
+      </section>
+
       {/* PILIERS */}
-      <section className="py-8 md:py-14 bg-cream border-b border-border">
+      <section className="py-10 md:py-16 bg-cream border-b border-border">
         <div className="mx-auto max-w-[1400px] px-5 md:px-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           {piliers.map(([n, t, d]) => (
-            <div key={n}>
+            <div key={n} className="relative pl-5 border-l border-clay/25">
+              <span className="absolute -left-[4px] top-2 h-[7px] w-[7px] rotate-45 bg-clay/60" aria-hidden />
               <p className="font-display italic text-clay text-2xl mb-3">{n}</p>
               <h3 className="font-display text-lg md:text-xl uppercase tracking-wide leading-tight">{t}</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{d}</p>
@@ -263,6 +280,7 @@ function Index() {
           ))}
         </div>
       </section>
+
 
       {/* MARQUEE */}
       <div className="border-b border-border py-2 md:py-3 overflow-hidden bg-cream">
@@ -308,17 +326,27 @@ function Index() {
         </div>
       </section>
 
-      {/* RENCONTREZ LAURENCE — avatar vidéo */}
-      <section className="relative py-12 md:py-20 bg-cream border-t border-border">
-        <div className="mx-auto max-w-[1400px] px-5 md:px-12 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-          <div className="relative order-1 md:order-1">
-            <div className="absolute -inset-4 rounded-[2rem] blur-2xl opacity-30 bg-clay/40" />
-            <div className="relative overflow-hidden rounded-[1.5rem] shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]">
-              <img
-                src={laurencePortrait}
-                alt="Portrait de Laurence"
-                className="w-full h-[420px] md:h-[560px] object-cover"
-              />
+      {/* RENCONTREZ LAURENCE */}
+      <section className="relative py-12 md:py-20 paper border-t border-border overflow-hidden">
+        <div className="mx-auto max-w-[1400px] px-5 md:px-12 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="relative order-1 md:order-1 max-w-[440px] mx-auto md:mx-0">
+            {/* halo terracotta + cadre arche */}
+            <div className="absolute -inset-6 arch blur-3xl opacity-25 bg-ochre/50" aria-hidden />
+            <div className="relative arch border border-clay/30 p-2 md:p-3">
+              <div className="relative overflow-hidden arch">
+                <img
+                  src={laurencePortrait}
+                  alt="Laurence Palandjian, fondatrice de La Voyagerie, dans son agence à Cassis"
+                  className="w-full h-[440px] md:h-[580px] object-cover"
+                />
+              </div>
+            </div>
+            {/* note manuscrite épinglée */}
+            <div className="tape relative mt-8 md:mt-0 md:absolute md:-bottom-8 md:-right-10 md:w-[260px] bg-cream border border-border shadow-[0_18px_50px_-25px_rgba(0,0,0,0.4)] px-6 py-6 md:rotate-[-2deg]">
+              <p className="font-hand text-xl md:text-2xl leading-snug text-ink/85">
+                « On se retrouve autour d'un café à Cassis&nbsp;? Apportez vos rêves,
+                j'apporte les cartes. »
+              </p>
             </div>
           </div>
 
@@ -326,10 +354,13 @@ function Index() {
             <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">
               Rencontrez Laurence
             </p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-[2.5rem] lg:text-5xl leading-[1.05] tracking-tight mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-[2.5rem] lg:text-5xl leading-[1.05] tracking-tight mb-5">
               Bonjour,<br />
               <em className="italic text-clay">je suis Laurence.</em>
             </h2>
+            <p className="font-hand text-2xl md:text-3xl text-clay mb-6">
+              Vingt ans de routes, de carnets et de rencontres.
+            </p>
             <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-[480px] mb-8">
               Depuis plus de 20 ans, je crée des voyages sur mesure. J'ai transmis
               ma méthode à une intelligence dédiée — <strong className="text-ink">Le Savoir de Laurence</strong> —
@@ -345,6 +376,7 @@ function Index() {
           </div>
         </div>
       </section>
+
 
       {/* DESTINATIONS PHARES */}
       <section id="destinations" className="bg-ink text-cream py-8 md:py-14">
@@ -637,13 +669,14 @@ function Index() {
       </section>
 
       {/* QUOTE */}
-      <section className="bg-clay text-cream py-8 md:py-14 relative overflow-hidden">
+      <section className="bg-clay text-cream py-12 md:py-16 relative overflow-hidden">
         <div className="grain absolute inset-0" />
+        <div className="boho-band absolute top-0 inset-x-0 opacity-40 invert" aria-hidden />
         <div className="relative mx-auto max-w-5xl px-5 md:px-12 text-center">
           <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] mb-6 md:mb-10 opacity-80">
             ↳ L'avis d'une voyageuse
           </p>
-          <blockquote className="font-display text-2xl sm:text-3xl md:text-[2rem] lg:text-4xl leading-[1.25] italic">
+          <blockquote className="font-hand text-3xl sm:text-4xl md:text-5xl leading-[1.35]">
             « Vous m'avez offert quatorze jours dont je me souviendrai
             quatorze ans. Le voyage que je n'aurais jamais su demander, et
             pourtant celui qu'il me fallait. »
@@ -653,6 +686,7 @@ function Index() {
           </p>
         </div>
       </section>
+
 
       {/* FAQ */}
       <section className="py-10 md:py-16 bg-cream border-t border-border">
@@ -686,7 +720,8 @@ function Index() {
       </section>
 
       {/* CTA FINAL */}
-      <section className="py-8 md:py-14 bg-cream">
+      <section className="py-12 md:py-20 paper relative">
+        <div className="boho-band absolute top-0 inset-x-0 opacity-70" aria-hidden />
         <div className="mx-auto max-w-[1400px] px-5 md:px-12 text-center">
           <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-6 md:mb-8">V — Écrire</p>
           <h2 className="font-display text-5xl sm:text-6xl md:text-9xl leading-[0.9] tracking-tight max-w-[14ch] mx-auto">
@@ -694,10 +729,14 @@ function Index() {
             <br />
             <em className="italic text-clay">commence ici.</em>
           </h2>
-          <p className="mt-6 md:mt-10 text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
+          <p className="font-hand text-2xl md:text-4xl text-ink/80 mt-6 md:mt-8">
+            Écrivez-nous comme à une amie qui connaît bien la route.
+          </p>
+          <p className="mt-5 md:mt-6 text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
             Adressez-nous quelques lignes : une saison, une humeur, un souvenir
             d'enfance. Nous vous répondrons sous trois jours, à la main.
           </p>
+
           <div className="mt-8 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/demande-de-devis"

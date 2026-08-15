@@ -61,7 +61,9 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --font-display: 'Fraunces', ui-serif, Georgia, serif;
+  --font-hand: 'Caveat', 'Fraunces', cursive;
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
   --color-ink: var(--ink);
   --color-cream: var(--cream);
   --color-clay: var(--clay);
@@ -232,5 +234,62 @@
     background-repeat: no-repeat;
     background-position: right 0.25rem center;
     padding-right: 1.5rem;
+  }
+}
+
+@layer utilities {
+  /* ——— Boho chic : accents faits main ——— */
+  .font-hand {
+    font-family: var(--font-hand);
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+
+  /* Arche douce, façon fenêtre marocaine */
+  .arch {
+    border-radius: 999px 999px 12px 12px / 46% 46% 4% 4%;
+  }
+  .arch-full {
+    border-radius: 999px 999px 999px 999px / 50% 50% 50% 50%;
+  }
+
+  /* Bandeau tissé / motif géométrique brodé */
+  .boho-band {
+    height: 22px;
+    background-repeat: repeat-x;
+    background-size: 44px 22px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='44' height='22' viewBox='0 0 44 22'><g fill='none' stroke='%23b06a44' stroke-width='1' opacity='0.55'><path d='M0 11 L11 1 L22 11 L33 1 L44 11'/><path d='M0 21 L11 11 L22 21 L33 11 L44 21'/></g><g fill='%23b06a44' opacity='0.35'><circle cx='11' cy='11' r='1.4'/><circle cx='33' cy='11' r='1.4'/></g></svg>");
+  }
+
+  /* Papier légèrement texturé, chaud */
+  .paper {
+    background-color: var(--color-cream);
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(176, 106, 68, 0.07), transparent 45%),
+      radial-gradient(circle at 85% 75%, rgba(176, 106, 68, 0.05), transparent 40%);
+  }
+
+  /* Étiquette manuscrite type carnet */
+  .tape {
+    position: relative;
+  }
+  .tape::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 92px;
+    height: 22px;
+    transform: translateX(-50%) rotate(-2.5deg);
+    background: color-mix(in oklab, var(--color-ochre) 55%, transparent);
+    opacity: 0.5;
+  }
+
+  .underline-hand {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='10' viewBox='0 0 120 10'><path d='M2 7 C30 2, 70 9, 118 3' fill='none' stroke='%23b06a44' stroke-width='2' stroke-linecap='round' opacity='0.7'/></svg>");
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 100% 8px;
+    padding-bottom: 8px;
   }
 }
