@@ -45,7 +45,7 @@ function ResetPasswordPage() {
     if (error) setError(error.message);
     else {
       setDone(true);
-      setTimeout(() => navigate({ to: "/espace" }), 2000);
+      setTimeout(() => navigate({ to: "/espace", search: {} }), 2000);
     }
   };
 
@@ -67,7 +67,7 @@ function ResetPasswordPage() {
         ) : !ready ? (
           <p className="text-center text-clay font-sans text-sm">
             Lien invalide ou expiré.{" "}
-            <Link to="/espace" className="underline hover:text-ink">Retour</Link>
+            <Link to="/espace" search={{}} className="underline hover:text-ink">Retour</Link>
           </p>
         ) : (
           <form onSubmit={submit} className="space-y-4">
