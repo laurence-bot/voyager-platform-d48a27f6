@@ -394,19 +394,19 @@ function Index() {
 
 
       {/* DESTINATIONS PHARES */}
-      <section id="destinations" className="relative bg-ink text-cream py-8 md:py-14">
+      <section id="destinations" className="relative paper text-foreground py-10 md:py-16 border-t border-border">
         <div className="gold-rule absolute top-0 inset-x-0" aria-hidden />
         <div className="mx-auto max-w-[1200px] lg:max-w-[1280px] xl:max-w-[1400px] 2xl:max-w-[1560px] px-5 md:px-12">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-10 mb-10 md:mb-16">
             <div>
-              <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-ochre mb-4 md:mb-6">II — Destinations phares</p>
+              <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">II — Destinations phares</p>
               <h2 className="font-display text-4xl sm:text-5xl md:text-[2rem] lg:text-4xl leading-[0.95]">
                 Nos huit destinations
                 <br />
-                <em className="italic text-ochre">coups de cœur.</em>
+                <em className="italic text-clay">coups de cœur.</em>
               </h2>
             </div>
-            <p className="max-w-xs text-sm opacity-70 pb-4">
+            <p className="max-w-xs text-sm text-muted-foreground pb-4 leading-relaxed">
               Huit itinéraires long-courrier signés La Voyagerie — pour vous donner
               le ton de ce que nous savons composer.
             </p>
@@ -420,7 +420,7 @@ function Index() {
                 params={{ continent: d.continent, pays: d.pays }}
                 className="group"
               >
-                <div className="relative aspect-[4/5] overflow-hidden bg-cream/5">
+                <div className="relative aspect-[4/5] overflow-hidden bg-sand/40">
                   <img
                     src={d.img}
                     alt={`Voyage sur mesure ${d.name}`}
@@ -429,41 +429,42 @@ function Index() {
                     loading="lazy"
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-105"
                   />
-                  <div className="absolute top-4 left-4 text-cream text-[10px] tracking-[0.3em] uppercase mix-blend-difference">
+                  <div className="absolute top-3 left-3 bg-cream/85 text-ink px-2 py-1 text-[10px] tracking-[0.3em] uppercase">
                     {d.n}
                   </div>
                 </div>
-                <p className="mt-4 text-[10px] uppercase tracking-[0.3em] text-ochre">{d.tagline}</p>
-                <div className="pt-1 border-b border-cream/15 pb-3">
-                  <h3 className="font-display text-2xl group-hover:text-ochre transition leading-tight">{d.name}</h3>
-                  <span className="mt-1 block text-[9px] uppercase tracking-[0.25em] opacity-55">{d.region}</span>
+                <p className="mt-4 text-[10px] uppercase tracking-[0.3em] text-clay">{d.tagline}</p>
+                <div className="pt-1 border-b border-border pb-3">
+                  <h3 className="font-display text-2xl group-hover:text-clay transition leading-tight">{d.name}</h3>
+                  <span className="mt-1 block text-[9px] uppercase tracking-[0.25em] text-muted-foreground">{d.region}</span>
                 </div>
-                <p className="pt-3 text-[13px] opacity-70 leading-relaxed">{d.note}</p>
-                <p className="pt-3 text-[10px] uppercase tracking-[0.3em] text-ochre opacity-90 group-hover:opacity-100">
+                <p className="pt-3 text-[13px] text-muted-foreground leading-relaxed">{d.note}</p>
+                <p className="pt-3 text-[10px] uppercase tracking-[0.3em] text-clay">
                   Découvrir {d.name} <span className="ml-1 inline-block group-hover:translate-x-1 transition">→</span>
                 </p>
               </Link>
             ))}
           </div>
 
-          <div className="mt-14 md:mt-20 text-center border-t border-cream/10 pt-12 md:pt-16 py-0 my-[8px]">
-            <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-ochre mb-4 md:mb-6">
+          <div className="mt-14 md:mt-20 text-center border-t border-border pt-12 md:pt-16 py-0 my-[8px]">
+            <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">
               Collection d'itinéraires · 100 % personnalisables
             </p>
             <h3 className="font-display text-2xl sm:text-3xl md:text-[2rem] lg:text-4xl mb-8 md:mb-10 max-w-2xl mx-auto leading-tight">
               Namibie, Pérou, Mongolie, Patagonie…
               <br />
-              <em className="italic text-ochre">parcourez le monde entier.</em>
+              <em className="italic text-clay">parcourez le monde entier.</em>
             </h3>
             <Link
               to="/voyage-sur-mesure"
-              className="inline-flex items-center bg-cream text-ink px-7 md:px-10 py-4 md:py-5 text-[10px] md:text-[11px] uppercase tracking-[0.3em] rounded-full hover:bg-clay hover:text-cream transition"
+              className="inline-flex items-center bg-ink text-cream px-7 md:px-10 py-4 md:py-5 text-[10px] md:text-[11px] uppercase tracking-[0.3em] hover:bg-clay transition"
             >
               Voir toutes les destinations →
             </Link>
           </div>
         </div>
       </section>
+
 
       {/* ENGAGEMENTS */}
       <section className="py-10 md:py-16 bg-cream border-t border-border">
