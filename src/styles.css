@@ -328,11 +328,12 @@
   }
 
   .text-gold-gradient {
-    background: linear-gradient(100deg, var(--color-ochre), var(--color-gold) 55%, var(--color-clay));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    color: var(--color-clay);
   }
+
 
   .glow-warm {
     box-shadow:
