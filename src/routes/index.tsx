@@ -6,6 +6,11 @@ import moodLodgeImg from "@/assets/mood-lodge-boho.jpg";
 import moodSafariImg from "@/assets/mood-safari-giraffe.jpg";
 import moodTrekImg from "@/assets/mood-trek-lac.jpg";
 import moodPortraitImg from "@/assets/mood-portrait-boho.jpg";
+import contAfrique from "@/assets/continent-afrique.jpg.asset.json";
+import contAmeriques from "@/assets/continent-ameriques.jpg.asset.json";
+import contAsie from "@/assets/continent-asie.jpg.asset.json";
+import contOceanie from "@/assets/continent-oceanie.jpg.asset.json";
+import contEurope from "@/assets/continent-europe.jpg.asset.json";
 import kyotoImg from "@/assets/dest-kyoto.jpg";
 import namibieImg from "@/assets/dest-namibie.jpg";
 import namibie4x4Asset from "@/assets/namibie-4x4-carte.jpg.asset.json";
@@ -568,11 +573,11 @@ function Index() {
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-5">
             {[
-              ["afrique", "Afrique", ougandaImg],
-              ["ameriques", "Amériques", bresilImg],
-              ["asie", "Asie", kyotoImg],
-              ["oceanie", "Océanie", polynesieImg],
-              ["europe", "Europe", namibieImg],
+              ["afrique", "Afrique", contAfrique.url],
+              ["ameriques", "Amériques", contAmeriques.url],
+              ["asie", "Asie", contAsie.url],
+              ["oceanie", "Océanie", contOceanie.url],
+              ["europe", "Europe", contEurope.url],
             ].map(([slug, name, img], i) => (
               <Link
                 key={slug as string}
