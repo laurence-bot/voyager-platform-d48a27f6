@@ -231,6 +231,9 @@ function Index() {
 
         <div className="relative h-full mx-auto max-w-[1200px] lg:max-w-[1280px] xl:max-w-[1400px] 2xl:max-w-[1560px] px-5 md:px-12 flex flex-col justify-end pb-12 md:pb-24 text-cream">
           <div className="reveal">
+            <span className="mb-4 inline-flex items-center rounded-full border border-gold/70 bg-ink/25 px-4 py-2 text-[9px] uppercase tracking-[0.28em] text-gold backdrop-blur-sm md:mb-6">
+              Test de synchronisation GitHub
+            </span>
             <p className="text-[10px] md:text-[11px] uppercase tracking-[0.25em] md:tracking-[0.3em] mb-4 md:mb-6 opacity-80">
               Agence de voyage sur mesure · Cassis
             </p>
@@ -335,90 +338,56 @@ function Index() {
       </section>
 
       {/* RENCONTREZ LAURENCE */}
-      <section className="relative py-12 md:py-16 paper border-t border-border overflow-hidden">
-        {/* halo doré très discret, ancré à gauche */}
-        <div className="pointer-events-none absolute -left-32 top-1/4 h-[420px] w-[420px] rounded-full blur-3xl opacity-20 bg-gold/70" aria-hidden />
+      <section className="relative py-12 md:py-20 paper border-t border-border overflow-hidden">
+        <div className="mx-auto max-w-[1400px] px-5 md:px-12 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="relative order-1 md:order-1 max-w-[440px] mx-auto md:mx-0">
+            {/* halo terracotta + cadre arche */}
+            <div className="absolute -inset-6 arch blur-3xl opacity-25 bg-gold/70" aria-hidden />
+            <div className="relative arch border border-gold/50 p-2 md:p-3 glow-warm">
+              <div className="relative overflow-hidden arch bg-ink/5">
+                <LaurenceVideo
+                  src={laurenceVideoAsset.url}
+                  poster={laurencePortrait}
+                  className="w-full h-[440px] md:h-[580px] object-cover"
+                />
 
-        <div className="mx-auto max-w-[1400px] px-5 md:px-12">
-          <div className="grid md:grid-cols-12 md:gap-0 items-stretch">
-            {/* COLONNE IMAGE — plus grande, décalée */}
-            <div className="relative md:col-span-6 lg:col-span-6">
-              <div className="relative border border-gold/50 p-2 md:p-3 glow-warm md:mr-[-6%]">
-                <div className="relative overflow-hidden bg-ink/5">
-                  <LaurenceVideo
-                    src={laurenceVideoAsset.url}
-                    poster={laurencePortrait}
-                    className="w-full h-[420px] md:h-[620px] lg:h-[680px] object-cover"
-                  />
-                </div>
               </div>
-              {/* chapeau vertical, rythme éditorial */}
-              <p className="hidden lg:block absolute -left-9 top-8 text-[10px] uppercase tracking-[0.4em] text-clay [writing-mode:vertical-rl]">
-                Cassis — depuis 2004
+            </div>
+            {/* note manuscrite épinglée */}
+            <div className="tape relative mt-8 md:mt-0 md:absolute md:-bottom-8 md:-right-10 md:w-[260px] bg-cream border border-border shadow-[0_18px_50px_-25px_rgba(0,0,0,0.4)] px-6 py-6 md:rotate-[-2deg]">
+              <p className="font-hand text-xl md:text-2xl leading-snug text-ink/85">
+                « On se retrouve autour d'un café à Cassis&nbsp;? Apportez vos rêves,
+                j'apporte les cartes. »
               </p>
             </div>
+          </div>
 
-            {/* COLONNE TEXTE — superposée à l'image */}
-            <div className="relative z-10 md:col-span-6 lg:col-span-6 md:pl-[9%] lg:pl-[11%] flex flex-col justify-center pt-10 md:pt-0">
-              <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4">
-                Rencontrez Laurence
-              </p>
-              <h2 className="font-display text-3xl sm:text-4xl md:text-[2.6rem] lg:text-[3.4rem] leading-[1.02] tracking-tight mb-4">
-                Bonjour,<br />
-                <em className="italic text-clay">je suis Laurence.</em>
-              </h2>
-              <div className="gold-rule w-24 mb-5" aria-hidden />
-              <p className="font-hand text-2xl md:text-3xl text-clay mb-5">
-                Vingt ans de routes, de carnets et de rencontres.
-              </p>
-              <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-[520px] mb-8">
-                Depuis plus de 20 ans, je crée des voyages sur mesure. J'ai transmis
-                ma méthode à une intelligence dédiée — <strong className="text-ink">Le Savoir de Laurence</strong> —
-                pour comprendre votre projet avant même que je le compose.
-              </p>
-
-              {/* citation intégrée à la composition */}
-              <blockquote className="relative border-l border-clay/50 pl-6 mb-8 max-w-[460px]">
-                <p className="font-hand text-xl md:text-2xl leading-snug text-ink/85">
-                  « On se retrouve autour d'un café à Cassis&nbsp;? Apportez vos rêves,
-                  j'apporte les cartes. »
-                </p>
-              </blockquote>
-
-              <div className="flex flex-wrap items-center gap-x-8 gap-y-5">
-                <Link
-                  to="/savoir-de-laurence"
-                  className="inline-flex items-center bg-ink text-cream px-7 md:px-10 py-4 md:py-5 text-[10px] md:text-[11px] uppercase tracking-[0.3em] hover:bg-clay transition group"
-                >
-                  Vivre l'expérience
-                  <span className="ml-3 group-hover:translate-x-1 transition">→</span>
-                </Link>
-                <Link
-                  to="/prise-de-rendez-vous"
-                  className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay border-b border-clay pb-1 hover:text-ink transition"
-                >
-                  Prendre un café ↗
-                </Link>
-              </div>
-
-              {/* trio de repères — équilibre le bas de la composition */}
-              <dl className="mt-10 md:mt-12 grid grid-cols-3 gap-6 border-t border-border pt-6 max-w-[520px]">
-                {[
-                  ["20 ans", "sur les routes"],
-                  ["40+", "pays explorés"],
-                  ["100 %", "sur mesure"],
-                ].map(([k, v]) => (
-                  <div key={k}>
-                    <dt className="font-display text-2xl md:text-[1.75rem] text-ink leading-none">{k}</dt>
-                    <dd className="mt-2 text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{v}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
+          <div className="order-2 md:order-2">
+            <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">
+              Rencontrez Laurence
+            </p>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-[2.5rem] lg:text-5xl leading-[1.05] tracking-tight mb-5">
+              Bonjour,<br />
+              <em className="italic text-clay">je suis Laurence.</em>
+            </h2>
+            <p className="font-hand text-2xl md:text-3xl text-clay mb-6">
+              Vingt ans de routes, de carnets et de rencontres.
+            </p>
+            <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-[480px] mb-8">
+              Depuis plus de 20 ans, je crée des voyages sur mesure. J'ai transmis
+              ma méthode à une intelligence dédiée — <strong className="text-ink">Le Savoir de Laurence</strong> —
+              pour comprendre votre projet avant même que je le compose.
+            </p>
+            <Link
+              to="/savoir-de-laurence"
+              className="inline-flex items-center bg-ink text-cream px-7 md:px-10 py-4 md:py-5 text-[10px] md:text-[11px] uppercase tracking-[0.3em] rounded-full hover:bg-clay transition group"
+            >
+              Vivre l'expérience
+              <span className="ml-3 group-hover:translate-x-1 transition">→</span>
+            </Link>
           </div>
         </div>
       </section>
-
 
 
       {/* DESTINATIONS PHARES */}
