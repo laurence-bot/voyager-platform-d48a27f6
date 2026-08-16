@@ -1,103 +1,143 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { createClient } from '@supabase/supabase-js'
+import { createFileRoute } from "@tanstack/react-router";
+import { createClient } from "@supabase/supabase-js";
 
-const rateLimitMap = new Map<string, number[]>()
-const RATE_LIMIT_MAX = 5
-const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000
+const rateLimitMap = new Map<string, number[]>();
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 
 function isRateLimited(ip: string): boolean {
-  const now = Date.now()
-  const timestamps = (rateLimitMap.get(ip) || []).filter(
-    (t) => now - t < RATE_LIMIT_WINDOW_MS
-  )
-  if (timestamps.length >= RATE_LIMIT_MAX) return true
-  timestamps.push(now)
-  rateLimitMap.set(ip, timestamps)
-  return false
+  const now = Date.now();
+  const timestamps = (rateLimitMap.get(ip) || []).filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
+  if (timestamps.length >= RATE_LIMIT_MAX) return true;
+  timestamps.push(now);
+  rateLimitMap.set(ip, timestamps);
+  return false;
 }
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export const Route = createFileRoute('/api/public/contact')({
+// Extrait les infos structurées depuis un message au format :
+// "Destination : OUGANDA\nVoyageurs : 2\nPériode : Février\nBudget : 8-12k\n..."
+function extractFromMessage(message: string) {
+  const result = {
+    destination: null as string | null,
+    voyageurs: null as number | null,
+    budget: null as string | null,
+  };
+
+  if (!message) return result;
+
+  for (const line of message.split("\n")) {
+    const match = line.match(/^\s*([^:：]+)\s*[:：]\s*(.+?)\s*$/);
+    if (!match) continue;
+    const label = match[1].toLowerCase().trim();
+    const value = match[2];
+
+    if (label === "destination" && !result.destination) {
+      result.destination = value;
+    } else if ((label === "voyageurs" || label === "voyageur" || label === "pax") && result.voyageurs === null) {
+      const n = parseInt(value, 10);
+      if (!isNaN(n) && n > 0) result.voyageurs = n;
+    } else if (label === "budget" && !result.budget) {
+      result.budget = value;
+    }
+  }
+
+  return result;
+}
+
+export const Route = createFileRoute("/api/public/contact")({
   server: {
     handlers: {
       POST: async ({ request }) => {
         try {
-          const ip =
-            request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
-            'unknown'
+          const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
           if (isRateLimited(ip)) {
-            return Response.json(
-              { error: 'Trop de demandes. Réessayez dans quelques minutes.' },
-              { status: 429 }
-            )
+            return Response.json({ error: "Trop de demandes. Réessayez dans quelques minutes." }, { status: 429 });
           }
 
-          const body = await request.json()
+          const body = await request.json();
 
           if (body.website) {
-            return Response.json({ success: true }, { status: 200 })
+            return Response.json({ success: true }, { status: 200 });
           }
 
-          const nom = typeof body.nom === 'string' ? body.nom.trim() : ''
-          const email =
-            typeof body.email === 'string' ? body.email.trim() : ''
-          const message =
-            typeof body.message === 'string' ? body.message.trim() : ''
+          const nom = typeof body.nom === "string" ? body.nom.trim() : "";
+          const email = typeof body.email === "string" ? body.email.trim() : "";
+          const message = typeof body.message === "string" ? body.message.trim() : "";
 
           if (!nom || nom.length < 2) {
-            return Response.json(
-              { error: 'Le nom est requis.' },
-              { status: 400 }
-            )
+            return Response.json({ error: "Le nom est requis." }, { status: 400 });
           }
           if (!email || !EMAIL_REGEX.test(email)) {
-            return Response.json(
-              { error: 'Une adresse email valide est requise.' },
-              { status: 400 }
-            )
+            return Response.json({ error: "Une adresse email valide est requise." }, { status: 400 });
           }
 
-          const telephone =
-            typeof body.telephone === 'string' && body.telephone.trim()
-              ? body.telephone.trim()
-              : null
+          const telephone = typeof body.telephone === "string" && body.telephone.trim() ? body.telephone.trim() : null;
 
-          const supabaseAdmin = createClient(
-            process.env['SB_URL']!,
-            process.env['SERVICE_ROLE_KEY']!
-          )
+          // 1) Champs structurés si le formulaire les envoie séparément
+          let destination: string | null =
+            typeof body.destination === "string" && body.destination.trim() ? body.destination.trim() : null;
 
-          const { data, error } = await supabaseAdmin
-            .from('demandes')
+          let nombrePax: number | null = null;
+          const rawPax = body.voyageurs ?? body.pax ?? body.nombre_voyageurs;
+          if (typeof rawPax === "number" && rawPax > 0) {
+            nombrePax = Math.floor(rawPax);
+          } else if (typeof rawPax === "string") {
+            const n = parseInt(rawPax, 10);
+            if (!isNaN(n) && n > 0) nombrePax = n;
+          }
+
+          let budget: string | null = typeof body.budget === "string" && body.budget.trim() ? body.budget.trim() : null;
+
+          // 2) Fallback : extraction depuis le message
+          const parsed = extractFromMessage(message);
+          if (!destination && parsed.destination) destination = parsed.destination;
+          if (nombrePax === null && parsed.voyageurs) nombrePax = parsed.voyageurs;
+          if (!budget && parsed.budget) budget = parsed.budget;
+
+          const supabaseAdmin = createClient(process.env["SB_URL"]!, process.env["SERVICE_ROLE_KEY"]!);
+
+          const basePayload = {
+            nom_client: nom,
+            email: email,
+            telephone: telephone,
+            message_client: message || null,
+            canal: "site_web",
+            agence_id: "e1c8fd7a-c645-42de-9625-f6185dd22cd6",
+          };
+
+          // Tentative avec les colonnes structurées
+          let { data, error } = await supabaseAdmin
+            .from("demandes")
             .insert({
-              nom_client: nom,
-              email: email,
-              telephone: telephone,
-              message_client: message || null,
-              canal: 'site_web',
-              agence_id: 'e1c8fd7a-c645-42de-9625-f6185dd22cd6',
+              ...basePayload,
+              destination: destination,
+              pays_destination: destination,
+              nombre_pax: nombrePax ?? 1,
+              budget: budget,
             })
-            .select('id')
-            .single()
+            .select("id")
+            .single();
+
+          // Sécurité : si une colonne pose problème, on retente sans elles
+          // (la demande est toujours enregistrée, comme avant)
+          if (error) {
+            console.error("Insert avec colonnes échoué, retry minimal:", error);
+            ({ data, error } = await supabaseAdmin.from("demandes").insert(basePayload).select("id").single());
+          }
 
           if (error) {
-            console.error('Supabase insert error:', error)
-            return Response.json(
-              { error: "Erreur lors de l'enregistrement de la demande." },
-              { status: 500 }
-            )
+            console.error("Supabase insert error:", error);
+            return Response.json({ error: "Erreur lors de l'enregistrement de la demande." }, { status: 500 });
           }
 
-          return Response.json({ success: true, id: data.id }, { status: 200 })
+          return Response.json({ success: true, id: data.id }, { status: 200 });
         } catch (err) {
-          console.error('Contact route error:', err)
-          return Response.json(
-            { error: 'Erreur serveur.' },
-            { status: 500 }
-          )
+          console.error("Contact route error:", err);
+          return Response.json({ error: "Erreur serveur." }, { status: 500 });
         }
       },
     },
   },
-})
+});
