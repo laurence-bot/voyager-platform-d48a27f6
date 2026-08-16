@@ -132,7 +132,7 @@ export const Route = createFileRoute("/api/public/contact")({
             return Response.json({ error: "Erreur lors de l'enregistrement de la demande." }, { status: 500 });
           }
 
-          return Response.json({ success: true, id: data.id }, { status: 200 });
+          return Response.json({ success: true, id: data?.id ?? null }, { status: 200 });
         } catch (err) {
           console.error("Contact route error:", err);
           return Response.json({ error: "Erreur serveur." }, { status: 500 });
