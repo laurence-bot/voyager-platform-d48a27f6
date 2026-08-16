@@ -18,6 +18,8 @@ import bresilImg from "@/assets/dest-bresil.jpg";
 import polynesieImg from "@/assets/dest-polynesie.jpg";
 import laurencePortrait from "@/assets/laurence-portrait.jpg";
 import laurenceVideoAsset from "@/assets/laurence-avatar.mp4.asset.json";
+import LaurenceVideo from "@/components/LaurenceVideo";
+
 
 const TITLE = "La Voyagerie — Agence de voyage sur mesure long-courrier · Cassis";
 const DESC =
