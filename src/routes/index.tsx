@@ -132,8 +132,8 @@ const phares = [
   {
     n: "05",
     name: "Namibie",
-    region: "Afrique australe · Désert",
-    tagline: "Désert",
+    region: "Afrique australe · Himba",
+    tagline: "Himba",
     img: namibieImg,
     note: "Sossusvlei, Skeleton Coast, Damaraland, Etosha — un pays minéral où chaque kilomètre raconte une histoire.",
     continent: "afrique" as const,
