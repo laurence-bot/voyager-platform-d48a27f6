@@ -1,4 +1,6 @@
 import namibieImg from "@/assets/dest-namibie.jpg";
+import namibie4x4Asset from "@/assets/namibie-4x4-carte.jpg.asset.json";
+const namibie4x4Img = namibie4x4Asset.url;
 import perouImg from "@/assets/dest-perou.jpg";
 import mongolieAsset from "@/assets/mongolie-nomades.jpg.asset.json";
 const mongolieImg = mongolieAsset.url;
@@ -22,7 +24,7 @@ export const articles: Article[] = [
     title: "Namibie : un road-trip dans le plus vieux désert du monde",
     category: "Afrique",
     date: "Avril 2026",
-    img: namibieImg,
+    img: namibie4x4Img,
     excerpt:
       "Sossusvlei, Skeleton Coast, Damaraland — trois semaines pour traverser un pays minéral où le silence devient un compagnon de route.",
     body: [
