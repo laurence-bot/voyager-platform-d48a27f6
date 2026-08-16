@@ -526,11 +526,6 @@ function Index() {
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-ink/20" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-cream/90 flex items-center justify-center group-hover:bg-clay group-hover:text-cream transition">
-                    <span className="ml-1 border-l-[14px] border-l-ink border-y-[9px] border-y-transparent group-hover:border-l-cream" />
-                  </div>
-                </div>
                 <div className="absolute bottom-4 md:bottom-5 left-4 md:left-5 text-cream">
                   <p className="font-display text-lg md:text-xl">{v.label}</p>
                   <p className="text-[10px] uppercase tracking-[0.25em] opacity-80 mt-1">{v.note}</p>
