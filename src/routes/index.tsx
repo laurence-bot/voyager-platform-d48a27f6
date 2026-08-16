@@ -338,9 +338,9 @@ function Index() {
       </section>
 
       {/* RENCONTREZ LAURENCE */}
-      <section className="relative py-12 md:py-20 paper border-t border-border overflow-hidden">
-        <div className="mx-auto max-w-[1400px] px-5 md:px-12 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-          <div className="relative order-1 md:order-1 max-w-[420px] lg:max-w-[460px] mx-auto md:mx-0">
+      <section className="relative py-12 md:py-16 paper border-t border-border overflow-hidden">
+        <div className="mx-auto max-w-[1400px] px-5 md:px-12 grid md:grid-cols-12 gap-10 md:gap-12 lg:gap-16 items-center">
+          <div className="relative md:col-span-5 max-w-[440px] lg:max-w-[480px] mx-auto md:mx-0">
             {/* halo terracotta + cadre arche */}
             <div className="absolute -inset-6 arch blur-3xl opacity-25 bg-gold/70" aria-hidden />
             <div className="relative arch border border-gold/50 p-2 md:p-3 glow-warm">
@@ -348,42 +348,46 @@ function Index() {
                 <LaurenceVideo
                   src={laurenceVideoAsset.url}
                   poster={laurencePortrait}
-                  className="w-full h-[480px] md:h-[640px] lg:h-[700px] object-cover object-top"
+                  className="w-full aspect-[720/1072] object-contain object-center"
                 />
               </div>
             </div>
-            {/* note manuscrite épinglée */}
-            <div className="tape relative z-10 mt-6 md:mt-0 md:absolute md:-bottom-6 md:-right-8 lg:-right-12 md:w-[240px] lg:w-[260px] bg-cream border border-border shadow-[0_18px_50px_-25px_rgba(0,0,0,0.4)] px-5 py-5 md:rotate-[-2deg]">
-              <p className="font-hand text-xl md:text-2xl leading-snug text-ink/85">
-                « On se retrouve autour d'un café à Cassis&nbsp;? Apportez vos rêves,
-                j'apporte les cartes. »
-              </p>
-            </div>
           </div>
 
-          <div className="order-2 md:order-2">
-            <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">
+          <div className="md:col-span-7">
+            <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-5">
               Rencontrez Laurence
             </p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-[2.5rem] lg:text-5xl leading-[1.05] tracking-tight mb-5">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-[2.5rem] lg:text-5xl leading-[1.05] tracking-tight mb-4">
               Bonjour,<br />
               <em className="italic text-clay">je suis Laurence.</em>
             </h2>
-            <p className="font-hand text-2xl md:text-3xl text-clay mb-6">
+            <p className="font-hand text-2xl md:text-3xl text-clay mb-5">
               Vingt ans de routes, de carnets et de rencontres.
             </p>
-            <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-[480px] mb-8">
+            <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-[520px] mb-8">
               Depuis plus de 20 ans, je crée des voyages sur mesure. J'ai transmis
               ma méthode à une intelligence dédiée — <strong className="text-ink">Le Savoir de Laurence</strong> —
               pour comprendre votre projet avant même que je le compose.
             </p>
-            <Link
-              to="/savoir-de-laurence"
-              className="inline-flex items-center bg-ink text-cream px-7 md:px-10 py-4 md:py-5 text-[10px] md:text-[11px] uppercase tracking-[0.3em] rounded-full hover:bg-clay transition group"
-            >
-              Vivre l'expérience
-              <span className="ml-3 group-hover:translate-x-1 transition">→</span>
-            </Link>
+
+            <div className="flex flex-col sm:flex-row sm:items-end gap-8 sm:gap-10">
+              <Link
+                to="/savoir-de-laurence"
+                className="inline-flex items-center self-start bg-ink text-cream px-7 md:px-10 py-4 md:py-5 text-[10px] md:text-[11px] uppercase tracking-[0.3em] hover:bg-clay transition group"
+              >
+                Vivre l'expérience
+                <span className="ml-3 group-hover:translate-x-1 transition">→</span>
+              </Link>
+
+              {/* note manuscrite épinglée */}
+              <div className="tape relative w-full sm:w-[260px] lg:w-[280px] bg-cream border border-border shadow-[0_18px_50px_-25px_rgba(0,0,0,0.4)] px-5 py-5 sm:rotate-[-2deg]">
+                <p className="font-hand text-xl md:text-2xl leading-snug text-ink/85">
+                  « On se retrouve autour d'un café à Cassis&nbsp;? Apportez vos rêves,
+                  j'apporte les cartes. »
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
