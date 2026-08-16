@@ -9,7 +9,8 @@ import moodPortraitImg from "@/assets/mood-portrait-boho.jpg";
 import kyotoImg from "@/assets/dest-kyoto.jpg";
 import namibieImg from "@/assets/dest-namibie.jpg";
 
-import mongolieImg from "@/assets/dest-mongolie.jpg";
+import mongolieAsset from "@/assets/mongolie-nomades.jpg.asset.json";
+const mongolieImg = mongolieAsset.url;
 import philippinesImg from "@/assets/dest-philippines.jpg";
 import ougandaImg from "@/assets/dest-ouganda.jpg";
 import zimbabweImg from "@/assets/dest-zimbabwe.jpg";
