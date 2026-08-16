@@ -205,7 +205,7 @@ function PaysPage() {
                 </div>
 
                 <h2 className="font-display text-3xl md:text-[2rem] lg:text-[2.25rem] leading-[1.1] tracking-tight text-foreground/95">
-                  Circuit <em className="italic text-clay font-normal">{pays.name} sur mesure</em>{" "}
+                  Circuit <em className="italic text-gold-gradient font-normal">{pays.name} sur mesure</em>{" "}
                   <span className="text-foreground/70">— l'art du voyage d'auteur en {continent.name}.</span>
                 </h2>
 
@@ -337,7 +337,7 @@ function PaysPage() {
               </p>
             </div>
               <h2 className="font-display text-3xl md:text-[2rem] lg:text-[2.25rem] leading-[1.1] tracking-tight mb-10 max-w-5xl text-balance">
-              Neuf raisons <em className="italic text-clay font-normal">d'aimer {
+              Neuf raisons <em className="italic text-gold-gradient font-normal">d'aimer {
                 pays.name === "Malawi" ? `le ${pays.name}` :
                 /^[aeiouyhAEIOUYH]/.test(pays.name) ? `l'${pays.name}` : `la ${pays.name}`
               }</em>.
@@ -379,7 +379,7 @@ function PaysPage() {
               II — Pourquoi {pays.name}
             </p>
             <h2 className="font-display text-3xl md:text-[2rem] lg:text-4xl mb-12">
-              Les temps forts <em className="italic text-clay">de votre itinéraire.</em>
+              Les temps forts <em className="italic text-gold-gradient">de votre itinéraire.</em>
             </h2>
             <ul className="grid md:grid-cols-2 gap-x-12 gap-y-2">
               {pays.highlights.map((h: string, i: number) => (
@@ -406,7 +406,7 @@ function PaysPage() {
               </p>
             </div>
             <h2 className="font-display text-3xl md:text-[2rem] lg:text-[2.25rem] leading-[1.1] tracking-tight mb-6 max-w-5xl">
-              Quand partir <em className="italic text-clay font-normal">en {pays.name} ?</em> Saisons & climat pour votre safari.
+              Quand partir <em className="italic text-gold-gradient font-normal">en {pays.name} ?</em> Saisons & climat pour votre safari.
             </h2>
             <p className="text-base md:text-lg leading-relaxed text-foreground/80 max-w-3xl mb-8">
               {d.whenToGo.summary}
@@ -467,7 +467,7 @@ function PaysPage() {
               III — Nos itinéraires suggérés
             </p>
             <h2 className="font-display text-3xl md:text-[2rem] lg:text-4xl mb-16 max-w-5xl">
-              Programmes <em className="italic text-clay">100 % personnalisables.</em>
+              Programmes <em className="italic text-gold-gradient">100 % personnalisables.</em>
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               {[
@@ -516,7 +516,7 @@ function PaysPage() {
             <div className="grid md:grid-cols-12 gap-8 mb-12 items-end">
               <div className="md:col-span-8">
                 <h2 className="font-display text-4xl md:text-[2rem] lg:text-4xl leading-[1.05]">
-                  Nos lodges en {pays.name}, <em className="italic text-clay">murmurés.</em>
+                  Nos lodges en {pays.name}, <em className="italic text-gold-gradient">murmurés.</em>
                 </h2>
                 <p className="mt-5 text-base md:text-lg text-foreground/75 leading-relaxed max-w-2xl text-balance">
                   Une sélection d'adresses inspirantes en {pays.name}, choisies pour leur emplacement, leur atmosphère et leur cohérence avec nos itinéraires. Votre sélection finale sera composée à la main, selon votre rythme, la saison et le niveau de confort souhaité.
@@ -637,7 +637,7 @@ function PaysPage() {
           <div className="grid md:grid-cols-12 gap-10 md:gap-14 mb-14 items-end">
             <div className="md:col-span-8">
               <h2 className="font-display text-4xl md:text-[2rem] lg:text-4xl leading-[1.05]">
-                Préparer votre voyage <em className="italic text-clay">en {pays.name}</em> — guide pratique.
+                Préparer votre voyage <em className="italic text-gold-gradient">en {pays.name}</em> — guide pratique.
               </h2>
                 <p className="mt-6 text-base md:text-lg text-foreground/75 leading-relaxed max-w-2xl text-balance">
                  Visa, vaccins, monnaie, vols, langue, sécurité et rythme du voyage — tout ce qu'il faut savoir avant un voyage sur mesure en {pays.name}, vérifié et mis à jour avec nos partenaires sur place. Un seul interlocuteur, du devis au retour.
@@ -726,7 +726,7 @@ function PaysPage() {
               VI — Questions fréquentes
             </p>
             <h2 className="font-display text-3xl md:text-[2rem] lg:text-4xl mb-12 max-w-5xl">
-              Voyage sur mesure en {pays.name} : <em className="italic text-clay">questions fréquentes.</em>
+              Voyage sur mesure en {pays.name} : <em className="italic text-gold-gradient">questions fréquentes.</em>
             </h2>
             <div className="divide-y divide-border border-y border-border">
               {d.faq.map((f: import("@/data/destinations").FaqItem) => (

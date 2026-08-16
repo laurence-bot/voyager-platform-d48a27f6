@@ -69,7 +69,7 @@ function ContinentPage() {
         <div className="mx-auto max-w-[1200px] lg:max-w-[1280px] xl:max-w-[1400px] 2xl:max-w-[1560px] px-6 md:px-12">
           <p className="text-[11px] uppercase tracking-[0.3em] text-clay mb-6">Pays</p>
           <h2 className="font-display text-4xl md:text-[2rem] lg:text-4xl mb-16">
-            Nos destinations en <em className="italic text-clay">{continent.name}.</em>
+            Nos destinations en <em className="italic text-gold-gradient">{continent.name}.</em>
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

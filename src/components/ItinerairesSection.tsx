@@ -28,7 +28,7 @@ export function ItinerairesSection({ itineraires, paysName, paysSlug, continentS
           IV — Nos itinéraires suggérés
         </p>
         <h2 className="font-display text-3xl md:text-[2rem] lg:text-4xl mb-10 max-w-3xl">
-          Programmes <em className="italic text-clay">100 % personnalisables.</em>
+          Programmes <em className="italic text-gold-gradient">100 % personnalisables.</em>
         </h2>
 
         {/* 3 CARTES CÔTE À CÔTE → renvoient vers la page détaillée */}

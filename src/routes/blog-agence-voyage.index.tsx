@@ -33,7 +33,7 @@ function Blog() {
             ✦ Le journal de l'agence
           </p>
           <h1 className="font-display text-5xl md:text-8xl leading-[0.9] tracking-tight max-w-[18ch]">
-            Conseils &amp; <em className="italic text-clay">récits.</em>
+            Conseils &amp; <em className="italic text-gold-gradient">récits.</em>
           </h1>
           <p className="mt-10 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed">
             Carnets de route, conseils pratiques et coups de cœur — pour préparer

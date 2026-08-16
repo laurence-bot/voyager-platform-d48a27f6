@@ -327,7 +327,7 @@ function Index() {
               Chez <strong>La Voyagerie</strong>, nous créons des voyages personnalisés conçus
               avec passion et expérience. Chaque destination est testée par notre équipe avant
               de vous être proposée — pour des séjours uniques, authentiques et adaptés à
-              vos envies. <em className="italic text-clay">Voyagez en toute confiance</em>
+              vos envies. <em className="italic text-gold-gradient">Voyagez en toute confiance</em>
               &nbsp;avec une agence qui connaît le terrain.
             </h2>
             <Link
@@ -363,7 +363,7 @@ function Index() {
             </p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-[2.5rem] lg:text-5xl leading-[1.05] tracking-tight mb-4">
               Bonjour,<br />
-              <em className="italic text-clay">je suis Laurence.</em>
+              <em className="italic text-gold-gradient">je suis Laurence.</em>
             </h2>
             <p className="font-hand text-2xl md:text-3xl text-clay mb-5">
               Vingt ans de routes, de carnets et de rencontres.
@@ -406,7 +406,7 @@ function Index() {
               <h2 className="font-display text-4xl sm:text-5xl md:text-[2rem] lg:text-4xl leading-[0.95]">
                 Nos huit destinations
                 <br />
-                <em className="italic text-clay">coups de cœur.</em>
+                <em className="italic text-gold-gradient">coups de cœur.</em>
               </h2>
             </div>
             <p className="max-w-xs text-sm text-muted-foreground pb-4 leading-relaxed">
@@ -456,7 +456,7 @@ function Index() {
             <h3 className="font-display text-2xl sm:text-3xl md:text-[2rem] lg:text-4xl mb-8 md:mb-10 max-w-2xl mx-auto leading-tight">
               Namibie, Pérou, Mongolie, Patagonie…
               <br />
-              <em className="italic text-clay">parcourez le monde entier.</em>
+              <em className="italic text-gold-gradient">parcourez le monde entier.</em>
             </h3>
             <Link
               to="/voyage-sur-mesure"
@@ -476,7 +476,7 @@ function Index() {
             <div className="md:col-span-5">
               <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">Nos engagements</p>
               <h2 className="font-display text-3xl sm:text-4xl md:text-[2rem] lg:text-4xl leading-[0.95]">
-                Une promesse <em className="italic text-clay">tenue</em>, du premier mot au retour.
+                Une promesse <em className="italic text-gold-gradient">tenue</em>, du premier mot au retour.
               </h2>
             </div>
             <div className="md:col-span-6 md:col-start-7 flex items-end">
@@ -506,7 +506,7 @@ function Index() {
           <h2 className="font-display text-3xl sm:text-4xl md:text-[2rem] lg:text-4xl leading-[0.95] mb-4 md:mb-6 max-w-3xl">
             Le voyage, raconté
             <br />
-            <em className="italic text-clay">en images vraies.</em>
+            <em className="italic text-gold-gradient">en images vraies.</em>
           </h2>
           <p className="max-w-2xl text-sm md:text-base text-muted-foreground mb-8 md:mb-10 leading-relaxed">
             Nous filmons nos repérages — sans mise en scène, sans drone publicitaire.
@@ -550,7 +550,7 @@ function Index() {
             <div className="md:col-span-7">
               <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">Parcourir le monde</p>
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[0.95]">
-                Cinq continents, <em className="italic text-clay">mille itinéraires.</em>
+                Cinq continents, <em className="italic text-gold-gradient">mille itinéraires.</em>
               </h2>
             </div>
             <div className="md:col-span-5">
@@ -609,7 +609,7 @@ function Index() {
             <div>
               <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">Carnet de voyage</p>
               <h2 className="font-display text-3xl sm:text-4xl md:text-[2rem] lg:text-4xl leading-[0.95] max-w-3xl">
-                Récits, conseils & <em className="italic text-clay">inspirations</em>.
+                Récits, conseils & <em className="italic text-gold-gradient">inspirations</em>.
               </h2>
             </div>
             <Link
@@ -710,7 +710,7 @@ function Index() {
             <div className="md:col-span-4">
               <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">Questions fréquentes</p>
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05]">
-                Tout ce que <em className="italic text-clay">vous voulez savoir</em> avant de partir.
+                Tout ce que <em className="italic text-gold-gradient">vous voulez savoir</em> avant de partir.
               </h2>
             </div>
             <div className="md:col-span-8">

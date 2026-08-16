@@ -68,7 +68,7 @@ function ExperiencePage() {
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-clay mb-6">II — Pour qui ?</p>
           <h2 className="font-display text-3xl md:text-[2rem] lg:text-4xl mb-12">
-            Une expérience pensée <em className="italic text-clay">pour vous.</em>
+            Une expérience pensée <em className="italic text-gold-gradient">pour vous.</em>
           </h2>
           <ul className="grid md:grid-cols-2 gap-x-12 gap-y-2">
             {e.pourQui.map((p: string, i: number) => (
@@ -87,7 +87,7 @@ function ExperiencePage() {
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-clay mb-6">III — Itinéraires d'inspiration</p>
           <h2 className="font-display text-3xl md:text-[2rem] lg:text-4xl mb-12 max-w-3xl">
-            Trois exemples <em className="italic text-clay">à personnaliser.</em>
+            Trois exemples <em className="italic text-gold-gradient">à personnaliser.</em>
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {e.exemples.map((ex: { titre: string; desc: string; duree: string }) => (
@@ -105,7 +105,7 @@ function ExperiencePage() {
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-clay mb-6">IV — Destinations</p>
           <h2 className="font-display text-3xl md:text-[2rem] lg:text-4xl mb-12 max-w-3xl">
-            Où vivre votre <em className="italic text-clay">{e.name.toLowerCase()}</em> ?
+            Où vivre votre <em className="italic text-gold-gradient">{e.name.toLowerCase()}</em> ?
           </h2>
           <div className="flex flex-wrap gap-3">
             {e.destinations.map((d: string) => (

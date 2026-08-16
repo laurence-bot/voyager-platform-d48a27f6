@@ -120,7 +120,7 @@ export function ContactForm() {
           ✦ Message bien reçu
         </p>
         <h2 className="font-display text-3xl md:text-4xl mb-4">
-          Merci. <em className="italic text-clay">Le récit commence.</em>
+          Merci. <em className="italic text-gold-gradient">Le récit commence.</em>
         </h2>
         <p className="text-muted-foreground max-w-md mx-auto">
           Une de nos conseillères vous écrira sous trois jours ouvrés, à la main,
