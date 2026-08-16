@@ -8,6 +8,8 @@ import moodTrekImg from "@/assets/mood-trek-lac.jpg";
 import moodPortraitImg from "@/assets/mood-portrait-boho.jpg";
 import kyotoImg from "@/assets/dest-kyoto.jpg";
 import namibieImg from "@/assets/dest-namibie.jpg";
+import namibie4x4Asset from "@/assets/namibie-4x4-carte.jpg.asset.json";
+const namibie4x4Img = namibie4x4Asset.url;
 
 import mongolieAsset from "@/assets/mongolie-nomades.jpg.asset.json";
 const mongolieImg = mongolieAsset.url;
@@ -190,7 +192,7 @@ const engagements = [
 
 const journal = [
   {
-    img: namibieImg,
+    img: namibie4x4Img,
     cat: "Carnet · Afrique",
     date: "Avril 2026",
     title: "Namibie : dix jours sous les étoiles du Namib",
