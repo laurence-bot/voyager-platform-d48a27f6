@@ -1,12 +1,8 @@
-import {
-  Outlet,
-  createRootRoute,
-  HeadContent,
-  Scripts,
-} from "@tanstack/react-router";
+import { Outlet, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 import { AutoBreadcrumb } from "@/components/AutoBreadcrumb";
+import { CookieConsent } from "@/components/CookieConsent";
 
 const SITE_URL = "https://lavoyagerie.fr";
 
@@ -97,7 +93,6 @@ export const Route = createRootRoute({
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=Caveat:wght@400;500;600&display=swap",
       },
-
     ],
     scripts: [
       {
@@ -130,6 +125,7 @@ function RootComponent() {
     <>
       <AutoBreadcrumb />
       <Outlet />
+      <CookieConsent />
     </>
   );
 }
