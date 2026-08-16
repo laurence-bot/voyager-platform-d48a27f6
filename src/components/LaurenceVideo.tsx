@@ -48,7 +48,7 @@ export default function LaurenceVideo({ src, poster, className }: Props) {
         preload="metadata"
         crossOrigin="anonymous"
         aria-label="Laurence Palandjian, fondatrice de La Voyagerie, vous accueille"
-        className={`w-full h-full object-cover object-top ${className ?? ""}`}
+        className={className ?? "w-full h-full object-cover object-top"}
       >
         <track
           kind="captions"
