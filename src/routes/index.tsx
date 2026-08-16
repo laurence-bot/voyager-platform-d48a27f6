@@ -348,7 +348,7 @@ function Index() {
                 <LaurenceVideo
                   src={laurenceVideoAsset.url}
                   poster={laurencePortrait}
-                  className="w-full aspect-[720/1072] object-contain object-center"
+                  className="w-full aspect-[720/1072] object-cover object-center"
                 />
               </div>
             </div>
