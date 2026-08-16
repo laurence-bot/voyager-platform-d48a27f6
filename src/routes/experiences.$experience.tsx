@@ -57,14 +57,14 @@ function ExperiencePage() {
         </div>
       </section>
 
-      <section className="py-14 md:py-20">
+      <section className="py-10 md:py-14">
         <div className="mx-auto max-w-[1100px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-clay mb-6">I — L'esprit</p>
           <p className="font-display text-2xl md:text-3xl leading-[1.4]">{e.intro}</p>
         </div>
       </section>
 
-      <section className="py-14 md:py-20 bg-cream border-y border-border">
+      <section className="py-10 md:py-14 bg-cream border-y border-border">
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-clay mb-6">II — Pour qui ?</p>
           <h2 className="font-display text-3xl md:text-[2rem] lg:text-4xl mb-12">
@@ -83,7 +83,7 @@ function ExperiencePage() {
         </div>
       </section>
 
-      <section className="py-14 md:py-20">
+      <section className="py-10 md:py-14">
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-clay mb-6">III — Itinéraires d'inspiration</p>
           <h2 className="font-display text-3xl md:text-[2rem] lg:text-4xl mb-12 max-w-3xl">
@@ -101,7 +101,7 @@ function ExperiencePage() {
         </div>
       </section>
 
-      <section className="py-14 md:py-20 paper">
+      <section className="py-10 md:py-14 paper">
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-clay mb-6">IV — Destinations</p>
           <h2 className="font-display text-3xl md:text-[2rem] lg:text-4xl mb-12 max-w-3xl">
@@ -117,7 +117,7 @@ function ExperiencePage() {
         </div>
       </section>
 
-      <section className="py-14 md:py-20 bg-ink text-cream text-center">
+      <section className="py-10 md:py-14 bg-ink text-cream text-center">
         <div className="mx-auto max-w-[1100px] px-6 md:px-12">
           <h2 className="font-display text-4xl md:text-[2rem] lg:text-4xl leading-[0.95]">
             Composons votre <em className="italic text-ochre">{e.name.toLowerCase()}.</em>

@@ -67,7 +67,7 @@ function ArticlePage() {
         </div>
       </section>
 
-      <article className="py-14 md:py-20">
+      <article className="py-10 md:py-14">
         <div className="mx-auto max-w-[760px] px-6 md:px-12 space-y-8">
           <p className="font-display text-2xl md:text-3xl leading-[1.4] text-clay italic">{a.excerpt}</p>
           {a.body.map((p: string, i: number) => (
