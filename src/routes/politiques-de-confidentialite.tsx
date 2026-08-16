@@ -47,7 +47,7 @@ function Privacy() {
         </div>
       </section>
 
-      <article className="py-12 md:py-16">
+      <article className="py-8 md:py-12">
         <div className="mx-auto max-w-[1200px] px-6 md:px-12">
           <Section title="Responsable du traitement">
             <p>

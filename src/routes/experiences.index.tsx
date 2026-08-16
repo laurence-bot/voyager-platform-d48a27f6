@@ -40,7 +40,7 @@ function ExperiencesIndex() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16">
+      <section className="py-8 md:py-12">
         <div className="mx-auto max-w-[1200px] lg:max-w-[1280px] xl:max-w-[1400px] 2xl:max-w-[1560px] px-6 md:px-12 grid md:grid-cols-2 gap-8">
           {experiences.map((e) => (
             <Link

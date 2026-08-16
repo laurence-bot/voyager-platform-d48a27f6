@@ -80,7 +80,7 @@ function PaiementsPage() {
       </section>
 
       {/* Steps */}
-      <section className="py-20 md:py-28">
+      <section className="py-12 md:py-18">
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <p className="text-[11px] uppercase tracking-[0.3em] text-clay mb-6">
             ✦ Comment ça fonctionne

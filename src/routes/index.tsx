@@ -269,7 +269,7 @@ function Index() {
       {/* MOT D'ACCUEIL — manuscrit */}
       <section className="paper border-b border-border">
         <div className="boho-band w-full opacity-80" aria-hidden />
-        <div className="mx-auto max-w-[900px] px-5 md:px-12 py-10 md:py-16 text-center">
+        <div className="mx-auto max-w-[900px] px-5 md:px-12 py-8 md:py-12 text-center">
           <p className="font-hand text-[1.6rem] sm:text-3xl md:text-4xl leading-[1.5] text-ink/85">
             Ici, pas de catalogue ni de formulaire froid. Juste une petite équipe,
             un carnet, un thé, et l'envie d'écouter votre histoire avant d'écrire la suite.
@@ -280,7 +280,7 @@ function Index() {
       </section>
 
       {/* PILIERS */}
-      <section className="py-10 md:py-16 bg-cream border-b border-border">
+      <section className="py-8 md:py-12 bg-cream border-b border-border">
         <div className="mx-auto max-w-[1400px] px-5 md:px-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           {piliers.map(([n, t, d]) => (
             <div key={n} className="relative pl-5 border-l border-clay/25">
@@ -315,7 +315,7 @@ function Index() {
       </div>
 
       {/* MANIFESTE — votre agence à votre écoute */}
-      <section className="relative py-8 md:py-14">
+      <section className="relative py-6 md:py-10">
         <div className="mx-auto max-w-[1400px] px-5 md:px-12 grid md:grid-cols-12 gap-6 md:gap-10">
           <div className="md:col-span-3">
             <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay">I — À votre écoute</p>
@@ -339,7 +339,7 @@ function Index() {
       </section>
 
       {/* RENCONTREZ LAURENCE */}
-      <section className="relative py-12 md:py-16 paper border-t border-border overflow-hidden">
+      <section className="relative py-8 md:py-12 paper border-t border-border overflow-hidden">
         <div className="mx-auto max-w-[1400px] px-5 md:px-12 grid md:grid-cols-12 gap-10 md:gap-12 lg:gap-16 items-center">
           <div className="relative md:col-span-5 max-w-[440px] lg:max-w-[480px] mx-auto md:mx-0">
             {/* halo terracotta + cadre arche */}
@@ -395,10 +395,10 @@ function Index() {
 
 
       {/* DESTINATIONS PHARES */}
-      <section id="destinations" className="relative paper text-foreground py-10 md:py-16 border-t border-border">
+      <section id="destinations" className="relative paper text-foreground py-8 md:py-12 border-t border-border">
         <div className="gold-rule absolute top-0 inset-x-0" aria-hidden />
         <div className="mx-auto max-w-[1200px] lg:max-w-[1280px] xl:max-w-[1400px] 2xl:max-w-[1560px] px-5 md:px-12">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-10 mb-10 md:mb-16">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-10 mb-8 md:mb-10">
             <div>
               <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">II — Destinations phares</p>
               <h2 className="font-display text-4xl sm:text-5xl md:text-[2rem] lg:text-4xl leading-[0.95]">
@@ -413,7 +413,7 @@ function Index() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-6 md:gap-x-8 gap-y-10 md:gap-y-14">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-6 md:gap-x-8 gap-y-8 md:gap-y-10">
             {phares.map((d) => (
               <Link
                 key={d.n}
@@ -447,7 +447,7 @@ function Index() {
             ))}
           </div>
 
-          <div className="mt-14 md:mt-20 text-center border-t border-border pt-12 md:pt-16 py-0 my-[8px]">
+          <div className="mt-10 md:mt-12 text-center border-t border-border pt-8 md:pt-10 py-0 my-[8px]">
             <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">
               Collection d'itinéraires · 100 % personnalisables
             </p>
@@ -468,9 +468,9 @@ function Index() {
 
 
       {/* ENGAGEMENTS */}
-      <section className="py-10 md:py-16 bg-cream border-t border-border">
+      <section className="py-8 md:py-12 bg-cream border-t border-border">
         <div className="mx-auto max-w-[1400px] px-5 md:px-12">
-          <div className="grid md:grid-cols-12 gap-6 md:gap-10 mb-10 md:mb-16">
+          <div className="grid md:grid-cols-12 gap-6 md:gap-10 mb-8 md:mb-10">
             <div className="md:col-span-5">
               <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">Nos engagements</p>
               <h2 className="font-display text-3xl sm:text-4xl md:text-[2rem] lg:text-4xl leading-[0.95]">
@@ -485,7 +485,7 @@ function Index() {
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 md:gap-x-12 gap-y-10 md:gap-y-14 border-t border-border pt-10 md:pt-14">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 md:gap-x-12 gap-y-8 md:gap-y-10 border-t border-border pt-8 md:pt-10">
             {engagements.map(([n, t, d]) => (
               <div key={n}>
                 <p className="font-display italic text-clay text-2xl md:text-3xl mb-3">{n}</p>
@@ -498,7 +498,7 @@ function Index() {
       </section>
 
       {/* VIDÉOS AUTHENTIQUES */}
-      <section className="py-10 md:py-16 paper">
+      <section className="py-8 md:py-12 paper">
         <div className="mx-auto max-w-[1400px] px-5 md:px-12">
           <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">III — Vidéos authentiques</p>
           <h2 className="font-display text-3xl sm:text-4xl md:text-[2rem] lg:text-4xl leading-[0.95] mb-4 md:mb-6 max-w-3xl">
@@ -506,7 +506,7 @@ function Index() {
             <br />
             <em className="italic text-clay">en images vraies.</em>
           </h2>
-          <p className="max-w-2xl text-sm md:text-base text-muted-foreground mb-10 md:mb-14 leading-relaxed">
+          <p className="max-w-2xl text-sm md:text-base text-muted-foreground mb-8 md:mb-10 leading-relaxed">
             Nous filmons nos repérages — sans mise en scène, sans drone publicitaire.
             Pour vous donner une idée juste de ce que vous allez vivre, et de ce que
             nous savons composer.
@@ -547,9 +547,9 @@ function Index() {
       </section>
 
       {/* CONTINENTS */}
-      <section className="py-12 md:py-20 bg-background">
+      <section className="py-10 md:py-14 bg-background">
         <div className="mx-auto max-w-[1400px] px-5 md:px-12">
-          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-end mb-10 md:mb-14">
+          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-end mb-8 md:mb-10">
             <div className="md:col-span-7">
               <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">Parcourir le monde</p>
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[0.95]">
@@ -606,9 +606,9 @@ function Index() {
       </section>
 
       {/* JOURNAL */}
-      <section className="py-10 md:py-16 bg-cream border-t border-border">
+      <section className="py-8 md:py-12 bg-cream border-t border-border">
         <div className="mx-auto max-w-[1400px] px-5 md:px-12">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-10 mb-10 md:mb-16">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-10 mb-8 md:mb-10">
             <div>
               <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">Carnet de voyage</p>
               <h2 className="font-display text-3xl sm:text-4xl md:text-[2rem] lg:text-4xl leading-[0.95] max-w-3xl">
@@ -657,7 +657,7 @@ function Index() {
       </section>
 
       {/* ÉTAPES */}
-      <section className="py-8 md:py-14 paper">
+      <section className="py-6 md:py-10 paper">
         <div className="mx-auto max-w-[1400px] px-5 md:px-12 grid md:grid-cols-12 gap-6 md:gap-10">
           <div className="md:col-span-4">
             <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">IV — Les étapes</p>
@@ -687,7 +687,7 @@ function Index() {
       </section>
 
       {/* QUOTE */}
-      <section className="bg-clay text-cream py-12 md:py-16 relative overflow-hidden">
+      <section className="bg-clay text-cream py-8 md:py-12 relative overflow-hidden">
         <div className="grain absolute inset-0" />
         <div className="boho-band absolute top-0 inset-x-0 opacity-40 invert" aria-hidden />
         <div className="relative mx-auto max-w-5xl px-5 md:px-12 text-center">
@@ -707,9 +707,9 @@ function Index() {
 
 
       {/* FAQ */}
-      <section className="py-10 md:py-16 bg-cream border-t border-border">
+      <section className="py-8 md:py-12 bg-cream border-t border-border">
         <div className="mx-auto max-w-[1100px] px-5 md:px-12">
-          <div className="grid md:grid-cols-12 gap-6 md:gap-10 mb-10 md:mb-16">
+          <div className="grid md:grid-cols-12 gap-6 md:gap-10 mb-8 md:mb-10">
             <div className="md:col-span-4">
               <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">Questions fréquentes</p>
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05]">
@@ -738,7 +738,7 @@ function Index() {
       </section>
 
       {/* CTA FINAL */}
-      <section className="py-12 md:py-20 paper relative">
+      <section className="py-10 md:py-14 paper relative">
         <div className="boho-band absolute top-0 inset-x-0 opacity-70" aria-hidden />
         <div className="mx-auto max-w-[1400px] px-5 md:px-12 text-center">
           <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-6 md:mb-8">V — Écrire</p>

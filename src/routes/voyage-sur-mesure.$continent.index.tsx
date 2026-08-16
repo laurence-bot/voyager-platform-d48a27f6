@@ -57,7 +57,7 @@ function ContinentPage() {
         </div>
       </section>
 
-      <section className="py-14 md:py-20">
+      <section className="py-10 md:py-14">
         <div className="mx-auto max-w-[1100px] px-6 md:px-12">
           <p className="font-display text-2xl md:text-3xl leading-[1.4] text-foreground">
             {continent.intro}

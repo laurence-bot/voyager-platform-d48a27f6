@@ -44,7 +44,7 @@ function DemandeDevis() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16">
+      <section className="py-8 md:py-12">
         <div className="mx-auto max-w-[1400px] px-6 md:px-12 grid lg:grid-cols-12 gap-12 lg:gap-20">
           <aside className="lg:col-span-4 lg:sticky lg:top-32 lg:self-start space-y-10">
             <div>
