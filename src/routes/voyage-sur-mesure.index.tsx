@@ -31,7 +31,7 @@ function AllDestinations() {
             ✦ Parcourir le monde
           </p>
           <h1 className="font-display text-5xl md:text-8xl leading-[0.9] tracking-tight max-w-[18ch]">
-            Voyage <em className="italic text-clay">sur mesure.</em>
+            Voyage <em className="italic text-gold-gradient">sur mesure.</em>
           </h1>
           <p className="mt-10 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed">
             La Voyagerie est votre agence de voyage sur-mesure où la passion pour

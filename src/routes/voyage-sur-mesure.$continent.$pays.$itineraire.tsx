@@ -222,7 +222,7 @@ function ItinerairePage() {
         <div className="mx-auto max-w-[1100px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-clay mb-4">I — Le séjour</p>
           <h2 className="font-display text-3xl md:text-[2rem] lg:text-4xl mb-6">
-            {itineraire.level} <em className="italic text-clay">en {pays.name}.</em>
+            {itineraire.level} <em className="italic text-gold-gradient">en {pays.name}.</em>
           </h2>
           <p className="font-display text-xl md:text-2xl leading-[1.4] text-foreground mb-8">
             {itineraire.pitch}
@@ -270,7 +270,7 @@ function ItinerairePage() {
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-clay mb-4">II — Itinéraire</p>
           <h2 className="font-display text-3xl md:text-[2rem] lg:text-4xl mb-10">
-            Programme <em className="italic text-clay">jour par jour.</em>
+            Programme <em className="italic text-gold-gradient">jour par jour.</em>
           </h2>
 
           <div className={`grid md:grid-cols-12 gap-6 lg:gap-8`}>
@@ -496,7 +496,7 @@ function ItinerairePage() {
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-clay mb-4">III — Inclus / Exclus</p>
           <h2 className="font-display text-3xl md:text-[2rem] lg:text-4xl mb-10">
-            Ce que comprend <em className="italic text-clay">votre voyage.</em>
+            Ce que comprend <em className="italic text-gold-gradient">votre voyage.</em>
           </h2>
           <div className="grid md:grid-cols-2 gap-10">
             <div>
@@ -583,7 +583,7 @@ function ItinerairePage() {
               </p>
               <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
                 <h2 className="font-display text-3xl md:text-[2rem] lg:text-4xl leading-tight max-w-3xl">
-                  Découvrez nos autres <em className="italic text-clay">circuits {pays.name}.</em>
+                  Découvrez nos autres <em className="italic text-gold-gradient">circuits {pays.name}.</em>
                 </h2>
                 <Link
                   to="/voyage-sur-mesure/$continent/$pays"

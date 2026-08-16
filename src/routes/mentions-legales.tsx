@@ -42,7 +42,7 @@ function MentionsLegales() {
             ✦ Informations légales
           </p>
           <h1 className="font-display text-5xl md:text-[2rem] lg:text-4xl leading-[0.95] tracking-tight">
-            Mentions <em className="italic text-clay">légales.</em>
+            Mentions <em className="italic text-gold-gradient">légales.</em>
           </h1>
         </div>
       </section>

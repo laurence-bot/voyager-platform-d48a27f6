@@ -56,7 +56,7 @@ function NotFoundComponent() {
       <div className="max-w-md text-center">
         <p className="text-[11px] uppercase tracking-[0.3em] text-clay mb-4">Erreur 404</p>
         <h1 className="font-display text-6xl text-foreground">
-          Page <em className="italic text-clay">introuvable</em>
+          Page <em className="italic text-gold-gradient">introuvable</em>
         </h1>
         <p className="mt-4 text-sm text-muted-foreground">
           Cette page n'existe pas ou s'est égarée en route. Il arrive aussi aux pages de voyager.

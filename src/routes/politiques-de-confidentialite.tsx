@@ -42,7 +42,7 @@ function Privacy() {
             ✦ Vos données, votre confiance
           </p>
           <h1 className="font-display text-5xl md:text-[2rem] lg:text-4xl leading-[0.95] tracking-tight">
-            Politique de <em className="italic text-clay">confidentialité.</em>
+            Politique de <em className="italic text-gold-gradient">confidentialité.</em>
           </h1>
         </div>
       </section>

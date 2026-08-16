@@ -106,7 +106,7 @@ function ReservationPage() {
           <h1 className="font-display text-[2.5rem] sm:text-5xl md:text-7xl leading-[0.95] tracking-tight max-w-[18ch]">
             Choisissez votre
             <br />
-            <em className="italic text-clay">moment privilégié.</em>
+            <em className="italic text-gold-gradient">moment privilégié.</em>
           </h1>
           <p className="mt-6 md:mt-10 max-w-2xl text-sm md:text-lg text-muted-foreground leading-relaxed">
             Trente minutes pour cerner votre projet. Sélectionnez la date, l'heure
@@ -124,7 +124,7 @@ function ReservationPage() {
                 <Check className="h-6 w-6" />
               </div>
               <h2 className="font-display text-3xl md:text-4xl mb-4">
-                Votre demande est <em className="italic text-clay">enregistrée.</em>
+                Votre demande est <em className="italic text-gold-gradient">enregistrée.</em>
               </h2>
               <p className="text-muted-foreground">
                 Un conseiller vous confirmera très vite votre rendez-vous

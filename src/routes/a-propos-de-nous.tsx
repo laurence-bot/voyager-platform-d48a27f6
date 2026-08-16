@@ -95,7 +95,7 @@ function APropos() {
           <h1 className="font-display text-5xl md:text-8xl leading-[0.9] tracking-tight max-w-[18ch]">
             Experte
             <br />
-            <em className="italic text-clay">en sur-mesure.</em>
+            <em className="italic text-gold-gradient">en sur-mesure.</em>
           </h1>
           <p className="mt-10 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed">
             La Voyagerie est votre agence de voyage sur-mesure à Cassis. La passion
@@ -178,7 +178,7 @@ function APropos() {
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <p className="text-[11px] uppercase tracking-[0.3em] text-clay mb-6">III — Nos experts locaux</p>
           <h2 className="font-display text-4xl md:text-[2rem] lg:text-4xl leading-[0.95] mb-6 max-w-3xl">
-            Pour un voyage <em className="italic text-clay">authentique.</em>
+            Pour un voyage <em className="italic text-gold-gradient">authentique.</em>
           </h2>
           <p className="max-w-2xl text-muted-foreground mb-10 leading-relaxed">
             Nos spécialistes locaux sont des professionnels — mais avant tout des amoureux
@@ -203,7 +203,7 @@ function APropos() {
       <section className="py-14 md:py-24 bg-cream text-center">
         <div className="mx-auto max-w-[1100px] px-6 md:px-12">
           <h2 className="font-display text-4xl md:text-[2rem] lg:text-4xl leading-[0.95] tracking-tight">
-            Créons votre voyage <em className="italic text-clay">ensemble.</em>
+            Créons votre voyage <em className="italic text-gold-gradient">ensemble.</em>
           </h2>
           <Link
             to="/demande-de-devis"

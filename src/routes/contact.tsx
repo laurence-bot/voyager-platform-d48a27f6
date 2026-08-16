@@ -34,7 +34,7 @@ function ContactPage() {
           <h1 className="font-display text-5xl md:text-8xl leading-[0.9] tracking-tight max-w-[18ch]">
             Racontez-nous
             <br />
-            <em className="italic text-clay">votre voyage rêvé.</em>
+            <em className="italic text-gold-gradient">votre voyage rêvé.</em>
           </h1>
           <p className="mt-10 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed">
             Chaque itinéraire commence par une conversation. Remplissez ce formulaire

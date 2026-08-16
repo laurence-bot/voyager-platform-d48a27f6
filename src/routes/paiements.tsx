@@ -54,7 +54,7 @@ function PaiementsPage() {
           <h1 className="font-display text-5xl md:text-8xl leading-[0.9] tracking-tight max-w-[18ch]">
             Réglez votre voyage
             <br />
-            <em className="italic text-clay">en toute sérénité.</em>
+            <em className="italic text-gold-gradient">en toute sérénité.</em>
           </h1>
           <p className="mt-10 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed">
             Accédez à notre plateforme de paiement sécurisée, opérée par la Société Générale.
@@ -86,7 +86,7 @@ function PaiementsPage() {
             ✦ Comment ça fonctionne
           </p>
           <h2 className="font-display text-4xl md:text-6xl leading-[0.95] tracking-tight max-w-[20ch]">
-            Suivez ces étapes pour <em className="italic text-clay">régler votre voyage</em> simplement.
+            Suivez ces étapes pour <em className="italic text-gold-gradient">régler votre voyage</em> simplement.
           </h2>
 
           <div className="mt-16 grid gap-10 md:grid-cols-3">

@@ -100,7 +100,7 @@ function RDV() {
           <h1 className="font-display text-[2.5rem] sm:text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight max-w-[18ch]">
             Parlons de votre
             <br />
-            <em className="italic text-clay">prochain voyage.</em>
+            <em className="italic text-gold-gradient">prochain voyage.</em>
           </h1>
           <p className="mt-6 md:mt-10 max-w-2xl text-sm md:text-lg text-muted-foreground leading-relaxed">
             Choisissez le moment qui vous convient. Nous vous rappelons par téléphone
@@ -142,7 +142,7 @@ function RDV() {
                   <Check className="h-6 w-6" />
                 </div>
                 <h2 className="font-display text-3xl md:text-4xl mb-4">
-                  Votre demande est <em className="italic text-clay">enregistrée.</em>
+                  Votre demande est <em className="italic text-gold-gradient">enregistrée.</em>
                 </h2>
                 <p className="text-muted-foreground max-w-md mx-auto">
                   Un conseiller vous confirmera très vite votre rendez-vous
@@ -172,7 +172,7 @@ function RDV() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="border border-border rounded-2xl p-6 md:p-10 paper">
                   <h2 className="font-display text-3xl md:text-4xl mb-6">
-                    Choisir une <em className="italic text-clay">date.</em>
+                    Choisir une <em className="italic text-gold-gradient">date.</em>
                   </h2>
                   <div className="grid md:grid-cols-2 gap-8">
                     <div>
@@ -221,7 +221,7 @@ function RDV() {
 
                 <div className="border border-border rounded-2xl p-6 md:p-10 bg-cream space-y-6">
                   <h2 className="font-display text-3xl md:text-4xl">
-                    Vos <em className="italic text-clay">coordonnées.</em>
+                    Vos <em className="italic text-gold-gradient">coordonnées.</em>
                   </h2>
 
                   <div className="grid sm:grid-cols-2 gap-4">
