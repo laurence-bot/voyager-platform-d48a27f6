@@ -12,7 +12,8 @@ import contAsie from "@/assets/continent-asie.jpg.asset.json";
 import contOceanie from "@/assets/continent-oceanie.jpg.asset.json";
 import contEurope from "@/assets/continent-europe.jpg.asset.json";
 import kyotoImg from "@/assets/dest-kyoto.jpg";
-import namibieImg from "@/assets/dest-namibie.jpg";
+import namibieAsset from "@/assets/namibie-himba.jpg.asset.json";
+const namibieImg = namibieAsset.url;
 import namibie4x4Asset from "@/assets/namibie-4x4-carte.jpg.asset.json";
 const namibie4x4Img = namibie4x4Asset.url;
 
