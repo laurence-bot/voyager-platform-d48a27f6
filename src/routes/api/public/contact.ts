@@ -18,11 +18,48 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // Extrait les infos structurées depuis un message au format :
 // "Destination : OUGANDA\nVoyageurs : 2\nPériode : Février\nBudget : 8-12k\n..."
+function parsePaxValue(value: unknown): number | null {
+  if (typeof value === "number" && Number.isFinite(value) && value > 0) {
+    return Math.floor(value);
+  }
+
+  if (typeof value !== "string") return null;
+  const numbers = value.match(/\d+/g);
+  if (!numbers?.length) return null;
+  const parsed = Number(numbers[numbers.length - 1]);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : null;
+}
+
+function parseBudgetValue(value: unknown): number | null {
+  if (typeof value === "number" && Number.isFinite(value) && value > 0) {
+    return value;
+  }
+
+  if (typeof value !== "string") return null;
+  const normalized = value
+    .toLowerCase()
+    .replace(/(\d)\s+(?=\d)/g, "$1")
+    .replace(/€/g, "")
+    .replace(/\s+/g, "");
+  const matches = [...normalized.matchAll(/(\d+(?:[.,]\d+)?)(k|m)?/g)];
+  const values = matches
+    .map((match) => {
+      const base = Number(match[1].replace(",", "."));
+      if (!Number.isFinite(base)) return null;
+      if (match[2] === "k") return base * 1000;
+      if (match[2] === "m") return base * 1_000_000;
+      return base;
+    })
+    .filter((amount): amount is number => amount !== null && amount > 0);
+
+  return values.length ? Math.max(...values) : null;
+}
+
 function extractFromMessage(message: string) {
   const result = {
     destination: null as string | null,
     voyageurs: null as number | null,
-    budget: null as string | null,
+    budget: null as number | null,
   };
 
   if (!message) return result;
@@ -36,10 +73,9 @@ function extractFromMessage(message: string) {
     if (label === "destination" && !result.destination) {
       result.destination = value;
     } else if ((label === "voyageurs" || label === "voyageur" || label === "pax") && result.voyageurs === null) {
-      const n = parseInt(value, 10);
-      if (!isNaN(n) && n > 0) result.voyageurs = n;
+      result.voyageurs = parsePaxValue(value);
     } else if (label === "budget" && !result.budget) {
-      result.budget = value;
+      result.budget = parseBudgetValue(value);
     }
   }
 
@@ -86,14 +122,9 @@ export const Route = createFileRoute("/api/public/contact")({
 
           let nombrePax: number | null = null;
           const rawPax = body.voyageurs ?? body.pax ?? body.nombre_voyageurs;
-          if (typeof rawPax === "number" && rawPax > 0) {
-            nombrePax = Math.floor(rawPax);
-          } else if (typeof rawPax === "string") {
-            const n = parseInt(rawPax, 10);
-            if (!isNaN(n) && n > 0) nombrePax = n;
-          }
+          nombrePax = parsePaxValue(rawPax);
 
-          let budget: string | null = typeof body.budget === "string" && body.budget.trim() ? body.budget.trim() : null;
+          let budget: number | null = parseBudgetValue(body.budget);
 
           // 2) Fallback : extraction depuis le message
           const parsed = extractFromMessage(message);
