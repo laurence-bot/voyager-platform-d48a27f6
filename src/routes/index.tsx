@@ -340,7 +340,7 @@ function Index() {
       {/* RENCONTREZ LAURENCE */}
       <section className="relative py-12 md:py-20 paper border-t border-border overflow-hidden">
         <div className="mx-auto max-w-[1400px] px-5 md:px-12 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-          <div className="relative order-1 md:order-1 max-w-[440px] mx-auto md:mx-0">
+          <div className="relative order-1 md:order-1 max-w-[420px] lg:max-w-[460px] mx-auto md:mx-0">
             {/* halo terracotta + cadre arche */}
             <div className="absolute -inset-6 arch blur-3xl opacity-25 bg-gold/70" aria-hidden />
             <div className="relative arch border border-gold/50 p-2 md:p-3 glow-warm">
@@ -348,13 +348,12 @@ function Index() {
                 <LaurenceVideo
                   src={laurenceVideoAsset.url}
                   poster={laurencePortrait}
-                  className="w-full h-[440px] md:h-[580px] object-cover"
+                  className="w-full h-[480px] md:h-[640px] lg:h-[700px] object-cover object-top"
                 />
-
               </div>
             </div>
             {/* note manuscrite épinglée */}
-            <div className="tape relative mt-8 md:mt-0 md:absolute md:-bottom-8 md:-right-10 md:w-[260px] bg-cream border border-border shadow-[0_18px_50px_-25px_rgba(0,0,0,0.4)] px-6 py-6 md:rotate-[-2deg]">
+            <div className="tape relative z-10 mt-6 md:mt-0 md:absolute md:-bottom-6 md:-right-8 lg:-right-12 md:w-[240px] lg:w-[260px] bg-cream border border-border shadow-[0_18px_50px_-25px_rgba(0,0,0,0.4)] px-5 py-5 md:rotate-[-2deg]">
               <p className="font-hand text-xl md:text-2xl leading-snug text-ink/85">
                 « On se retrouve autour d'un café à Cassis&nbsp;? Apportez vos rêves,
                 j'apporte les cartes. »
