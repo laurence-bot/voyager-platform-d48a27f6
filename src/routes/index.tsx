@@ -18,6 +18,8 @@ import bresilImg from "@/assets/dest-bresil.jpg";
 import polynesieImg from "@/assets/dest-polynesie.jpg";
 import laurencePortrait from "@/assets/laurence-portrait.jpg";
 import laurenceVideoAsset from "@/assets/laurence-avatar.mp4.asset.json";
+import LaurenceVideo from "@/components/LaurenceVideo";
+
 
 const TITLE = "La Voyagerie — Agence de voyage sur mesure long-courrier · Cassis";
 const DESC =
@@ -340,17 +342,12 @@ function Index() {
             <div className="absolute -inset-6 arch blur-3xl opacity-25 bg-gold/70" aria-hidden />
             <div className="relative arch border border-gold/50 p-2 md:p-3 glow-warm">
               <div className="relative overflow-hidden arch bg-ink/5">
-                <video
+                <LaurenceVideo
                   src={laurenceVideoAsset.url}
                   poster={laurencePortrait}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="metadata"
-                  aria-label="Laurence Palandjian, fondatrice de La Voyagerie, vous accueille"
                   className="w-full h-[440px] md:h-[580px] object-cover"
                 />
+
               </div>
             </div>
             {/* note manuscrite épinglée */}
