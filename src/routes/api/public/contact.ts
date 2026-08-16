@@ -53,7 +53,12 @@ export const Route = createFileRoute("/api/public/contact")({
         try {
           const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
           if (isRateLimited(ip)) {
-            return Response.json({ error: "Trop de demandes. Réessayez dans quelques minutes." }, { status: 429 });
+            return Response.json(
+              {
+                error: "Trop de demandes. Réessayez dans quelques minutes.",
+              },
+              { status: 429 },
+            );
           }
 
           const body = await request.json();
@@ -120,10 +125,20 @@ export const Route = createFileRoute("/api/public/contact")({
             .select("id")
             .single();
 
+          // Info de debug renvoyée dans la réponse (visible dans F12 > Réseau)
+          let debugInfo: Record<string, unknown> = { mode: "full" };
+
           // Sécurité : si une colonne pose problème, on retente sans elles
           // (la demande est toujours enregistrée, comme avant)
           if (error) {
             console.error("Insert avec colonnes échoué, retry minimal:", error);
+            debugInfo = {
+              mode: "fallback",
+              supabase_error: error.message,
+              supabase_code: error.code,
+              supabase_details: error.details,
+              supabase_hint: error.hint,
+            };
             ({ data, error } = await supabaseAdmin.from("demandes").insert(basePayload).select("id").single());
           }
 
@@ -132,7 +147,7 @@ export const Route = createFileRoute("/api/public/contact")({
             return Response.json({ error: "Erreur lors de l'enregistrement de la demande." }, { status: 500 });
           }
 
-          return Response.json({ success: true, id: data?.id ?? null }, { status: 200 });
+          return Response.json({ success: true, id: data?.id ?? null, debug: debugInfo }, { status: 200 });
         } catch (err) {
           console.error("Contact route error:", err);
           return Response.json({ error: "Erreur serveur." }, { status: 500 });
