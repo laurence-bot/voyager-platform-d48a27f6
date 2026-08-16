@@ -62,7 +62,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
       >
         <Link to="/" className="font-display text-xl tracking-tight leading-none">
           La Voyagerie<span className="text-clay">.</span>
-          <span className="block text-[9px] uppercase tracking-[0.3em] opacity-70 mt-1 font-sans">
+          <span className="block text-[9px] uppercase tracking-[0.3em] opacity-70 mt-1 font-sans whitespace-nowrap">
             Maison de voyage sur mesure
           </span>
         </Link>
