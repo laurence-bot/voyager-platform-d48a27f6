@@ -22,6 +22,8 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
+const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT?.trim() || "/api/public/contact";
+
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
@@ -80,13 +82,16 @@ export function ContactForm() {
   const onSubmit = async (data: FormData) => {
     setServerError(null);
     try {
-      const res = await fetch("/api/public/contact", {
+      const res = await fetch(CONTACT_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           nom: data.name,
           email: data.email,
           telephone: data.phone || "",
+          destination: data.destination,
+          voyageurs: data.travelers,
+          budget: data.budget,
           message: [
             data.destination && `Destination : ${data.destination}`,
             data.travelers && `Voyageurs : ${data.travelers}`,
@@ -116,21 +121,22 @@ export function ContactForm() {
   if (submitted) {
     return (
       <div className="border border-clay/40 bg-clay/5 p-10 md:p-14 text-center">
-        <p className="text-[11px] uppercase tracking-[0.3em] text-clay mb-6">
-          ✦ Message bien reçu
-        </p>
+        <p className="text-[11px] uppercase tracking-[0.3em] text-clay mb-6">✦ Message bien reçu</p>
         <h2 className="font-display text-3xl md:text-4xl mb-4">
           Merci. <em className="italic text-gold-gradient">Le récit commence.</em>
         </h2>
         <p className="text-muted-foreground max-w-md mx-auto">
-          Une de nos conseillères vous écrira sous trois jours ouvrés, à la main,
-          pour engager la conversation.
+          Une de nos conseillères vous écrira sous trois jours ouvrés, à la main, pour engager la
+          conversation.
           {prefilled && (
             <>
               <br />
               <br />
               Vous pouvez suivre l'avancement de votre demande à tout moment depuis votre{" "}
-              <a href="/espace" className="underline hover:text-clay">espace voyageur</a>.
+              <a href="/espace" className="underline hover:text-clay">
+                espace voyageur
+              </a>
+              .
             </>
           )}
         </p>
@@ -233,11 +239,7 @@ export function ContactForm() {
       </Field>
 
       <label className="flex items-start gap-3 text-sm text-muted-foreground cursor-pointer">
-        <input
-          {...register("consent")}
-          type="checkbox"
-          className="mt-1 accent-clay w-4 h-4"
-        />
+        <input {...register("consent")} type="checkbox" className="mt-1 accent-clay w-4 h-4" />
         <span>
           J'accepte que mes données soient utilisées pour traiter ma demande, conformément à la{" "}
           <a href="/mentions-legales" className="underline hover:text-clay">
