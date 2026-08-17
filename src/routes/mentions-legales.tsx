@@ -51,46 +51,59 @@ function MentionsLegales() {
         <div className="mx-auto max-w-[1200px] px-6 md:px-12">
           <Section title="Informations générales du site">
             <p>
-              <strong className="text-foreground">La Voyagerie</strong> — Agence de voyage sur mesure.
+              <strong className="text-foreground">La Voyagerie</strong> — Agence de voyage sur
+              mesure.
             </p>
             <p>
-              Adresse de l'agence : 13 A rue de la Ciotat, 13260 Cassis, France.<br />
-              Siège social : 12 Bd du Monument, 13012 Marseille, France.<br />
-              Téléphone : <a href="tel:+33483432949" className="underline hover:text-clay">04 83 43 29 49</a>
+              Adresse de l'agence : 13 A rue de la Ciotat, 13260 Cassis, France.
+              <br />
+              Siège social : 12 Bd du Monument, 13012 Marseille, France.
+              <br />
+              Téléphone :{" "}
+              <a href="tel:+33483432949" className="underline hover:text-clay">
+                04 83 43 29 49
+              </a>
             </p>
             <p>
-              Directeur de la publication : <strong className="text-foreground">Laurence Palandjian</strong> — Gérante.<br />
+              Directeur de la publication :{" "}
+              <strong className="text-foreground">Laurence Palandjian</strong> — Gérante.
+              <br />
               Responsable de la rédaction : Laurence Palandjian.
             </p>
           </Section>
 
           <Section title="Hébergement">
             <p>
-              Hébergeur : <strong className="text-foreground">Squarespace, Inc.</strong><br />
-              Siège social : 225 Varick Street, 12th Floor, New York, NY 10014, États-Unis
+              Hébergeur : <strong className="text-foreground">OVHcloud</strong>
+              <br />
+              OVH SAS, 2 rue Kellermann, 59100 Roubaix, France
             </p>
           </Section>
 
           <Section title="Développement et webmaster">
-            <p>
-              Site développé et maintenu en interne par La Voyagerie.
-            </p>
+            <p>Site développé et maintenu en interne par La Voyagerie.</p>
           </Section>
 
           <Section title="Contact">
             <p>
               Pour toute question ou demande d'information, contactez-nous par e-mail à&nbsp;
-              <a href="mailto:bonjour@lavoyagerie.fr" className="underline hover:text-clay">bonjour@lavoyagerie.fr</a>
-              &nbsp;ou par téléphone au <a href="tel:+33483432949" className="underline hover:text-clay">04 83 43 29 49</a>.
+              <a href="mailto:bonjour@lavoyagerie.fr" className="underline hover:text-clay">
+                bonjour@lavoyagerie.fr
+              </a>
+              &nbsp;ou par téléphone au{" "}
+              <a href="tel:+33483432949" className="underline hover:text-clay">
+                04 83 43 29 49
+              </a>
+              .
             </p>
           </Section>
 
           <Section title="Propriété intellectuelle">
             <p>
               L'ensemble des contenus présents sur ce site (textes, photographies, logos,
-              graphismes, mises en page) est la propriété exclusive de La Voyagerie ou
-              de ses partenaires, et est protégé par les lois françaises et internationales
-              relatives à la propriété intellectuelle.
+              graphismes, mises en page) est la propriété exclusive de La Voyagerie ou de ses
+              partenaires, et est protégé par les lois françaises et internationales relatives à la
+              propriété intellectuelle.
             </p>
             <p>
               Toute reproduction, représentation, adaptation ou exploitation, totale ou partielle,
@@ -100,8 +113,12 @@ function MentionsLegales() {
 
           <Section title="Données personnelles">
             <p>
-              Pour toute information concernant le traitement de vos données personnelles, consultez notre&nbsp;
-              <a href="/politiques-de-confidentialite" className="underline hover:text-clay">politique de confidentialité</a>.
+              Pour toute information concernant le traitement de vos données personnelles, consultez
+              notre&nbsp;
+              <a href="/politiques-de-confidentialite" className="underline hover:text-clay">
+                politique de confidentialité
+              </a>
+              .
             </p>
           </Section>
         </div>
