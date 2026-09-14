@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
@@ -53,7 +53,29 @@ function RDV() {
   const [submitting, setSubmitting] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
+  const [bookedSlots, setBookedSlots] = useState<string[]>([]);
   const bookingId = useRef(crypto.randomUUID());
+
+  useEffect(() => {
+    if (!date) {
+      setBookedSlots([]);
+      return;
+    }
+    const controller = new AbortController();
+    fetch(`${CONTACT_ENDPOINT}?action=availability&date=${format(date, "yyyy-MM-dd")}`, {
+      signal: controller.signal,
+    })
+      .then((response) => (response.ok ? response.json() : { booked_slots: [] }))
+      .then((body: { booked_slots?: unknown }) =>
+        setBookedSlots(
+          Array.isArray(body.booked_slots)
+            ? body.booked_slots.filter((s): s is string => typeof s === "string")
+            : [],
+        ),
+      )
+      .catch(() => setBookedSlots([]));
+    return () => controller.abort();
+  }, [date]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -237,16 +259,20 @@ function RDV() {
                         <div className="grid grid-cols-3 gap-2">
                           {SLOTS.map((s) => {
                             const active = s === slot;
+                            const unavailable = bookedSlots.includes(s);
                             return (
                               <button
                                 key={s}
                                 type="button"
-                                onClick={() => setSlot(s)}
+                                onClick={() => !unavailable && setSlot(s)}
+                                disabled={unavailable}
                                 className={cn(
                                   "py-2.5 text-sm font-display rounded-sm border transition",
-                                  active
-                                    ? "bg-ink text-cream border-ink"
-                                    : "bg-background text-ink border-clay/25 hover:border-clay",
+                                  unavailable
+                                    ? "bg-muted text-muted-foreground border-border cursor-not-allowed line-through"
+                                    : active
+                                      ? "bg-ink text-cream border-ink"
+                                      : "bg-background text-ink border-clay/25 hover:border-clay",
                                 )}
                               >
                                 {s}
