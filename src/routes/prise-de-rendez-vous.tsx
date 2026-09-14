@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
@@ -53,6 +53,7 @@ function RDV() {
   const [submitting, setSubmitting] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
+  const bookingId = useRef(crypto.randomUUID());
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -91,6 +92,11 @@ function RDV() {
             "Mode de contact : téléphone",
             `Objet : ${parsed.data.subject}`,
           ].join("\n"),
+          source_type: "rendez_vous",
+          appointment_date: format(date, "yyyy-MM-dd"),
+          appointment_slot: slot,
+          contact_mode: "phone",
+          booking_id: bookingId.current,
           website: "",
         }),
       });

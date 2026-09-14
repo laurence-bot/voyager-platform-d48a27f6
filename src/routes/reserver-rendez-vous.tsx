@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
@@ -55,6 +55,7 @@ function ReservationPage() {
   const [submitting, setSubmitting] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
+  const bookingId = useRef(crypto.randomUUID());
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -98,6 +99,11 @@ function ReservationPage() {
           ]
             .filter(Boolean)
             .join("\n"),
+          source_type: "rendez_vous",
+          appointment_date: format(date, "yyyy-MM-dd"),
+          appointment_slot: slot,
+          contact_mode: contactMode,
+          booking_id: bookingId.current,
           website: "",
         }),
       });
