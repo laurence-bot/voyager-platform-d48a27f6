@@ -50,6 +50,7 @@ function RDV() {
 
   const [date, setDate] = useState<Date | undefined>();
   const [slot, setSlot] = useState<string | null>(null);
+  const [contactMode, setContactMode] = useState<"phone" | "video" | "agence">("phone");
   const [submitting, setSubmitting] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
@@ -111,13 +112,13 @@ function RDV() {
             "Demande de rendez-vous",
             `Date : ${format(date, "yyyy-MM-dd")}`,
             `Créneau : ${slot}`,
-            "Mode de contact : téléphone",
+            `Mode de contact : ${contactMode === "video" ? "visioconférence" : contactMode === "agence" ? "agence" : "téléphone"}`,
             `Objet : ${parsed.data.subject}`,
           ].join("\n"),
           source_type: "rendez_vous",
           appointment_date: format(date, "yyyy-MM-dd"),
           appointment_slot: slot,
-          contact_mode: "phone",
+          contact_mode: contactMode,
           booking_id: bookingId.current,
           website: "",
         }),
@@ -308,6 +309,35 @@ function RDV() {
                         Email *
                       </Label>
                       <Input id="email" name="email" type="email" required maxLength={200} />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label className="text-[10px] uppercase tracking-[0.3em] text-clay">
+                      Mode du rendez-vous *
+                    </Label>
+                    <div className="grid grid-cols-3 gap-2">
+                      {(
+                        [
+                          ["phone", "Téléphone"],
+                          ["video", "Visio"],
+                          ["agence", "À l'agence"],
+                        ] as const
+                      ).map(([value, label]) => (
+                        <button
+                          key={value}
+                          type="button"
+                          onClick={() => setContactMode(value)}
+                          className={cn(
+                            "rounded-sm border px-3 py-2.5 text-sm transition",
+                            contactMode === value
+                              ? "bg-ink text-cream border-ink"
+                              : "border-clay/25 hover:border-clay",
+                          )}
+                        >
+                          {label}
+                        </button>
+                      ))}
                     </div>
                   </div>
 
