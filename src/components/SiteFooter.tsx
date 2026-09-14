@@ -50,8 +50,8 @@ export function SiteFooter() {
             <div>13 A rue de la Ciotat</div>
             <div>13260 Cassis — France</div>
             <div className="pt-3">
-              <a href="mailto:bonjour@lavoyagerie.fr" className="hover:text-clay transition">
-                bonjour@lavoyagerie.fr
+              <a href="mailto:contact@lavoyagerie.fr" className="hover:text-clay transition">
+                contact@lavoyagerie.fr
               </a>
             </div>
             <div>

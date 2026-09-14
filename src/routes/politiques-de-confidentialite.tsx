@@ -53,7 +53,7 @@ function Privacy() {
             <p>
               Le responsable du traitement des données collectées sur ce site est&nbsp;
               <strong className="text-foreground">La Voyagerie</strong>, 13 A rue de la Ciotat, 13260 Cassis (siège social : 12 Bd du Monument, 13012 Marseille).
-              Contact : <a href="mailto:bonjour@lavoyagerie.fr" className="underline hover:text-clay">bonjour@lavoyagerie.fr</a>.
+              Contact : <a href="mailto:contact@lavoyagerie.fr" className="underline hover:text-clay">contact@lavoyagerie.fr</a>.
             </p>
           </Section>
 
@@ -99,7 +99,7 @@ function Privacy() {
               Conformément au RGPD et à la loi Informatique et Libertés, vous disposez d'un droit
               d'accès, de rectification, d'effacement, de portabilité et d'opposition. Pour exercer
               ces droits, écrivez à&nbsp;
-              <a href="mailto:bonjour@lavoyagerie.fr" className="underline hover:text-clay">bonjour@lavoyagerie.fr</a>.
+              <a href="mailto:contact@lavoyagerie.fr" className="underline hover:text-clay">contact@lavoyagerie.fr</a>.
             </p>
             <p>
               Vous pouvez également introduire une réclamation auprès de la CNIL (www.cnil.fr).

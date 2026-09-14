@@ -63,8 +63,8 @@ function DemandeDevis() {
             </div>
             <div>
               <p className="text-[10px] uppercase tracking-[0.3em] text-clay mb-4">Email</p>
-              <a href="mailto:bonjour@lavoyagerie.fr" className="font-display text-2xl italic hover:text-clay transition">
-                bonjour@lavoyagerie.fr
+              <a href="mailto:contact@lavoyagerie.fr" className="font-display text-2xl italic hover:text-clay transition">
+                contact@lavoyagerie.fr
               </a>
             </div>
             <div className="border-t border-border pt-8">

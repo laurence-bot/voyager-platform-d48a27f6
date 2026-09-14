@@ -87,8 +87,8 @@ function MentionsLegales() {
           <Section title="Contact">
             <p>
               Pour toute question ou demande d'information, contactez-nous par e-mail à&nbsp;
-              <a href="mailto:bonjour@lavoyagerie.fr" className="underline hover:text-clay">
-                bonjour@lavoyagerie.fr
+              <a href="mailto:contact@lavoyagerie.fr" className="underline hover:text-clay">
+                contact@lavoyagerie.fr
               </a>
               &nbsp;ou par téléphone au{" "}
               <a href="tel:+33483432949" className="underline hover:text-clay">

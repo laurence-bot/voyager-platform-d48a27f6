@@ -13,7 +13,7 @@ const jsonLd = {
   description:
     "Agence de voyage sur mesure à Cassis, spécialisée dans les voyages long-courrier d'auteur. Itinéraires personnalisés au Japon, Philippines, Ouganda, Zimbabwe, Canada, Brésil, Polynésie.",
   url: SITE_URL,
-  email: "bonjour@lavoyagerie.fr",
+  email: "contact@lavoyagerie.fr",
   telephone: "+33483432949",
   priceRange: "€€€",
   founder: {
