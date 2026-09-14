@@ -3,6 +3,7 @@ import { Outlet, createRootRoute, HeadContent, Scripts } from "@tanstack/react-r
 import appCss from "../styles.css?url";
 import { AutoBreadcrumb } from "@/components/AutoBreadcrumb";
 import { CookieConsent } from "@/components/CookieConsent";
+import { Toaster } from "@/components/ui/sonner";
 
 const SITE_URL = "https://lavoyagerie.fr";
 
@@ -126,6 +127,7 @@ function RootComponent() {
       <AutoBreadcrumb />
       <Outlet />
       <CookieConsent />
+      <Toaster />
     </>
   );
 }

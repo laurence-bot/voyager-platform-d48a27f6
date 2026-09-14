@@ -12,12 +12,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 
 const TITLE = "Réserver un rendez-vous | La Voyagerie";
 const DESC =
   "Réservez un échange privé avec un conseiller La Voyagerie : choisissez votre date, votre créneau et votre mode de contact.";
+const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT?.trim() || "/api/public/contact";
 
 export const Route = createFileRoute("/reserver-rendez-vous")({
   head: () => ({
@@ -54,6 +54,7 @@ function ReservationPage() {
   const [contactMode, setContactMode] = useState<"phone" | "video" | "agence">("phone");
   const [submitting, setSubmitting] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -75,23 +76,46 @@ function ReservationPage() {
     }
 
     setSubmitting(true);
-    const { error } = await supabase.from("appointments").insert({
-      full_name: parsed.data.full_name,
-      email: parsed.data.email,
-      phone: parsed.data.phone || null,
-      destination: parsed.data.destination || null,
-      message: parsed.data.message || null,
-      appointment_date: format(date, "yyyy-MM-dd"),
-      appointment_slot: slot,
-      contact_mode: contactMode,
-    });
-    setSubmitting(false);
+    setServerError(null);
+    try {
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nom: parsed.data.full_name,
+          email: parsed.data.email,
+          telephone: parsed.data.phone || "",
+          destination: parsed.data.destination || "Rendez-vous",
+          voyageurs: "",
+          budget: "",
+          message: [
+            "Demande de rendez-vous",
+            `Date : ${format(date, "yyyy-MM-dd")}`,
+            `Créneau : ${slot}`,
+            `Mode de contact : ${contactMode}`,
+            parsed.data.destination && `Destination : ${parsed.data.destination}`,
+            parsed.data.message && `Message : ${parsed.data.message}`,
+          ]
+            .filter(Boolean)
+            .join("\n"),
+          website: "",
+        }),
+      });
 
-    if (error) {
-      toast.error("Une erreur est survenue. Merci de réessayer.");
-      return;
+      if (!response.ok) {
+        const body = await response.json().catch(() => ({}));
+        throw new Error(body.error || "Envoi impossible");
+      }
+
+      setConfirmed(true);
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Une erreur est survenue. Merci de réessayer.";
+      setServerError(message);
+      toast.error(message);
+    } finally {
+      setSubmitting(false);
     }
-    setConfirmed(true);
   };
 
   return (
@@ -109,9 +133,8 @@ function ReservationPage() {
             <em className="italic text-gold-gradient">moment privilégié.</em>
           </h1>
           <p className="mt-6 md:mt-10 max-w-2xl text-sm md:text-lg text-muted-foreground leading-relaxed">
-            Trente minutes pour cerner votre projet. Sélectionnez la date, l'heure
-            et le mode de contact qui vous conviennent — nous vous confirmons votre
-            créneau sous quelques heures.
+            Trente minutes pour cerner votre projet. Sélectionnez la date, l'heure et le mode de
+            contact qui vous conviennent — nous vous confirmons votre créneau sous quelques heures.
           </p>
         </div>
       </section>
@@ -130,10 +153,20 @@ function ReservationPage() {
                 Un conseiller vous confirmera très vite votre rendez-vous
                 {date ? (
                   <>
-                    {" "}du <span className="text-ink font-medium">{format(date, "EEEE d MMMM", { locale: fr })}</span>
+                    {" "}
+                    du{" "}
+                    <span className="text-ink font-medium">
+                      {format(date, "EEEE d MMMM", { locale: fr })}
+                    </span>
                   </>
                 ) : null}
-                {slot ? <> à <span className="text-ink font-medium">{slot}</span></> : null}.
+                {slot ? (
+                  <>
+                    {" "}
+                    à <span className="text-ink font-medium">{slot}</span>
+                  </>
+                ) : null}
+                .
               </p>
             </div>
           ) : (
@@ -146,7 +179,10 @@ function ReservationPage() {
                   <Calendar
                     mode="single"
                     selected={date}
-                    onSelect={(d) => { setDate(d); setSlot(null); }}
+                    onSelect={(d) => {
+                      setDate(d);
+                      setSlot(null);
+                    }}
                     disabled={(d) => d < today || d.getDay() === 0 || d.getDay() === 6}
                     locale={fr}
                     className={cn("p-0 pointer-events-auto")}
@@ -158,9 +194,7 @@ function ReservationPage() {
                     Créneaux disponibles
                   </p>
                   {!date ? (
-                    <p className="text-sm text-muted-foreground">
-                      Sélectionnez d'abord une date.
-                    </p>
+                    <p className="text-sm text-muted-foreground">Sélectionnez d'abord une date.</p>
                   ) : (
                     <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
                       {SLOTS.map((s) => {
@@ -220,25 +254,37 @@ function ReservationPage() {
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="full_name" className="text-[10px] uppercase tracking-[0.3em] text-clay">
+                      <Label
+                        htmlFor="full_name"
+                        className="text-[10px] uppercase tracking-[0.3em] text-clay"
+                      >
                         Nom complet *
                       </Label>
                       <Input id="full_name" name="full_name" required maxLength={120} />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email" className="text-[10px] uppercase tracking-[0.3em] text-clay">
+                      <Label
+                        htmlFor="email"
+                        className="text-[10px] uppercase tracking-[0.3em] text-clay"
+                      >
                         Email *
                       </Label>
                       <Input id="email" name="email" type="email" required maxLength={200} />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="phone" className="text-[10px] uppercase tracking-[0.3em] text-clay">
+                      <Label
+                        htmlFor="phone"
+                        className="text-[10px] uppercase tracking-[0.3em] text-clay"
+                      >
                         Téléphone
                       </Label>
                       <Input id="phone" name="phone" type="tel" maxLength={40} />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="destination" className="text-[10px] uppercase tracking-[0.3em] text-clay">
+                      <Label
+                        htmlFor="destination"
+                        className="text-[10px] uppercase tracking-[0.3em] text-clay"
+                      >
                         Destination envisagée
                       </Label>
                       <Input id="destination" name="destination" maxLength={120} />
@@ -246,7 +292,10 @@ function ReservationPage() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="message" className="text-[10px] uppercase tracking-[0.3em] text-clay">
+                    <Label
+                      htmlFor="message"
+                      className="text-[10px] uppercase tracking-[0.3em] text-clay"
+                    >
                       Quelques mots sur votre projet
                     </Label>
                     <Textarea id="message" name="message" rows={4} maxLength={1000} />
@@ -279,6 +328,11 @@ function ReservationPage() {
                       Confirmer la réservation →
                     </button>
                   </div>
+                  {serverError ? (
+                    <p role="alert" className="text-sm text-destructive">
+                      {serverError}
+                    </p>
+                  ) : null}
                 </div>
               </div>
             </form>

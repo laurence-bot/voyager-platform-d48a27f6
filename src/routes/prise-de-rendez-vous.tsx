@@ -12,12 +12,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 
 const TITLE = "Prendre rendez-vous | La Voyagerie — Agence de voyage Cassis";
 const DESC =
   "Réservez votre échange privé avec un conseiller La Voyagerie : choisissez votre date, votre créneau et l'objet de votre rendez-vous.";
+const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT?.trim() || "/api/public/contact";
 
 export const Route = createFileRoute("/prise-de-rendez-vous")({
   head: () => ({
@@ -52,6 +52,7 @@ function RDV() {
   const [slot, setSlot] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -71,21 +72,43 @@ function RDV() {
     }
 
     setSubmitting(true);
-    const { error } = await supabase.from("appointments").insert({
-      full_name: parsed.data.full_name,
-      email: parsed.data.email,
-      message: parsed.data.subject,
-      appointment_date: format(date, "yyyy-MM-dd"),
-      appointment_slot: slot,
-      contact_mode: "phone",
-    });
-    setSubmitting(false);
+    setServerError(null);
+    try {
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nom: parsed.data.full_name,
+          email: parsed.data.email,
+          telephone: "",
+          destination: "Rendez-vous",
+          voyageurs: "",
+          budget: "",
+          message: [
+            "Demande de rendez-vous",
+            `Date : ${format(date, "yyyy-MM-dd")}`,
+            `Créneau : ${slot}`,
+            "Mode de contact : téléphone",
+            `Objet : ${parsed.data.subject}`,
+          ].join("\n"),
+          website: "",
+        }),
+      });
 
-    if (error) {
-      toast.error("Une erreur est survenue. Merci de réessayer.");
-      return;
+      if (!response.ok) {
+        const body = await response.json().catch(() => ({}));
+        throw new Error(body.error || "Envoi impossible");
+      }
+
+      setConfirmed(true);
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Une erreur est survenue. Merci de réessayer.";
+      setServerError(message);
+      toast.error(message);
+    } finally {
+      setSubmitting(false);
     }
-    setConfirmed(true);
   };
 
   return (
@@ -103,8 +126,8 @@ function RDV() {
             <em className="italic text-gold-gradient">prochain voyage.</em>
           </h1>
           <p className="mt-6 md:mt-10 max-w-2xl text-sm md:text-lg text-muted-foreground leading-relaxed">
-            Choisissez le moment qui vous convient. Nous vous rappelons par téléphone
-            ou en visio pour faire connaissance et imaginer ensemble votre itinéraire.
+            Choisissez le moment qui vous convient. Nous vous rappelons par téléphone ou en visio
+            pour faire connaissance et imaginer ensemble votre itinéraire.
           </p>
         </div>
       </section>
@@ -122,14 +145,20 @@ function RDV() {
             </div>
             <div>
               <p className="text-[10px] uppercase tracking-[0.3em] text-clay mb-3">Téléphone</p>
-              <a href="tel:+33483432949" className="font-display text-2xl italic hover:text-clay transition">
+              <a
+                href="tel:+33483432949"
+                className="font-display text-2xl italic hover:text-clay transition"
+              >
                 04 83 43 29 49
               </a>
               <p className="mt-2 text-sm text-muted-foreground">Du lundi au vendredi · 10h–19h</p>
             </div>
             <div>
               <p className="text-[10px] uppercase tracking-[0.3em] text-clay mb-3">Email</p>
-              <a href="mailto:contact@lavoyagerie.fr" className="font-display text-2xl italic hover:text-clay transition">
+              <a
+                href="mailto:contact@lavoyagerie.fr"
+                className="font-display text-2xl italic hover:text-clay transition"
+              >
                 contact@lavoyagerie.fr
               </a>
             </div>
@@ -148,7 +177,8 @@ function RDV() {
                   Un conseiller vous confirmera très vite votre rendez-vous
                   {date ? (
                     <>
-                      {" "}du{" "}
+                      {" "}
+                      du{" "}
                       <span className="text-ink font-medium">
                         {format(date, "EEEE d MMMM", { locale: fr })}
                       </span>
@@ -156,7 +186,8 @@ function RDV() {
                   ) : null}
                   {slot ? (
                     <>
-                      {" "}à <span className="text-ink font-medium">{slot}</span>
+                      {" "}
+                      à <span className="text-ink font-medium">{slot}</span>
                     </>
                   ) : null}
                   .
@@ -179,7 +210,10 @@ function RDV() {
                       <Calendar
                         mode="single"
                         selected={date}
-                        onSelect={(d) => { setDate(d); setSlot(null); }}
+                        onSelect={(d) => {
+                          setDate(d);
+                          setSlot(null);
+                        }}
                         disabled={(d) => d < today || d.getDay() === 0 || d.getDay() === 6}
                         locale={fr}
                         className={cn("p-0 pointer-events-auto")}
@@ -226,13 +260,19 @@ function RDV() {
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="full_name" className="text-[10px] uppercase tracking-[0.3em] text-clay">
+                      <Label
+                        htmlFor="full_name"
+                        className="text-[10px] uppercase tracking-[0.3em] text-clay"
+                      >
                         Nom complet *
                       </Label>
                       <Input id="full_name" name="full_name" required maxLength={120} />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email" className="text-[10px] uppercase tracking-[0.3em] text-clay">
+                      <Label
+                        htmlFor="email"
+                        className="text-[10px] uppercase tracking-[0.3em] text-clay"
+                      >
                         Email *
                       </Label>
                       <Input id="email" name="email" type="email" required maxLength={200} />
@@ -240,10 +280,20 @@ function RDV() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="subject" className="text-[10px] uppercase tracking-[0.3em] text-clay">
+                    <Label
+                      htmlFor="subject"
+                      className="text-[10px] uppercase tracking-[0.3em] text-clay"
+                    >
                       Objet du rendez-vous *
                     </Label>
-                    <Textarea id="subject" name="subject" rows={4} required maxLength={1000} placeholder="Quel est le projet que vous aimeriez évoquer ?" />
+                    <Textarea
+                      id="subject"
+                      name="subject"
+                      rows={4}
+                      required
+                      maxLength={1000}
+                      placeholder="Quel est le projet que vous aimeriez évoquer ?"
+                    />
                   </div>
 
                   <div className="pt-2 border-t border-clay/15 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -273,6 +323,11 @@ function RDV() {
                       Confirmer la réservation →
                     </button>
                   </div>
+                  {serverError ? (
+                    <p role="alert" className="text-sm text-destructive">
+                      {serverError}
+                    </p>
+                  ) : null}
                 </div>
               </form>
             )}
