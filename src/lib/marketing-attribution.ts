@@ -33,21 +33,26 @@ function trim(value: string | null, max: number) {
 export function captureMarketingAttribution(): MarketingAttribution {
   if (typeof window === "undefined") return {};
   try {
-    const stored = window.sessionStorage.getItem(ATTRIBUTION_KEY);
-    if (stored) return JSON.parse(stored) as MarketingAttribution;
-
     const query = new URLSearchParams(window.location.search);
-    const attribution: MarketingAttribution = {
-      landing_url: trim(window.location.href, 2048),
-      referrer: trim(document.referrer, 2048),
-    };
+    const current: MarketingAttribution = {};
     for (const field of ATTRIBUTION_FIELDS) {
       const value = trim(
         query.get(field),
         field.includes("clid") || field.includes("braid") ? 256 : 300,
       );
-      if (value) attribution[field] = value;
+      if (value) current[field] = value;
     }
+    const storedRaw = window.sessionStorage.getItem(ATTRIBUTION_KEY);
+    const stored = storedRaw ? (JSON.parse(storedRaw) as MarketingAttribution) : null;
+    const hasCurrentCampaign = ATTRIBUTION_FIELDS.some((field) => Boolean(current[field]));
+    if (stored && !hasCurrentCampaign) return stored;
+
+    const attribution: MarketingAttribution = {
+      ...(stored || {}),
+      ...current,
+      landing_url: trim(window.location.href, 2048),
+      referrer: trim(document.referrer, 2048),
+    };
     window.sessionStorage.setItem(ATTRIBUTION_KEY, JSON.stringify(attribution));
     return attribution;
   } catch {
