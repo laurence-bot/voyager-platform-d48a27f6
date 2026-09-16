@@ -3,6 +3,7 @@ import { Outlet, createRootRoute, HeadContent, Scripts } from "@tanstack/react-r
 import appCss from "../styles.css?url";
 import { AutoBreadcrumb } from "@/components/AutoBreadcrumb";
 import { CookieConsent } from "@/components/CookieConsent";
+import { GoogleAdsTracking } from "@/components/GoogleAdsTracking";
 import { Toaster } from "@/components/ui/sonner";
 
 const SITE_URL = "https://lavoyagerie.fr";
@@ -125,6 +126,7 @@ function RootComponent() {
   return (
     <>
       <AutoBreadcrumb />
+      <GoogleAdsTracking />
       <Outlet />
       <CookieConsent />
       <Toaster />
