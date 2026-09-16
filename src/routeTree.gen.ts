@@ -33,6 +33,7 @@ import { Route as BlogAgenceVoyageSlugRouteImport } from './routes/blog-agence-v
 import { Route as VoyageSurMesureContinentIndexRouteImport } from './routes/voyage-sur-mesure.$continent.index'
 import { Route as VoyageSurMesureContinentPaysRouteImport } from './routes/voyage-sur-mesure.$continent.$pays'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
+import { Route as ApiPublicAppointmentsRouteImport } from './routes/api/public/appointments'
 import { Route as VoyageSurMesureContinentPaysItineraireRouteImport } from './routes/voyage-sur-mesure.$continent.$pays.$itineraire'
 
 const SavoirDeLaurenceRoute = SavoirDeLaurenceRouteImport.update({
@@ -159,6 +160,11 @@ const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
   path: '/api/public/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicAppointmentsRoute = ApiPublicAppointmentsRouteImport.update({
+  id: '/api/public/appointments',
+  path: '/api/public/appointments',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const VoyageSurMesureContinentPaysItineraireRoute =
   VoyageSurMesureContinentPaysItineraireRouteImport.update({
     id: '/$itineraire',
@@ -188,6 +194,7 @@ export interface FileRoutesByFullPath {
   '/blog-agence-voyage/': typeof BlogAgenceVoyageIndexRoute
   '/experiences/': typeof ExperiencesIndexRoute
   '/voyage-sur-mesure/': typeof VoyageSurMesureIndexRoute
+  '/api/public/appointments': typeof ApiPublicAppointmentsRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/voyage-sur-mesure/$continent/$pays': typeof VoyageSurMesureContinentPaysRouteWithChildren
   '/voyage-sur-mesure/$continent/': typeof VoyageSurMesureContinentIndexRoute
@@ -214,6 +221,7 @@ export interface FileRoutesByTo {
   '/blog-agence-voyage': typeof BlogAgenceVoyageIndexRoute
   '/experiences': typeof ExperiencesIndexRoute
   '/voyage-sur-mesure': typeof VoyageSurMesureIndexRoute
+  '/api/public/appointments': typeof ApiPublicAppointmentsRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/voyage-sur-mesure/$continent/$pays': typeof VoyageSurMesureContinentPaysRouteWithChildren
   '/voyage-sur-mesure/$continent': typeof VoyageSurMesureContinentIndexRoute
@@ -242,6 +250,7 @@ export interface FileRoutesById {
   '/blog-agence-voyage/': typeof BlogAgenceVoyageIndexRoute
   '/experiences/': typeof ExperiencesIndexRoute
   '/voyage-sur-mesure/': typeof VoyageSurMesureIndexRoute
+  '/api/public/appointments': typeof ApiPublicAppointmentsRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/voyage-sur-mesure/$continent/$pays': typeof VoyageSurMesureContinentPaysRouteWithChildren
   '/voyage-sur-mesure/$continent/': typeof VoyageSurMesureContinentIndexRoute
@@ -271,6 +280,7 @@ export interface FileRouteTypes {
     | '/blog-agence-voyage/'
     | '/experiences/'
     | '/voyage-sur-mesure/'
+    | '/api/public/appointments'
     | '/api/public/contact'
     | '/voyage-sur-mesure/$continent/$pays'
     | '/voyage-sur-mesure/$continent/'
@@ -297,6 +307,7 @@ export interface FileRouteTypes {
     | '/blog-agence-voyage'
     | '/experiences'
     | '/voyage-sur-mesure'
+    | '/api/public/appointments'
     | '/api/public/contact'
     | '/voyage-sur-mesure/$continent/$pays'
     | '/voyage-sur-mesure/$continent'
@@ -324,6 +335,7 @@ export interface FileRouteTypes {
     | '/blog-agence-voyage/'
     | '/experiences/'
     | '/voyage-sur-mesure/'
+    | '/api/public/appointments'
     | '/api/public/contact'
     | '/voyage-sur-mesure/$continent/$pays'
     | '/voyage-sur-mesure/$continent/'
@@ -352,6 +364,7 @@ export interface RootRouteChildren {
   BlogAgenceVoyageIndexRoute: typeof BlogAgenceVoyageIndexRoute
   ExperiencesIndexRoute: typeof ExperiencesIndexRoute
   VoyageSurMesureIndexRoute: typeof VoyageSurMesureIndexRoute
+  ApiPublicAppointmentsRoute: typeof ApiPublicAppointmentsRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
 }
 
@@ -525,6 +538,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/appointments': {
+      id: '/api/public/appointments'
+      path: '/api/public/appointments'
+      fullPath: '/api/public/appointments'
+      preLoaderRoute: typeof ApiPublicAppointmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/voyage-sur-mesure/$continent/$pays/$itineraire': {
       id: '/voyage-sur-mesure/$continent/$pays/$itineraire'
       path: '/$itineraire'
@@ -589,6 +609,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogAgenceVoyageIndexRoute: BlogAgenceVoyageIndexRoute,
   ExperiencesIndexRoute: ExperiencesIndexRoute,
   VoyageSurMesureIndexRoute: VoyageSurMesureIndexRoute,
+  ApiPublicAppointmentsRoute: ApiPublicAppointmentsRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
 }
 export const routeTree = rootRouteImport
