@@ -1,9 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Volume2, VolumeX } from "lucide-react";
-import laurenceVideoAsset from "@/assets/laurence-avatar.mp4.asset.json";
-
-
 type Props = {
   /** Full speech text; also displayed progressively */
   speech?: string | null;
@@ -172,7 +169,7 @@ export function LaurenceStage({
       {/* Character video — loops muted for living avatar effect */}
       <div className="relative z-10 h-[70vh] max-h-[720px] w-auto overflow-hidden rounded-[1.5rem]">
         <video
-          src={laurenceVideoAsset.url}
+          src="/laurence-living-compatible.mp4"
           autoPlay
           loop
           muted

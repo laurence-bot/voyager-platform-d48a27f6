@@ -184,7 +184,7 @@ export const continents: Continent[] = [
           "Sossusvlei, Skeleton Coast, Damaraland, Etosha — la Namibie est un pays minéral où chaque kilomètre raconte une histoire géologique.",
           ["Dunes ocre du Sossusvlei au lever du jour", "Lodges confidentiels en plein désert", "Rencontre avec les Himbas du Kaokoland", "Safaris dans le parc d'Etosha"],
           "12 à 16 jours", "Mai à octobre",
-          "Pas de visa pour les ressortissants français (séjour < 90 jours)",
+          "Visa obligatoire pour les ressortissants français (court séjour, depuis le 1er avril 2025)",
           "À partir de 4 800 € / personne"),
         heroObjectPosition: "center 55%",
         detailed: namibieDetailed,
@@ -282,7 +282,7 @@ export const continents: Continent[] = [
     name: "Asie",
     hero: kyotoImg,
     intro:
-      "Du Japon raffiné aux îles philippines, des steppes mongoles aux temples bouddhiques du Cambodge, des rizières du Vietnam aux montagnes du Népal — l'Asie sur mesure, racontée par nos experts locaux.",
+      "Du Japon raffiné aux steppes mongoles, des temples bouddhiques du Cambodge aux rizières du Vietnam et aux montagnes du Népal — l'Asie sur mesure, racontée par nos experts locaux.",
     pays: [
       stub("cambodge", "Cambodge", kyotoImg, "Temples khmers",
         "Angkor au lever du jour, Siem Reap, lac Tonlé Sap, plages de Sihanoukville — le Cambodge est l'âme khmère, douce et résiliente.",

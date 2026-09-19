@@ -12,7 +12,7 @@ const jsonLd = {
   "@type": "TravelAgency",
   name: "La Voyagerie",
   description:
-    "Agence de voyage sur mesure à Cassis, spécialisée dans les voyages long-courrier d'auteur. Itinéraires personnalisés au Japon, Philippines, Ouganda, Zimbabwe, Canada, Brésil, Polynésie.",
+    "Agence de voyage sur mesure à Cassis, spécialisée dans les voyages long-courrier d'auteur. Itinéraires personnalisés au Japon, en Ouganda, au Zimbabwe, au Canada, au Brésil et en Polynésie.",
   url: SITE_URL,
   email: "contact@lavoyagerie.fr",
   telephone: "+33483432949",
@@ -30,7 +30,6 @@ const jsonLd = {
   },
   areaServed: [
     "Japon",
-    "Philippines",
     "Ouganda",
     "Zimbabwe",
     "Canada",

@@ -6,33 +6,27 @@ import moodLodgeImg from "@/assets/mood-lodge-boho.jpg";
 import moodSafariImg from "@/assets/mood-safari-giraffe.jpg";
 import moodTrekImg from "@/assets/mood-trek-lac.jpg";
 import moodPortraitImg from "@/assets/mood-portrait-boho.jpg";
-import contAfrique from "@/assets/continent-afrique.jpg.asset.json";
-import contAmeriques from "@/assets/continent-ameriques.jpg.asset.json";
-import contAsie from "@/assets/continent-asie.jpg.asset.json";
-import contOceanie from "@/assets/continent-oceanie.jpg.asset.json";
-import contEurope from "@/assets/continent-europe.jpg.asset.json";
+import contAfrique from "@/assets/dest-ouganda.jpg";
+import contAmeriques from "@/assets/dest-bresil.jpg";
+import contAsie from "@/assets/dest-kyoto.jpg";
+import contOceanie from "@/assets/dest-polynesie.jpg";
+import contEurope from "@/assets/dest-cyclades.jpg";
 import kyotoImg from "@/assets/dest-kyoto.jpg";
-import namibieAsset from "@/assets/namibie-himba.jpg.asset.json";
-const namibieImg = namibieAsset.url;
-import namibie4x4Asset from "@/assets/namibie-4x4-carte.jpg.asset.json";
-const namibie4x4Img = namibie4x4Asset.url;
-
-import mongolieAsset from "@/assets/mongolie-nomades.jpg.asset.json";
-const mongolieImg = mongolieAsset.url;
-import philippinesImg from "@/assets/dest-philippines.jpg";
+import namibieImg from "@/assets/destinations/namibie/himba-portrait.jpg";
+import namibie4x4Img from "@/assets/destinations/namibie/4x4-namibie.jpg";
+import mongolieImg from "@/assets/dest-mongolie.jpg";
 import ougandaImg from "@/assets/dest-ouganda.jpg";
 import zimbabweImg from "@/assets/dest-zimbabwe.jpg";
 import canadaImg from "@/assets/dest-canada.jpg";
 import bresilImg from "@/assets/dest-bresil.jpg";
 import polynesieImg from "@/assets/dest-polynesie.jpg";
 import laurencePortrait from "@/assets/laurence-portrait.jpg";
-import laurenceVideoAsset from "@/assets/laurence-avatar.mp4.asset.json";
 import LaurenceVideo from "@/components/LaurenceVideo";
 
 
 const TITLE = "La Voyagerie — Agence de voyage sur mesure long-courrier · Cassis";
 const DESC =
-  "La Voyagerie, agence de voyage sur mesure à Cassis. Voyages long-courrier d'auteur : Japon, Philippines, Ouganda, Zimbabwe, Canada, Brésil, Polynésie. Devis personnalisé sous 3 jours.";
+  "La Voyagerie, agence de voyage sur mesure à Cassis. Voyages long-courrier d'auteur : Japon, Ouganda, Zimbabwe, Canada, Brésil, Polynésie. Devis personnalisé sous 3 jours.";
 
 const FAQ_ITEMS = [
   {
@@ -68,7 +62,7 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
-      { name: "keywords", content: "agence de voyage sur mesure, voyage long-courrier, agence voyage Cassis, voyage Japon, voyage Philippines, voyage Ouganda gorilles, voyage Zimbabwe, voyage Canada, voyage Brésil, voyage Polynésie, voyage authentique, voyage haut de gamme" },
+      { name: "keywords", content: "agence de voyage sur mesure, voyage long-courrier, agence voyage Cassis, voyage Japon, voyage Ouganda gorilles, voyage Zimbabwe, voyage Canada, voyage Brésil, voyage Polynésie, voyage authentique, voyage haut de gamme" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:url", content: "https://lavoyagerie.fr/" },
@@ -101,16 +95,6 @@ const phares = [
   },
   {
     n: "02",
-    name: "Philippines",
-    region: "Asie · 7 000 îles",
-    tagline: "Îles",
-    img: philippinesImg,
-    note: "Lagons d'El Nido, rizières de Banaue, plongée à Apo Reef — l'archipel comme une mosaïque vivante.",
-    continent: "asie" as const,
-    pays: "philippines" as const,
-  },
-  {
-    n: "03",
     name: "Ouganda",
     region: "Afrique · Bwindi",
     tagline: "Rencontre",
@@ -120,7 +104,7 @@ const phares = [
     pays: "ouganda" as const,
   },
   {
-    n: "04",
+    n: "03",
     name: "Zimbabwe",
     region: "Afrique australe",
     tagline: "Safari",
@@ -130,7 +114,7 @@ const phares = [
     pays: "zimbabwe" as const,
   },
   {
-    n: "05",
+    n: "04",
     name: "Namibie",
     region: "Afrique australe · Himba",
     tagline: "Himba",
@@ -140,7 +124,7 @@ const phares = [
     pays: "namibie" as const,
   },
   {
-    n: "06",
+    n: "05",
     name: "Canada",
     region: "Amérique du Nord",
     tagline: "Grands espaces",
@@ -150,7 +134,7 @@ const phares = [
     pays: "canada" as const,
   },
   {
-    n: "07",
+    n: "06",
     name: "Brésil",
     region: "Amérique du Sud",
     tagline: "Nature",
@@ -160,7 +144,7 @@ const phares = [
     pays: "bresil" as const,
   },
   {
-    n: "08",
+    n: "07",
     name: "Polynésie",
     region: "Océanie · Pacifique sud",
     tagline: "Évasion",
@@ -198,6 +182,7 @@ const engagements = [
 
 const journal = [
   {
+    slug: "namibie-road-trip-desert",
     img: namibie4x4Img,
     cat: "Carnet · Afrique",
     date: "Avril 2026",
@@ -205,6 +190,7 @@ const journal = [
     extrait: "Sossusvlei à l'aube, bivouac au Damaraland, rencontre avec les Himba — récit d'un repérage aux confins du désert.",
   },
   {
+    slug: "perou-vallee-sacree",
     img: moodPortraitImg,
     cat: "Inspiration · Amériques",
     date: "Mars 2026",
@@ -212,6 +198,7 @@ const journal = [
     extrait: "Au-delà du Machu Picchu, ces villages andins où l'on tisse encore comme au temps des Incas.",
   },
   {
+    slug: "mongolie-nomades-saison",
     img: mongolieImg,
     cat: "Conseils · Asie",
     date: "Février 2026",
@@ -241,7 +228,7 @@ function Index() {
         <div className="relative h-full mx-auto max-w-[1200px] lg:max-w-[1280px] xl:max-w-[1400px] 2xl:max-w-[1560px] px-5 md:px-12 flex flex-col justify-end pb-12 md:pb-24 text-cream">
           <div className="reveal">
             <span className="mb-4 inline-flex items-center rounded-full border border-gold/70 bg-ink/25 px-4 py-2 text-[9px] uppercase tracking-[0.28em] text-gold backdrop-blur-sm md:mb-6">
-              Test de synchronisation GitHub
+              Voyages d'auteur depuis Cassis
             </span>
             <p className="text-[10px] md:text-[11px] uppercase tracking-[0.25em] md:tracking-[0.3em] mb-4 md:mb-6 opacity-80">
               Agence de voyage sur mesure · Cassis
@@ -308,7 +295,6 @@ function Index() {
           {Array.from({ length: 2 }).map((_, i) => (
             <div key={i} className="flex gap-6 md:gap-10 shrink-0 items-center">
               <span>Japon</span><span className="text-clay/60">✦</span>
-              <span>Philippines</span><span className="text-clay/60">✦</span>
               <span>Ouganda</span><span className="text-clay/60">✦</span>
               <span>Zimbabwe</span><span className="text-clay/60">✦</span>
               <span>Canada</span><span className="text-clay/60">✦</span>
@@ -355,7 +341,7 @@ function Index() {
             <div className="relative arch border border-gold/50 p-2 md:p-3 glow-warm">
               <div className="relative overflow-hidden arch bg-ink/5">
                 <LaurenceVideo
-                  src={laurenceVideoAsset.url}
+                  src="/laurence-living-compatible.mp4"
                   poster={laurencePortrait}
                   className="w-full aspect-[720/1072] object-cover object-center"
                 />
@@ -372,10 +358,10 @@ function Index() {
               <em className="italic text-gold-gradient">je suis Laurence.</em>
             </h2>
             <p className="font-hand text-2xl md:text-3xl text-clay mb-5">
-              Vingt ans de routes, de carnets et de rencontres.
+              30 ans d'expertise dans le voyage. 6 ans de La Voyagerie.
             </p>
             <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-[520px] mb-8">
-              Depuis plus de 20 ans, je crée des voyages sur mesure. J'ai transmis
+              Depuis 30 ans, je crée des voyages sur mesure. J'ai transmis
               ma méthode à une intelligence dédiée — <strong className="text-ink">Le Savoir de Laurence</strong> —
               pour comprendre votre projet avant même que je le compose.
             </p>
@@ -410,13 +396,13 @@ function Index() {
             <div>
               <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-clay mb-4 md:mb-6">II — Destinations phares</p>
               <h2 className="font-display text-4xl sm:text-5xl md:text-[2rem] lg:text-4xl leading-[0.95]">
-                Nos huit destinations
+                Nos sept destinations
                 <br />
                 <em className="italic text-gold-gradient">coups de cœur.</em>
               </h2>
             </div>
             <p className="max-w-xs text-sm text-muted-foreground pb-4 leading-relaxed">
-              Huit itinéraires long-courrier signés La Voyagerie — pour vous donner
+              Sept itinéraires long-courrier signés La Voyagerie — pour vous donner
               le ton de ce que nous savons composer.
             </p>
           </div>
@@ -574,11 +560,11 @@ function Index() {
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-5">
             {[
-              ["afrique", "Afrique", contAfrique.url],
-              ["ameriques", "Amériques", contAmeriques.url],
-              ["asie", "Asie", contAsie.url],
-              ["oceanie", "Océanie", contOceanie.url],
-              ["europe", "Europe", contEurope.url],
+              ["afrique", "Afrique", contAfrique],
+              ["ameriques", "Amériques", contAmeriques],
+              ["asie", "Asie", contAsie],
+              ["oceanie", "Océanie", contOceanie],
+              ["europe", "Europe", contEurope],
             ].map(([slug, name, img], i) => (
               <Link
                 key={slug as string}
@@ -630,7 +616,8 @@ function Index() {
             {journal.map((a) => (
               <Link
                 key={a.title}
-                to="/blog-agence-voyage"
+                to="/blog-agence-voyage/$slug"
+                params={{ slug: a.slug }}
                 className="group block"
               >
                 <div className="relative aspect-[4/5] overflow-hidden bg-ink/5">

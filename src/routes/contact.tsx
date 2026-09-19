@@ -5,7 +5,7 @@ import { ContactForm } from "@/components/ContactForm";
 
 const TITLE = "Contact — Composez votre voyage sur mesure | La Voyagerie";
 const DESC =
-  "Demandez votre devis voyage long-courrier sur mesure. Réponse personnalisée sous 3 jours. La Voyagerie, maison française de voyages d'auteur depuis 2014.";
+  "Demandez votre devis voyage long-courrier sur mesure. Réponse personnalisée sous 3 jours. La Voyagerie : 30 ans d'expertise dans le voyage, 6 ans d'agence à Cassis.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

@@ -61,7 +61,7 @@ const finalInsights = [
 // Speech dialogues per phase
 const speeches = {
   intro:
-    "Bonjour. Je suis Laurence. Depuis plus de vingt ans, je crée des voyages sur mesure. J'ai transmis ma méthode à une intelligence, non pour me remplacer, mais pour mieux vous comprendre avant que je commence à imaginer votre voyage.",
+    "Bonjour. Je suis Laurence. Depuis 30 ans, je crée des voyages sur mesure. J'ai transmis ma méthode à une intelligence, non pour me remplacer, mais pour mieux vous comprendre avant que je commence à imaginer votre voyage.",
   chatIntro:
     "Prenez votre temps. Il n'y a pas de bonne réponse. Ce sont vos mots, vos hésitations, vos silences qui vont me guider.",
   synthesis:

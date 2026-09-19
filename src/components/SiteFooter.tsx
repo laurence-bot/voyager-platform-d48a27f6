@@ -13,7 +13,7 @@ export function SiteFooter() {
           </div>
           <p className="mt-6 text-sm opacity-70 max-w-sm font-sans leading-relaxed">
             Agence de voyage sur mesure à Cassis. Itinéraires d'auteur taillés à la main
-            vers les plus belles destinations long-courrier — Japon, Philippines, Ouganda,
+            vers les plus belles destinations long-courrier — Japon, Ouganda,
             Zimbabwe, Canada, Brésil, Polynésie.
           </p>
           <p className="mt-8 text-[11px] uppercase tracking-[0.25em] opacity-60">
