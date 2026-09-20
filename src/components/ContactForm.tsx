@@ -3,6 +3,10 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
+import {
+  captureMarketingAttribution,
+  recordGoogleAdsConversion,
+} from "@/lib/marketing-attribution";
 
 const schema = z.object({
   name: z.string().trim().min(2, "Votre nom est requis").max(100, "Maximum 100 caractères"),
@@ -28,6 +32,8 @@ export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
   const [prefilled, setPrefilled] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
+  const [submissionId, setSubmissionId] = useState("");
   const {
     register,
     handleSubmit,
@@ -49,6 +55,11 @@ export function ContactForm() {
       consent: undefined as unknown as true,
     },
   });
+
+  useEffect(() => {
+    setSubmissionId(window.crypto.randomUUID());
+    captureMarketingAttribution();
+  }, []);
 
   // Préremplissage si l'utilisateur est connecté
   useEffect(() => {
@@ -82,33 +93,36 @@ export function ContactForm() {
   const onSubmit = async (data: FormData) => {
     setServerError(null);
     try {
+      const currentSubmissionId = submissionId || window.crypto.randomUUID();
       const res = await fetch(CONTACT_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          submission_id: currentSubmissionId,
           nom: data.name,
           email: data.email,
           telephone: data.phone || "",
           destination: data.destination,
           voyageurs: data.travelers,
+          periode: data.period,
           budget: data.budget,
-          message: [
-            data.destination && `Destination : ${data.destination}`,
-            data.travelers && `Voyageurs : ${data.travelers}`,
-            data.period && `Période : ${data.period}`,
-            data.budget && `Budget : ${data.budget}`,
-            "",
-            data.message,
-          ]
-            .filter(Boolean)
-            .join("\n"),
-          website: "", // honeypot
+          message: data.message,
+          website: honeypot,
+          attribution: captureMarketingAttribution(),
         }),
       });
-      if (!res.ok) {
-        const j = await res.json().catch(() => ({}));
-        throw new Error(j.error || "Envoi impossible");
-      }
+      const result = (await res.json().catch(() => ({}))) as Record<string, unknown>;
+      if (
+        !res.ok ||
+        result.recorded !== true ||
+        typeof result.demand_id !== "string" ||
+        typeof result.contact_id !== "string" ||
+        result.submission_id !== currentSubmissionId
+      )
+        throw new Error(typeof result.error === "string" ? result.error : "Envoi impossible");
+
+      if (result.created === true && result.conversion_eligible === true)
+        recordGoogleAdsConversion(currentSubmissionId);
       setSubmitted(true);
       reset();
     } catch (e) {
@@ -141,7 +155,11 @@ export function ContactForm() {
           )}
         </p>
         <button
-          onClick={() => setSubmitted(false)}
+          onClick={() => {
+            setSubmitted(false);
+            setHoneypot("");
+            setSubmissionId(window.crypto.randomUUID());
+          }}
           className="mt-8 text-[11px] uppercase tracking-[0.3em] underline underline-offset-4 hover:text-clay"
         >
           Envoyer une autre demande
@@ -256,7 +274,14 @@ export function ContactForm() {
       <div className="absolute -left-[9999px] w-px h-px overflow-hidden" aria-hidden="true">
         <label>
           Ne pas remplir
-          <input type="text" tabIndex={-1} autoComplete="off" name="company" />
+          <input
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            name="company"
+            value={honeypot}
+            onChange={(event) => setHoneypot(event.target.value)}
+          />
         </label>
       </div>
 
