@@ -21,10 +21,18 @@ export type MarketingAttribution = Partial<Record<(typeof ATTRIBUTION_FIELDS)[nu
 
 declare global {
   interface Window {
-    dataLayer?: unknown[];
+    dataLayer?: Array<IArguments | unknown[]>;
     gtag?: (...args: unknown[]) => void;
   }
 }
+
+const GOOGLE_ADS_SCRIPT_SELECTOR = `script[data-google-ads-id="${GOOGLE_ADS_ID}"]`;
+const PENDING_CONVERSION_KEY = "la-voyagerie-pending-google-ads-conversion";
+const SCRIPT_LOAD_TIMEOUT_MS = 10_000;
+
+let googleAdsReadyPromise: Promise<boolean> | null = null;
+let googleAdsConfigured = false;
+const conversionsInFlight = new Map<string, Promise<boolean>>();
 
 function trim(value: string | null, max: number) {
   return value?.trim().slice(0, max) || "";
@@ -82,39 +90,135 @@ export function hasMarketingConsent() {
   }
 }
 
-export function initializeGoogleAds() {
-  if (typeof window === "undefined" || !hasMarketingConsent()) return;
+function ensureGtagQueue() {
   window.dataLayer = window.dataLayer || [];
   window.gtag =
     window.gtag ||
-    function gtag(...args: unknown[]) {
-      window.dataLayer?.push(args);
+    function gtag() {
+      // Google requires the native arguments object so gtag.js can consume the queue verbatim.
+      // eslint-disable-next-line prefer-rest-params
+      window.dataLayer?.push(arguments);
     };
-  window.gtag("consent", "update", { ad_storage: "granted", ad_user_data: "granted" });
-  window.gtag("js", new Date());
-  window.gtag("config", GOOGLE_ADS_ID);
+}
 
-  if (!document.querySelector(`script[data-google-ads-id="${GOOGLE_ADS_ID}"]`)) {
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`;
-    script.dataset.googleAdsId = GOOGLE_ADS_ID;
-    document.head.appendChild(script);
-  }
+function loadGoogleAdsScript() {
+  const existing = document.querySelector<HTMLScriptElement>(GOOGLE_ADS_SCRIPT_SELECTOR);
+  if (existing?.dataset.googleAdsLoaded === "true") return Promise.resolve(true);
+
+  return new Promise<boolean>((resolve) => {
+    const script = existing || document.createElement("script");
+    let settled = false;
+
+    const finish = (loaded: boolean) => {
+      if (settled) return;
+      settled = true;
+      window.clearTimeout(timeoutId);
+      if (loaded) script.dataset.googleAdsLoaded = "true";
+      resolve(loaded);
+    };
+
+    const timeoutId = window.setTimeout(() => finish(false), SCRIPT_LOAD_TIMEOUT_MS);
+    script.addEventListener("load", () => finish(true), { once: true });
+    script.addEventListener("error", () => finish(false), { once: true });
+
+    if (!existing) {
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`;
+      script.dataset.googleAdsId = GOOGLE_ADS_ID;
+      document.head.appendChild(script);
+    }
+  });
+}
+
+export function initializeGoogleAds(): Promise<boolean> {
+  if (typeof window === "undefined" || !hasMarketingConsent()) return Promise.resolve(false);
+  ensureGtagQueue();
+  window.gtag?.("consent", "update", {
+    ad_storage: "granted",
+    ad_user_data: "granted",
+    ad_personalization: "granted",
+  });
+  if (googleAdsConfigured) return Promise.resolve(true);
+  if (googleAdsReadyPromise) return googleAdsReadyPromise;
+
+  googleAdsReadyPromise = loadGoogleAdsScript().then((loaded) => {
+    if (!loaded || !hasMarketingConsent() || !window.gtag) {
+      googleAdsReadyPromise = null;
+      return false;
+    }
+
+    window.gtag("js", new Date());
+    window.gtag("config", GOOGLE_ADS_ID);
+    googleAdsConfigured = true;
+    return true;
+  });
+
+  return googleAdsReadyPromise;
 }
 
 export function denyGoogleAdsConsent() {
-  window.gtag?.("consent", "update", { ad_storage: "denied", ad_user_data: "denied" });
+  if (typeof window === "undefined") return;
+  window.gtag?.("consent", "update", {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+  });
 }
 
-export function recordGoogleAdsConversion(submissionId: string) {
-  if (!hasMarketingConsent() || !window.gtag) return false;
+export async function recordGoogleAdsConversion(submissionId: string): Promise<boolean> {
+  if (typeof window === "undefined" || !submissionId) return false;
   const dedupeKey = `la-voyagerie-google-ads-conversion:${submissionId}`;
   if (window.sessionStorage.getItem(dedupeKey)) return false;
-  window.sessionStorage.setItem(dedupeKey, new Date().toISOString());
-  window.gtag("event", "conversion", {
-    send_to: GOOGLE_ADS_CONVERSION,
-    transaction_id: submissionId,
-  });
-  return true;
+  const existing = conversionsInFlight.get(submissionId);
+  if (existing) return existing;
+
+  window.sessionStorage.setItem(PENDING_CONVERSION_KEY, submissionId);
+  if (!hasMarketingConsent()) return false;
+
+  const conversion = (async () => {
+    const ready = await initializeGoogleAds();
+    if (!ready || !hasMarketingConsent() || !window.gtag) return false;
+    if (window.sessionStorage.getItem(dedupeKey)) return false;
+
+    window.gtag("event", "conversion", {
+      send_to: GOOGLE_ADS_CONVERSION,
+      transaction_id: submissionId,
+    });
+    window.sessionStorage.setItem(dedupeKey, new Date().toISOString());
+    if (window.sessionStorage.getItem(PENDING_CONVERSION_KEY) === submissionId) {
+      window.sessionStorage.removeItem(PENDING_CONVERSION_KEY);
+    }
+    return true;
+  })().finally(() => conversionsInFlight.delete(submissionId));
+
+  conversionsInFlight.set(submissionId, conversion);
+  return conversion;
+}
+
+async function replayPendingGoogleAdsConversion() {
+  const submissionId = window.sessionStorage.getItem(PENDING_CONVERSION_KEY);
+  if (submissionId) await recordGoogleAdsConversion(submissionId);
+}
+
+export function startGoogleAdsTracking() {
+  if (typeof window === "undefined") return () => undefined;
+
+  const applyConsent = (marketing: boolean) => {
+    if (!marketing) {
+      denyGoogleAdsConsent();
+      return;
+    }
+    void initializeGoogleAds().then((ready) => {
+      if (ready) void replayPendingGoogleAdsConversion();
+    });
+  };
+
+  const onConsent = (event: Event) => {
+    const preferences = (event as CustomEvent<{ marketing?: boolean }>).detail;
+    applyConsent(preferences?.marketing === true);
+  };
+
+  applyConsent(hasMarketingConsent());
+  window.addEventListener("la-voyagerie:consent", onConsent);
+  return () => window.removeEventListener("la-voyagerie:consent", onConsent);
 }

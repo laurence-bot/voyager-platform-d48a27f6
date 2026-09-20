@@ -1,9 +1,11 @@
+import { useEffect } from "react";
 import { Outlet, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 import { AutoBreadcrumb } from "@/components/AutoBreadcrumb";
 import { CookieConsent } from "@/components/CookieConsent";
 import { Toaster } from "@/components/ui/sonner";
+import { startGoogleAdsTracking } from "@/lib/marketing-attribution";
 
 const SITE_URL = "https://lavoyagerie.fr";
 
@@ -121,6 +123,8 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
+  useEffect(() => startGoogleAdsTracking(), []);
+
   return (
     <>
       <AutoBreadcrumb />

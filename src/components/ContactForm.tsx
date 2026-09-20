@@ -121,8 +121,9 @@ export function ContactForm() {
       )
         throw new Error(typeof result.error === "string" ? result.error : "Envoi impossible");
 
-      if (result.created === true && result.conversion_eligible === true)
-        recordGoogleAdsConversion(currentSubmissionId);
+      if (result.created === true && result.conversion_eligible === true) {
+        await recordGoogleAdsConversion(currentSubmissionId);
+      }
       setSubmitted(true);
       reset();
     } catch (e) {
